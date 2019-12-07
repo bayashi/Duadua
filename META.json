@@ -1,0 +1,84 @@
+{
+   "abstract" : "Detect User-Agent",
+   "author" : [
+      "Dai Okabayashi <bayashi@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4229",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : 2
+   },
+   "name" : "Duadua",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build::Pluggable::CPANfile" : "0.05"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.40",
+            "Module::Build::Pluggable" : "0",
+            "Module::Build::Pluggable::CPANfile" : "0.05"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Module::Pluggable::Object" : "0",
+            "perl" : "5.008005",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Basename" : "0",
+            "Test::AllModules" : "0",
+            "Test::More" : "1.3",
+            "YAML" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "Duadua" : {
+         "file" : "lib/Duadua.pm",
+         "version" : "0.01"
+      },
+      "Duadua::Parser" : {
+         "file" : "lib/Duadua/Parser.pm"
+      },
+      "Duadua::Parser::AdIdxBot" : {
+         "file" : "lib/Duadua/Parser/AdIdxBot.pm"
+      },
+      "Duadua::Parser::BingPreview" : {
+         "file" : "lib/Duadua/Parser/BingPreview.pm"
+      },
+      "Duadua::Parser::Bingbot" : {
+         "file" : "lib/Duadua/Parser/Bingbot.pm"
+      },
+      "Duadua::Parser::Googlebot" : {
+         "file" : "lib/Duadua/Parser/Googlebot.pm"
+      },
+      "Duadua::Parser::Util" : {
+         "file" : "lib/Duadua/Parser/Util.pm"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://github.com/bayashi/Duadua/issues"
+      },
+      "license" : [
+         "http://www.perlfoundation.org/artistic_license_2_0"
+      ],
+      "repository" : {
+         "url" : "http://github.com/bayashi/Duadua"
+      }
+   },
+   "version" : "0.01",
+   "x_serialization_backend" : "JSON::PP version 4.02"
+}
