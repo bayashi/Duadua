@@ -4,7 +4,7 @@ use warnings;
 use Duadua::Parser::Util;
 
 sub try {
-    my ($class, $duadua) = @_;
+    my ($class, $d) = @_;
 
     ####
     #
@@ -13,23 +13,23 @@ sub try {
     #
     ####
 
-    if ( index($duadua->ua, 'bingbot/') > -1
-            && index($duadua->ua, '+http://www.bing.com/bingbot.htm') > -1
-                && index($duadua->ua, 'Mozilla/') > -1 ) {
-        return _set_property($duadua, 'Bingbot');
+    if ( index($d->ua, 'bingbot/') > -1
+            && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
+                && index($d->ua, 'Mozilla/') > -1 ) {
+        return _set_property($d, 'Bingbot');
     }
 }
 
 sub _set_property {
-    my ($duadua, $name) = @_;
+    my ($d, $name) = @_;
 
     my $h = { name => $name };
     bot($h);
 
-    if ( index($duadua->ua, 'Windows') > -1 ) {
+    if ( index($d->ua, 'Windows') > -1 ) {
         windows($h);
     }
-    elsif ( index($duadua->ua, 'iPhone') > -1 ) {
+    elsif ( index($d->ua, 'iPhone') > -1 ) {
         ios($h);
     }
 

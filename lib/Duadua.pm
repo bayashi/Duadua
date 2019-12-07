@@ -37,14 +37,14 @@ sub parse {
         $self->_parse;
     }
     elsif ($self eq __PACKAGE__ && scalar @_ == 1) {
-        # my $duadua_obj = Duadua->parse('User-Agent String');
-        my $duadua = __PACKAGE__->new($_[0]);
-        return $duadua->_parse;
+        # my $d_obj = Duadua->parse('User-Agent String');
+        my $d = __PACKAGE__->new($_[0]);
+        return $d->_parse;
     }
     else {
-        # my $duadua_obj = Duadua::parse('User-Agent String');
-        my $duadua = __PACKAGE__->new($self);
-        return $duadua->_parse;
+        # my $d_obj = Duadua::parse('User-Agent String');
+        my $d = __PACKAGE__->new($self);
+        return $d->_parse;
     }
 }
 
@@ -98,15 +98,15 @@ Duadua - Detect User-Agent
 
     my $ua = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
 
-    my $duadua = Duadua->new($ua);
-    $duadua->is_bot
-        and say $duadua->name; # Googlebot
+    my $d = Duadua->new($ua);
+    $d->is_bot
+        and say $d->name; # Googlebot
 
 Or call as a function to parse immediately
 
-    my $duadua = Duadua->parse($ua);
-    $duadua->is_bot
-        and say $duadua->name; # Googlebot
+    my $d = Duadua->parse($ua);
+    $d->is_bot
+        and say $d->name; # Googlebot
 
 
 =head1 DESCRIPTION

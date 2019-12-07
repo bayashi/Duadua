@@ -45,9 +45,9 @@ sub test {
 sub _test {
     my ($t) = @_;
 
-    my $duadua = Duadua->new($t->{ua});
+    my $d = Duadua->new($t->{ua});
 
-    is $t->{ua}, $duadua->ua, "$t->{ua}";
+    is $t->{ua}, $d->ua, "$t->{ua}";
 
     for my $i (qw/
         name
@@ -57,7 +57,7 @@ sub _test {
         is_linux
         is_windows
     /) {
-        is $t->{$i}, $duadua->$i, "$i, expect:$t->{$i}";
+        is $t->{$i}, $d->$i, "$i, expect:$t->{$i}";
     }
 }
 

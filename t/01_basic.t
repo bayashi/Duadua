@@ -5,47 +5,47 @@ use Test::More;
 use Duadua;
 
 {
-    my $duadua = Duadua->new;
+    my $d = Duadua->new;
 
-    is $duadua->name, 'UNKNOWN', 'blank';
-    ok !$duadua->is_bot;
-    ok !$duadua->is_ios;
-    ok !$duadua->is_android;
-    ok !$duadua->is_linux;
-    ok !$duadua->is_windows;
+    is $d->name, 'UNKNOWN', 'blank';
+    ok !$d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
 }
 
 {
-    my $duadua = Duadua->new('-');
+    my $d = Duadua->new('-');
 
-    is $duadua->name, 'UNKNOWN', '-';
-    ok !$duadua->is_bot;
-    ok !$duadua->is_ios;
-    ok !$duadua->is_android;
-    ok !$duadua->is_linux;
-    ok !$duadua->is_windows;
+    is $d->name, 'UNKNOWN', '-';
+    ok !$d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
 }
 
 {
-    my $duadua = Duadua::parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
+    my $d = Duadua::parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
 
-    is $duadua->name, 'Googlebot', 'function call';
-    ok $duadua->is_bot;
-    ok !$duadua->is_ios;
-    ok !$duadua->is_android;
-    ok !$duadua->is_linux;
-    ok !$duadua->is_windows;
+    is $d->name, 'Googlebot', 'function call';
+    ok $d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
 }
 
 {
-    my $duadua = Duadua->parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
+    my $d = Duadua->parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
 
-    is $duadua->name, 'Googlebot', 'function call';
-    ok $duadua->is_bot;
-    ok !$duadua->is_ios;
-    ok !$duadua->is_android;
-    ok !$duadua->is_linux;
-    ok !$duadua->is_windows;
+    is $d->name, 'Googlebot', 'function call';
+    ok $d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
 }
 
 done_testing;

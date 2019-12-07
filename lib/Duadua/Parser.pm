@@ -18,30 +18,30 @@ my $BLANK_UA = {
 };
 
 sub parse {
-    my ($class, $duadua) = @_;
+    my ($class, $d) = @_;
 
     # Blank or '-'
-    if ($duadua->ua eq '' || $duadua->ua eq '-') {
+    if ($d->ua eq '' || $d->ua eq '-') {
         return $BLANK_UA;
     }
 
     # Googlebot
-    if ( my $googlebot = Duadua::Parser::Googlebot->try($duadua) ) {
+    if ( my $googlebot = Duadua::Parser::Googlebot->try($d) ) {
         return $googlebot;
     }
 
     # Bingbot
-    if ( my $bingbot = Duadua::Parser::Bingbot->try($duadua) ) {
+    if ( my $bingbot = Duadua::Parser::Bingbot->try($d) ) {
         return $bingbot;
     }
 
     # AdIdxBot
-    if ( my $adidxbot = Duadua::Parser::AdIdxBot->try($duadua) ) {
+    if ( my $adidxbot = Duadua::Parser::AdIdxBot->try($d) ) {
         return $adidxbot;
     }
 
     # BingPreview
-    if ( my $bingpreview = Duadua::Parser::BingPreview->try($duadua) ) {
+    if ( my $bingpreview = Duadua::Parser::BingPreview->try($d) ) {
         return $bingpreview;
     }
 
@@ -61,7 +61,7 @@ Duadua::Parser - Parser of Duadua
 
 =head1 METHODS
 
-=head2 parse($duadua_obj)
+=head2 parse($d_obj)
 
 Do parse
 

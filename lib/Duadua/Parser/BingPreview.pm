@@ -4,7 +4,7 @@ use warnings;
 use Duadua::Parser::Util;
 
 sub try {
-    my ($class, $duadua) = @_;
+    my ($class, $d) = @_;
 
     ####
     #
@@ -13,19 +13,19 @@ sub try {
     #
     ####
 
-    if ( index($duadua->ua, 'BingPreview/') > -1
-                && index($duadua->ua, 'Mozilla/') > -1 ) {
-        return _set_property($duadua, 'BingPreview');
+    if ( index($d->ua, 'BingPreview/') > -1
+                && index($d->ua, 'Mozilla/') > -1 ) {
+        return _set_property($d, 'BingPreview');
     }
 }
 
 sub _set_property {
-    my ($duadua, $name) = @_;
+    my ($d, $name) = @_;
 
     my $h = { name => $name };
     bot($h);
 
-    if ( index($duadua->ua, 'Windows') > -1 ) {
+    if ( index($d->ua, 'Windows') > -1 ) {
         windows($h);
     }
 
