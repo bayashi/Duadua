@@ -45,6 +45,11 @@ sub parse {
         return $bingpreview;
     }
 
+    # Baiduspider
+    if ( my $baiduspider = Duadua::Parser::Baiduspider->try($d) ) {
+        return $baiduspider;
+    }
+
     return $BLANK_UA;
 }
 
