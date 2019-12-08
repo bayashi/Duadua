@@ -7,26 +7,11 @@ sub try {
     my ($class, $d) = @_;
 
     if ( index($d->ua, 'Baiduspider') > -1 ) {
-        my $h = { name => 'Baiduspider' };
+        my $h = {};
+        name($h, 'Baiduspider');
         bot($h);
         return $h;
     }
-}
-
-sub _set_property {
-    my ($d, $name) = @_;
-
-    my $h = { name => $name };
-    bot($h);
-
-    if ( index($d->ua, 'Windows') > -1 ) {
-        windows($h);
-    }
-    elsif ( index($d->ua, 'iPhone') > -1 ) {
-        ios($h);
-    }
-
-    return $h;
 }
 
 1;
