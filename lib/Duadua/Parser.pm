@@ -25,29 +25,16 @@ sub parse {
         return $BLANK_UA;
     }
 
-    # Googlebot
-    if ( my $googlebot = Duadua::Parser::Googlebot->try($d) ) {
-        return $googlebot;
-    }
-
-    # Bingbot
-    if ( my $bingbot = Duadua::Parser::Bingbot->try($d) ) {
-        return $bingbot;
-    }
-
-    # AdIdxBot
-    if ( my $adidxbot = Duadua::Parser::AdIdxBot->try($d) ) {
-        return $adidxbot;
-    }
-
-    # BingPreview
-    if ( my $bingpreview = Duadua::Parser::BingPreview->try($d) ) {
-        return $bingpreview;
-    }
-
-    # Baiduspider
-    if ( my $baiduspider = Duadua::Parser::Baiduspider->try($d) ) {
-        return $baiduspider;
+    for my $m (qw/
+        Googlebot
+        Bingbot
+        AdIdxBot
+        BingPreview
+        Baiduspider
+    /) {
+        if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
+            return $res;
+        }
     }
 
     return $BLANK_UA;
