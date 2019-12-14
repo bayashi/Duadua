@@ -10,12 +10,10 @@ on:
 
 jobs:
   perl:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os:
-          - ubuntu-latest
         perl-version:
           - '5.8'
           - '5.18'
@@ -31,13 +29,13 @@ jobs:
         run: perl -V
       - name: Install dependencies
         run: curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --show-build-log-on-failure
-        if: "matrix.os != 'ubuntu-latest' || matrix.perl-version != 'latest'"
+        if: matrix.perl-version != 'latest'
       - name: Install dependencies with develop
         run: curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --with-develop --show-build-log-on-failure
-        if: "matrix.os == 'ubuntu-latest' && matrix.perl-version == 'latest'"
+        if: matrix.perl-version == 'latest'
       - name: Install Cover
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Devel::Cover::Report::Coveralls
-        if: "matrix.os == 'ubuntu-latest' && matrix.perl-version == 'latest'"
+        if: matrix.perl-version == 'latest'
       - name: Run tests
         run: perl Build.PL && ./Build build
       - name: Run Cover
@@ -46,4 +44,4 @@ jobs:
         run: |
             cover -test
             cover -report coveralls
-        if: "matrix.os == 'ubuntu-latest' && matrix.perl-version == 'latest'"
+        if: matrix.perl-version == 'latest'
