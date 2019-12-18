@@ -93,6 +93,10 @@ Set Linux
 
 Set Windows
 
+=head2 set_os($d_obj, $hash)
+
+Detect OS from $d_obj, then return result as $hash.
+
 
 =head1 AUTHOR
 
