@@ -8,6 +8,8 @@ use YAML qw//;
 use Duadua;
 
 MAIN: {
+    my @args = @ARGV;
+
     my $dir = File::Spec->catfile(
         File::Basename::dirname(__FILE__),
         'testset',
@@ -17,6 +19,7 @@ MAIN: {
 
     while (my $test_yaml = readdir $dh) {
         next unless $test_yaml =~ m!.+\.yaml$!;
+        next if scalar(@args) > 0 && !(grep { $test_yaml =~ m!\Q$_!i } @args);
         test($dir, $test_yaml);
     }
 
