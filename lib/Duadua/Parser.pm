@@ -34,6 +34,7 @@ sub parse {
 
         MicrosoftEdge
         GoogleChrome
+        MozillaFirefox
         AppleSafari
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
