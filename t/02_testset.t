@@ -47,7 +47,7 @@ sub _test {
 
     my $d = Duadua->new($t->{ua});
 
-    is $t->{ua}, $d->ua, "$t->{ua}";
+    is $t->{ua}, $d->ua, "UA String";
 
     for my $i (qw/
         name
