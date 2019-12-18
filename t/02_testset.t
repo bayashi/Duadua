@@ -57,7 +57,7 @@ sub _test {
         is_linux
         is_windows
     /) {
-        is $t->{$i}, $d->$i, "$i, expect:$t->{$i}";
+        is $d->$i, $t->{$i}, "$i, expect:$t->{$i}";
     }
 }
 
