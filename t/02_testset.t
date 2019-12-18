@@ -17,18 +17,16 @@ MAIN: {
 
     while (my $test_yaml = readdir $dh) {
         next unless $test_yaml =~ m!.+\.yaml$!;
-        subtest $test_yaml => sub {
-            test(File::Spec->catfile($dir, $test_yaml));
-        };
+        test($dir, $test_yaml);
     }
 
     closedir $dh;
 }
 
 sub test {
-    my ($file_path) = @_;
+    my ($dir, $test_yaml) = @_;
 
-    my $tests = YAML::LoadFile($file_path);
+    my $tests = YAML::LoadFile(File::Spec->catfile($dir, $test_yaml));
 
     for my $t (@{$tests}) {
         for my $k (keys %{$t}) {
@@ -36,7 +34,7 @@ sub test {
             $t->{$k} = $t->{$k} eq 'true' ? 1 : 0;
         }
 
-        subtest $t->{ua} => sub {
+        subtest $test_yaml => sub {
             _test($t);
         };
     }
@@ -47,7 +45,7 @@ sub _test {
 
     my $d = Duadua->new($t->{ua});
 
-    is $t->{ua}, $d->ua, "UA String";
+    is $t->{ua}, $d->ua, $t->{ua};
 
     for my $i (qw/
         name
