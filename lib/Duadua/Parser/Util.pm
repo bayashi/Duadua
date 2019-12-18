@@ -32,6 +32,32 @@ sub windows {
     shift->{is_windows} = 1;
 }
 
+sub set_os {
+    my ($class, $d, $h) = @_;
+
+    if ( index($d->ua, 'Android') > -1 ) {
+        android($h);
+        linux($h); # Android is Linux also.
+    }
+    elsif ( index($d->ua, 'Linux') > -1 ) {
+        linux($h);
+    }
+    elsif ( index($d->ua, 'Win32') > -1 || index($d->ua, 'Windows') > -1 ) {
+        windows($h);
+    }
+    elsif ( index($d->ua, 'iPhone') > -1 ) {
+        ios($h);
+    }
+    elsif ( index($d->ua, 'iPad') > -1 || index($d->ua, 'iPod') > -1 ) {
+        ios($h);
+    }
+    elsif ( index($d->ua, 'Macintosh') > -1 || index($d->ua, 'Mac OS') > -1 ) {
+        ios($h);
+    }
+
+    return $h;
+}
+
 __END__
 
 =encoding UTF-8

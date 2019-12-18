@@ -33,6 +33,7 @@ sub parse {
         Baiduspider
 
         MicrosoftEdge
+        GoogleChrome
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
