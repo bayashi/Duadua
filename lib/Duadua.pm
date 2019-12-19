@@ -9,7 +9,7 @@ sub new {
     my $class = shift;
 
     bless {
-        _ua     => shift || '',
+        _ua     => shift // '',
         _parsed => 0,
         _result => {},
     }, $class;
