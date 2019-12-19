@@ -54,14 +54,35 @@
       "Duadua::Parser::AdIdxBot" : {
          "file" : "lib/Duadua/Parser/AdIdxBot.pm"
       },
+      "Duadua::Parser::AppleSafari" : {
+         "file" : "lib/Duadua/Parser/AppleSafari.pm"
+      },
+      "Duadua::Parser::Baiduspider" : {
+         "file" : "lib/Duadua/Parser/Baiduspider.pm"
+      },
       "Duadua::Parser::BingPreview" : {
          "file" : "lib/Duadua/Parser/BingPreview.pm"
       },
       "Duadua::Parser::Bingbot" : {
          "file" : "lib/Duadua/Parser/Bingbot.pm"
       },
+      "Duadua::Parser::FacebookCrawler" : {
+         "file" : "lib/Duadua/Parser/FacebookCrawler.pm"
+      },
+      "Duadua::Parser::GoogleChrome" : {
+         "file" : "lib/Duadua/Parser/GoogleChrome.pm"
+      },
       "Duadua::Parser::Googlebot" : {
          "file" : "lib/Duadua/Parser/Googlebot.pm"
+      },
+      "Duadua::Parser::MicrosoftEdge" : {
+         "file" : "lib/Duadua/Parser/MicrosoftEdge.pm"
+      },
+      "Duadua::Parser::MozillaFirefox" : {
+         "file" : "lib/Duadua/Parser/MozillaFirefox.pm"
+      },
+      "Duadua::Parser::Twitterbot" : {
+         "file" : "lib/Duadua/Parser/Twitterbot.pm"
       },
       "Duadua::Parser::Util" : {
          "file" : "lib/Duadua/Parser/Util.pm"
