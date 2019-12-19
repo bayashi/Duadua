@@ -40,7 +40,7 @@ use Duadua;
 {
     my $d = Duadua->parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
 
-    is $d->name, 'Googlebot', 'function call';
+    is $d->name, 'Googlebot', 'method call';
     ok $d->is_bot;
     ok !$d->is_ios;
     ok !$d->is_android;
