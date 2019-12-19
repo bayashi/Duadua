@@ -27,6 +27,17 @@ use Duadua;
 }
 
 {
+    my $d = Duadua->new('~');
+
+    is $d->name, 'UNKNOWN', '~';
+    ok !$d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
+}
+
+{
     my $d = Duadua::parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
 
     is $d->name, 'Googlebot', 'function call';
