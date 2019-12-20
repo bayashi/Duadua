@@ -4,6 +4,7 @@ use Test::More;
 use File::Basename qw//;
 use File::Spec;
 use YAML qw//;
+use List::Util qw/shuffle/;
 
 use Duadua;
 
@@ -17,13 +18,17 @@ MAIN: {
 
     opendir my $dh, $dir or die "Could not open $dir, $!";
 
+    my @test_yaml_cases;
+
     while (my $test_yaml = readdir $dh) {
         next unless $test_yaml =~ m!.+\.yaml$!;
         next if scalar(@args) > 0 && !(grep { $test_yaml =~ m!\Q$_!i } @args);
-        test($dir, $test_yaml);
+        push @test_yaml_cases, [$dir, $test_yaml];
     }
 
     closedir $dh;
+
+    test(@{$_}) for shuffle @test_yaml_cases;
 }
 
 sub test {
@@ -31,7 +36,7 @@ sub test {
 
     my $tests = YAML::LoadFile(File::Spec->catfile($dir, $test_yaml));
 
-    for my $t (@{$tests}) {
+    for my $t (shuffle @{$tests}) {
         for my $k (keys %{$t}) {
             next unless $k =~ m!^is_!;
             $t->{$k} = $t->{$k} eq 'true' ? 1 : 0;
