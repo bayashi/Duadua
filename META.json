@@ -81,6 +81,9 @@
       "Duadua::Parser::MozillaFirefox" : {
          "file" : "lib/Duadua/Parser/MozillaFirefox.pm"
       },
+      "Duadua::Parser::Slackbot" : {
+         "file" : "lib/Duadua/Parser/Slackbot.pm"
+      },
       "Duadua::Parser::Twitterbot" : {
          "file" : "lib/Duadua/Parser/Twitterbot.pm"
       },

@@ -38,6 +38,7 @@ sub parse {
 
         Twitterbot
         FacebookCrawler
+        Slackbot
 
         AdIdxBot
         BingPreview
