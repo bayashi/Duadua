@@ -12,3 +12,10 @@
   is_android: false
   is_linux: false
   is_windows: false
+- ua: 'Baiduspider-image+(+http://www.baidu.com/search/spider.htm)'
+  name: 'Baiduspider'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
