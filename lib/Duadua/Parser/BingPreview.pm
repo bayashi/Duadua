@@ -14,7 +14,7 @@ sub try {
     ####
 
     if ( index($d->ua, 'BingPreview/') > -1
-                && index($d->ua, 'Mozilla/') > -1 ) {
+                && index($d->ua, 'Mozilla/') == 0 ) {
         return _set_property($d, 'BingPreview');
     }
 }

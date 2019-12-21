@@ -6,7 +6,7 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Mozilla/5.0 (Mac') > -1 && index($d->ua, 'Safari/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (Mac') == 0 && index($d->ua, 'Safari/') > -1 ) {
         return {
             name   => 'Apple Safari',
             is_ios => 1,

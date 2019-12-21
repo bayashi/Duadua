@@ -15,7 +15,7 @@ sub try {
 
     if ( index($d->ua, 'bingbot/') > -1
             && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
-                && index($d->ua, 'Mozilla/') > -1 ) {
+                && index($d->ua, 'Mozilla/') == 0 ) {
         return _set_property($d, 'Bingbot');
     }
 }

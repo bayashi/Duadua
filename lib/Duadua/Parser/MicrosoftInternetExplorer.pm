@@ -6,14 +6,14 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
+    if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'Windows ') > -1 ) {
         return {
             name       => 'Internet Explorer',
             is_windows => 1,
         };
     }
 
-    if ( index($d->ua, 'Trident/') > -1 && index($d->ua, ' rv:1') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
+    if ( index($d->ua, 'Trident/') > -1 && index($d->ua, ' rv:1') > -1 && index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'Windows ') > -1 ) {
         return {
             name       => 'Internet Explorer',
             is_windows => 1,

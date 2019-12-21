@@ -6,14 +6,14 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'Firefox/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'Firefox/') > -1 ) {
         my $h = {
             name => 'Mozilla Firefox',
         };
         return Duadua::Parser::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'FxiOS/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'FxiOS/') > -1 ) {
         return {
             name   => 'Mozilla Firefox',
             is_ios => 1,
