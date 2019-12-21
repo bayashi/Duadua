@@ -6,7 +6,8 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Edge/') > -1 && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( ( index($d->ua, 'Edge/') > -1 || index($d->ua, 'Edg/') > -1 )
+            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         return {
             name   => 'Microsoft Edge',
             is_windows => 1,
