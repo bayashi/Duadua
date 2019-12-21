@@ -42,6 +42,8 @@ sub parse {
         Twitterbot
         FacebookCrawler
         Slackbot
+
+        Opera
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
