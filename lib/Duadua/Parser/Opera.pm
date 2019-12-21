@@ -6,7 +6,14 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Opera/') > -1 ) {
+    if ( index($d->ua, 'Opera/') == 0 ) {
+        my $h = {
+            name => 'Opera',
+        };
+        return Duadua::Parser::Util->set_os($d, $h);
+    }
+
+    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') == 0 ) {
         my $h = {
             name => 'Opera',
         };
