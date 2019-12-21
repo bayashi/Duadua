@@ -6,7 +6,7 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Twitterbot/') > -1 ) {
+    if ( index($d->ua, 'Twitterbot/') == 0 ) {
         return {
             name   => 'Twitterbot',
             is_bot => 1,

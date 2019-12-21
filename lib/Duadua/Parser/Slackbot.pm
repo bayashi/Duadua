@@ -6,21 +6,21 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Slackbot-LinkExpanding ') > -1 ) {
+    if ( index($d->ua, 'Slackbot-LinkExpanding ') == 0 ) {
         return {
             name   => 'Slackbot Link Expanding',
             is_bot => 1,
         };
     }
 
-    if ( index($d->ua, 'Slack-ImgProxy ') > -1 ) {
+    if ( index($d->ua, 'Slack-ImgProxy ') == 0 ) {
         return {
             name   => 'Slack Imgproxy',
             is_bot => 1,
         };
     }
 
-    if ( index($d->ua, 'Slackbot ') > -1 ) {
+    if ( index($d->ua, 'Slackbot ') == 0 ) {
         return {
             name   => 'Slackbot',
             is_bot => 1,

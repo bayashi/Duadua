@@ -6,7 +6,7 @@ use Duadua::Parser::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'facebookexternalhit/') > -1 ) {
+    if ( index($d->ua, 'facebookexternalhit/') == 0 ) {
         return {
             name   => 'Facebook Crawler',
             is_bot => 1,
