@@ -27,21 +27,21 @@ sub parse {
 
     for my $m (qw/
         Googlebot
+        Bingbot
+        AdIdxBot
+        BingPreview
 
         MicrosoftEdge
         GoogleChrome
+        MicrosoftInternetExplorer
         MozillaFirefox
         AppleSafari
 
-        Bingbot
         Baiduspider
 
         Twitterbot
         FacebookCrawler
         Slackbot
-
-        AdIdxBot
-        BingPreview
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;

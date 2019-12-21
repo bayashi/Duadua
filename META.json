@@ -79,6 +79,9 @@
       "Duadua::Parser::MicrosoftEdge" : {
          "file" : "lib/Duadua/Parser/MicrosoftEdge.pm"
       },
+      "Duadua::Parser::MicrosoftInternetExplorer" : {
+         "file" : "lib/Duadua/Parser/MicrosoftInternetExplorer.pm"
+      },
       "Duadua::Parser::MozillaFirefox" : {
          "file" : "lib/Duadua/Parser/MozillaFirefox.pm"
       },
