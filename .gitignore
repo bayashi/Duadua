@@ -12,4 +12,4 @@ MANIFEST.bak
 META.yml
 MYMETA.*
 *.tar.gz
-^Duadua-
+Duadua-*
