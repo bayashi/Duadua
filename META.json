@@ -97,6 +97,9 @@
       "Duadua::Parser::YahooJapanBot" : {
          "file" : "lib/Duadua/Parser/YahooJapanBot.pm"
       },
+      "Duadua::Parser::YahooSlurp" : {
+         "file" : "lib/Duadua/Parser/YahooSlurp.pm"
+      },
       "Duadua::Util" : {
          "file" : "lib/Duadua/Util.pm"
       }

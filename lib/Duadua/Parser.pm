@@ -45,6 +45,7 @@ sub parse {
         FacebookCrawler
         Slackbot
 
+        YahooSlurp
         YahooJapanBot
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
