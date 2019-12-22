@@ -110,6 +110,10 @@ Set Windows
 
 Detect OS from $d_obj, then return result as $hash.
 
+=head2 ordering_match($d_obj, $list)
+
+The detector wether elements of $list are matching with User-Agent string in order.
+
 
 =head1 AUTHOR
 
