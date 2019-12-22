@@ -1,3 +1,4 @@
+# https://www.bing.com/webmaster/help/which-crawlers-does-bing-use-8c184ec0
 - ua: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b'
   name: BingPreview
   is_bot: true

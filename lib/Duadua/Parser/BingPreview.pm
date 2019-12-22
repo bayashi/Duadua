@@ -6,13 +6,6 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    ####
-    #
-    # BingPreview
-    # https://www.bing.com/webmaster/help/which-crawlers-does-bing-use-8c184ec0
-    #
-    ####
-
     if ( index($d->ua, 'BingPreview/') > -1
                 && index($d->ua, 'Mozilla/') == 0 ) {
         return _set_property($d, 'BingPreview');

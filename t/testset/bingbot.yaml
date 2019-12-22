@@ -1,3 +1,4 @@
+# https://www.bing.com/webmaster/help/which-crawlers-does-bing-use-8c184ec0
 - ua: 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)'
   name: Bingbot
   is_bot: true

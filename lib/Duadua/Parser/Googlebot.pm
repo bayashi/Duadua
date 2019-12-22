@@ -15,14 +15,6 @@ sub try {
 
     return unless index($d->ua, 'Google') > -1;
 
-    ####
-    #
-    # Googlebot
-    # https://support.google.com/webmasters/answer/1061943?hl=en
-    #
-    ####
-
-    # Googlebot-Image/1.0
     if ( index($d->ua, 'Googlebot-Image') > -1 ) {
         return {
             name   => 'Googlebot-Image',
@@ -30,7 +22,6 @@ sub try {
         };
     }
 
-    # Googlebot-Image/1.0
     if ( index($d->ua, 'Googlebot-News') > -1 ) {
         return {
             name   => 'Googlebot-News',
@@ -38,7 +29,6 @@ sub try {
         };
     }
 
-    # Googlebot-Video/1.0
     if ( index($d->ua, 'Googlebot-Video') > -1 ) {
         return {
             name   => 'Googlebot-Video',
@@ -46,23 +36,14 @@ sub try {
         };
     }
 
-    # Googlebot/2.1 (+http://www.google.com/bot.html)
     if ( index($d->ua, 'Googlebot') > -1 ) {
         return _set_googlebot($d, 'Googlebot');
     }
 
-    ####
-    #
-    # Google
-    #
-    ####
-
-    # Mediapartners-Google
     if ( index($d->ua, 'Mediapartners-Google') > -1 ) {
         return _set_googlebot($d, 'Mediapartners-Google');
     }
 
-    # AdsBot-Google-Mobile-Apps
     if ( index($d->ua, 'AdsBot-Google-Mobile-Apps') > -1 ) {
         return {
             name   => 'AdsBot-Google-Mobile-Apps',
@@ -70,12 +51,10 @@ sub try {
         };
     }
 
-    # Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)
     if ( index($d->ua, 'AdsBot-Google-Mobile') > -1 ) {
         return _set_googlebot($d, 'AdsBot-Google-Mobile', { add_os_name => 1 });
     }
 
-    # AdsBot-Google (+http://www.google.com/adsbot.html)
     if ( index($d->ua, 'AdsBot-Google') > -1 ) {
         return {
             name   => 'AdsBot-Google',
@@ -83,7 +62,6 @@ sub try {
         };
     }
 
-    # FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)
     if ( index($d->ua, 'FeedFetcher-Google') > -1 ) {
         return {
             name   => 'FeedFetcher-Google',
@@ -91,22 +69,18 @@ sub try {
         };
     }
 
-    # Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)
     if ( index($d->ua, 'Google-Read-Aloud') > -1 ) {
         return _set_googlebot($d, 'Google-Read-Aloud');
     }
 
-    # Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012; DuplexWeb-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Mobile Safari/537.36
     if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
         return _set_googlebot($d, 'DuplexWeb-Google');
     }
 
-    # Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/49.0.2623.75 Safari/537.36 Google Favicon
     if ( index($d->ua, 'Google Favicon') > -1 ) {
         return _set_googlebot($d, 'Google Favicon');
     }
 
-    # APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)
     if ( index($d->ua, 'APIs-Google') > -1 ) {
         return {
             name   => 'APIs-Google',

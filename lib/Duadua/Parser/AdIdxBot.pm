@@ -6,13 +6,6 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    ####
-    #
-    # AdIdxBot
-    # https://www.bing.com/webmaster/help/which-crawlers-does-bing-use-8c184ec0
-    #
-    ####
-
     if ( index($d->ua, 'adidxbot/') > -1
             && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
                 && index($d->ua, 'Mozilla/') > -1 ) {
