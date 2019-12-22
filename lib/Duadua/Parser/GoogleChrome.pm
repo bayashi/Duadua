@@ -1,7 +1,7 @@
 package Duadua::Parser::GoogleChrome;
 use strict;
 use warnings;
-use Duadua::Parser::Util;
+use Duadua::Util qw//;
 
 sub try {
     my ($class, $d) = @_;
@@ -10,7 +10,7 @@ sub try {
         my $h = {
             name => 'Google Chrome',
         };
-        return Duadua::Parser::Util->set_os($d, $h);
+        return Duadua::Util->set_os($d, $h);
     }
 
     if ( index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'AppleWebKit/') > -1
@@ -18,7 +18,7 @@ sub try {
         my $h = {
             name => 'Google Chrome',
         };
-        return Duadua::Parser::Util->set_os($d, $h);
+        return Duadua::Util->set_os($d, $h);
     }
 }
 

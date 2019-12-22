@@ -1,7 +1,7 @@
 package Duadua::Parser::AdIdxBot;
 use strict;
 use warnings;
-use Duadua::Parser::Util;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;

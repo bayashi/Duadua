@@ -1,7 +1,6 @@
 package Duadua::Parser::MicrosoftInternetExplorer;
 use strict;
 use warnings;
-use Duadua::Parser::Util;
 
 sub try {
     my ($class, $d) = @_;

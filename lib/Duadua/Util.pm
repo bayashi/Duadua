@@ -1,4 +1,4 @@
-package Duadua::Parser::Util;
+package Duadua::Util;
 use strict;
 use warnings;
 use Exporter 'import';
@@ -77,7 +77,7 @@ __END__
 
 =head1 NAME
 
-Duadua::Parser::Util - Parser Utility of Duadua
+Duadua::Util - Utilities of Duadua
 
 
 =head1 Export Functions

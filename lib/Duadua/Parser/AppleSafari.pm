@@ -1,7 +1,7 @@
 package Duadua::Parser::AppleSafari;
 use strict;
 use warnings;
-use Duadua::Parser::Util;
+use Duadua::Util qw//;
 
 sub try {
     my ($class, $d) = @_;
@@ -14,11 +14,11 @@ sub try {
     }
 
     if ( index($d->ua, 'Mozilla/5.0') == 0
-        && Duadua::Parser::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
+        && Duadua::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
         my $h = {
             name => 'Apple Safari',
         };
-        return Duadua::Parser::Util->set_os($d, $h);
+        return Duadua::Util->set_os($d, $h);
     }
 }
 
