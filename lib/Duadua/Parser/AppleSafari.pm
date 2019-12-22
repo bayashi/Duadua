@@ -12,6 +12,15 @@ sub try {
             is_ios => 1,
         };
     }
+
+    my ($version, $safari) = (index($d->ua, ' Version/'), index($d->ua, ' Safari/'));
+
+    if ( index($d->ua, 'Mozilla/5.0') == 0 && $safari > -1 && $version > -1 && $safari > $version ) {
+        my $h = {
+            name => 'Apple Safari',
+        };
+        return Duadua::Parser::Util->set_os($d, $h);
+    }
 }
 
 1;
