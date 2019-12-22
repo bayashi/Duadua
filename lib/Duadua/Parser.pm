@@ -2,6 +2,7 @@ package Duadua::Parser;
 use strict;
 use warnings;
 use Module::Pluggable::Object;
+use Duadua::Util;
 
 Module::Pluggable::Object->new(
     search_path => [ __PACKAGE__ ],
@@ -49,7 +50,31 @@ sub parse {
         }
     }
 
+    if ( my $is_bot = $class->_detect_general_bot($d) ) {
+        return $is_bot;
+    }
+
     return $BLANK_UA;
+}
+
+sub _detect_general_bot {
+    my ($class, $d) = @_;
+
+    my $h = {};
+
+    if ( index($d->ua, 'http://') > -1 || index($d->ua, 'https://') > -1 ) {
+        bot($h);
+        if ( index($d->ua, 'Mozilla/') != 0 && $d->ua =~ m!^([^/;]+)/v?\d! ) {
+            name($h, $1);
+        }
+        elsif ( $d->ua =~ m![\s\(]([^/\s:;]+(?:bot|crawl|crawler|spider|fetcher))/v?\d!i ) {
+            name($h, $1);
+        }
+        elsif ( $d->ua =~ m!([a-zA-Z0-9\-\_\.\!]+(?:bot|crawler))!i ) {
+            name($h, $1);
+        }
+        return $h;
+    }
 }
 
 1;
