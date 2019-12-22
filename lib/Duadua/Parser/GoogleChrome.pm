@@ -12,6 +12,14 @@ sub try {
         };
         return Duadua::Parser::Util->set_os($d, $h);
     }
+
+    if ( index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'AppleWebKit/') > -1
+        && (index($d->ua, 'CrMo/') > -1 || index($d->ua, 'CriOS/') > -1) ) {
+        my $h = {
+            name => 'Google Chrome',
+        };
+        return Duadua::Parser::Util->set_os($d, $h);
+    }
 }
 
 1;
