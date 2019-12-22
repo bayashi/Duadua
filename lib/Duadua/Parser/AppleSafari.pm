@@ -13,9 +13,8 @@ sub try {
         };
     }
 
-    my ($version, $safari) = (index($d->ua, ' Version/'), index($d->ua, ' Safari/'));
-
-    if ( index($d->ua, 'Mozilla/5.0') == 0 && $safari > -1 && $version > -1 && $safari > $version ) {
+    if ( index($d->ua, 'Mozilla/5.0') == 0
+        && Duadua::Parser::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
         my $h = {
             name => 'Apple Safari',
         };

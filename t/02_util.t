@@ -104,4 +104,10 @@ use Duadua::Parser::Util;
     is $h->{is_ios}, $ret->{is_ios};
 }
 
+{
+    my $d = Duadua->new('Mozilla/5.0 Ordering Match');
+    ok( Duadua::Parser::Util->ordering_match($d, ['Mozilla/', 'Ordering', 'Match']) );
+    ok( !Duadua::Parser::Util->ordering_match($d, ['Match', 'Ordering', 'Mozilla/']) );
+}
+
 done_testing;

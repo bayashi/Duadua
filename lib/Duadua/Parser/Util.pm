@@ -58,6 +58,19 @@ sub set_os {
     return $h;
 }
 
+sub ordering_match {
+    my ($class, $d, $list) = @_;
+
+    my $pre = 0;
+    for my $word (@{$list}) {
+        my $position = index($d->ua, $word);
+        return 0 if $position < $pre;
+        $pre = $position;
+    }
+
+    return 1; # Match!
+}
+
 __END__
 
 =encoding UTF-8
