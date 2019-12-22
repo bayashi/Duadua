@@ -85,14 +85,20 @@
       "Duadua::Parser::MozillaFirefox" : {
          "file" : "lib/Duadua/Parser/MozillaFirefox.pm"
       },
+      "Duadua::Parser::Opera" : {
+         "file" : "lib/Duadua/Parser/Opera.pm"
+      },
       "Duadua::Parser::Slackbot" : {
          "file" : "lib/Duadua/Parser/Slackbot.pm"
       },
       "Duadua::Parser::Twitterbot" : {
          "file" : "lib/Duadua/Parser/Twitterbot.pm"
       },
-      "Duadua::Parser::Util" : {
-         "file" : "lib/Duadua/Parser/Util.pm"
+      "Duadua::Parser::YahooJapanBot" : {
+         "file" : "lib/Duadua/Parser/YahooJapanBot.pm"
+      },
+      "Duadua::Util" : {
+         "file" : "lib/Duadua/Util.pm"
       }
    },
    "release_status" : "stable",
