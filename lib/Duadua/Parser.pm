@@ -47,6 +47,8 @@ sub parse {
 
         YahooSlurp
         YahooJapanBot
+
+        HTTPClients
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;

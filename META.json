@@ -76,6 +76,9 @@
       "Duadua::Parser::Googlebot" : {
          "file" : "lib/Duadua/Parser/Googlebot.pm"
       },
+      "Duadua::Parser::HTTPClients" : {
+         "file" : "lib/Duadua/Parser/HTTPClients.pm"
+      },
       "Duadua::Parser::MicrosoftEdge" : {
          "file" : "lib/Duadua/Parser/MicrosoftEdge.pm"
       },
