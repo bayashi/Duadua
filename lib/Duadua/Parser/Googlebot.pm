@@ -104,21 +104,9 @@ sub _set_googlebot {
         linux($h);
         $h->{name} .= ' Linux' if $opt && $opt->{add_os_name};
     }
-    elsif ( index($d->ua, 'Win32') > -1 || index($d->ua, 'Windows') > -1 ) {
-        windows($h);
-        $h->{name} .= ' Windows' if $opt && $opt->{add_os_name};
-    }
     elsif ( index($d->ua, 'iPhone') > -1 ) {
         ios($h);
         $h->{name} .= ' iPhone' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'iPad') > -1 || index($d->ua, 'iPod') > -1 ) {
-        ios($h);
-        $h->{name} .= ' iOS' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'Macintosh') > -1 || index($d->ua, 'Mac OS') > -1 ) {
-        ios($h);
-        $h->{name} .= ' Mac OS' if $opt && $opt->{add_os_name};
     }
 
     return $h;
