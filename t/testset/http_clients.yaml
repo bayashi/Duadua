@@ -145,3 +145,10 @@
   is_android: false
   is_linux: true
   is_windows: false
+- ua: 'okhttp/3.11.0'
+  name: 'OkHttp'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false

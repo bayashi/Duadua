@@ -106,7 +106,12 @@ sub _php {
 sub _java {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Jakarta Commons-HttpClient/') == 0 ) {
+    if ( index($d->ua, 'okhttp/') == 0 ) {
+        return {
+            name => 'OkHttp',
+        };
+    }
+    elsif ( index($d->ua, 'Jakarta Commons-HttpClient/') == 0 ) {
         return {
             name => 'Jakarta Commons-HttpClient',
         };
