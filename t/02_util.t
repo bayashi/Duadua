@@ -42,6 +42,12 @@ use Duadua::Util;
 }
 
 {
+    my $h = {};
+    version($h, '1.2.3');
+    is $h->{version}, '1.2.3';
+}
+
+{
     my $d = Duadua->new('Mozilla/5.0 Android');
     my $h = {};
     my $ret = Duadua::Util->set_os($d, $h);
