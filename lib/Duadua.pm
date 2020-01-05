@@ -137,9 +137,15 @@ constructor
 
 =over
 
-=item version
+=item version => 1 or 0
 
 If you set the true value to C<version>, then you can get version string. (By default, don't get version)
+
+=item skip => ['ParserClass']
+
+If you set the array to C<skip>, then you can skip detect logic by specific classes.
+
+NOTE that ParserClass is case sensitive, and it might be going to change results.
 
 =back
 
