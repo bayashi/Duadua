@@ -70,56 +70,6 @@ sub try {
             is_bot => 1,
         };
     }
-
-    if ( index($d->ua, 'Google-Read-Aloud') > -1 ) {
-        return _set_googlebot($d, 'Google-Read-Aloud');
-    }
-
-    if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
-        my $h = _set_googlebot($d, 'DuplexWeb-Google');
-
-        if ($d->opt('version')) {
-            my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
-            version($h, $version) if $version;
-        }
-
-        return $h;
-
-    }
-
-    if ( index($d->ua, 'Google Favicon') > -1 ) {
-        return _set_googlebot($d, 'Google Favicon');
-    }
-
-    if ( index($d->ua, 'APIs-Google') > -1 ) {
-        return {
-            name   => 'APIs-Google',
-            is_bot => 1,
-        };
-    }
-}
-
-sub _set_googlebot {
-    my ($d, $name, $opt) = @_;
-
-    my $h = { name => $name };
-    bot($h);
-
-    if ( index($d->ua, 'Android') > -1 ) {
-        android($h);
-        linux($h); # Android is Linux also.
-        $h->{name} .= ' Android' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'Linux') > -1 ) {
-        linux($h);
-        $h->{name} .= ' Linux' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'iPhone') > -1 ) {
-        ios($h);
-        $h->{name} .= ' iPhone' if $opt && $opt->{add_os_name};
-    }
-
-    return $h;
 }
 
 1;
