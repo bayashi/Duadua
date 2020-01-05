@@ -32,3 +32,4 @@
 ^MYMETA\.yml$
 ^MYMETA\.json$
 ^Duadua-*
+^benchmark/
