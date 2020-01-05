@@ -7,7 +7,7 @@ our $VERSION = '0.01';
 
 sub new {
     my $class = shift;
-    my $ua    = shift // '';
+    my $ua    = shift // $ENV{'HTTP_USER_AGENT'} // '';
     my $opt   = shift || {};
 
     bless {
