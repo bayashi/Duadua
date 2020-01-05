@@ -50,7 +50,6 @@ sub parse {
 
         GooglebotMisc
         HatenaBot
-
         BrowserMisc
 
         HTTPClients
