@@ -1,7 +1,7 @@
 package Duadua::Parser::GoogleChrome;
 use strict;
 use warnings;
-use Duadua::Util qw//;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -10,6 +10,12 @@ sub try {
         my $h = {
             name => 'Google Chrome',
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 
@@ -18,6 +24,12 @@ sub try {
         my $h = {
             name => 'Google Chrome',
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 }

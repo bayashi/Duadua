@@ -69,11 +69,15 @@ sub _detect_general_bot {
 
     if ( index($d->ua, 'http://') > -1 || index($d->ua, 'https://') > -1 ) {
         bot($h);
-        if ( index($d->ua, 'Mozilla/') != 0 && $d->ua =~ m!^([^/;]+)/v?\d! ) {
-            name($h, $1);
+        if ( index($d->ua, 'Mozilla/') != 0 && $d->ua =~ m!^([^/;]+)/(v?[\d.]+)! ) {
+            my ($name, $version) = ($1, $2);
+            name($h, $name);
+            version($h, $version);
         }
-        elsif ( $d->ua =~ m![\s\(]([^/\s:;]+(?:bot|crawl|crawler|spider|fetcher))/v?\d!i ) {
+        elsif ( $d->ua =~ m![\s\(]([^/\s:;]+(?:bot|crawl|crawler|spider|fetcher))/(v?[\d.]+)!i ) {
+            my ($name, $version) = ($1, $2);
             name($h, $1);
+            version($h, $version);
         }
         elsif ( $d->ua =~ m!([a-zA-Z0-9\-\_\.\!]+(?:bot|crawler))!i ) {
             name($h, $1);

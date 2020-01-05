@@ -1,6 +1,7 @@
 package Duadua::Parser::YahooJapanBot;
 use strict;
 use warnings;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -13,10 +14,16 @@ sub try {
     }
 
     if ( index($d->ua, 'Y!J-') > -1 && $d->ua =~ m|Y!J-[A-Z]+| ) {
-        return {
+        my $h = {
             name   => 'Yahoo!Japan Crawler',
             is_bot => 1,
         };
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 }
 

@@ -5,6 +5,7 @@
   is_android: false
   is_linux: false
   is_windows: true
+  version: '9.52'
 - ua: 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36 OPR/20.0.1387.64'
   name: 'Opera'
   is_bot: false
@@ -12,3 +13,4 @@
   is_android: false
   is_linux: false
   is_windows: true
+  version: '20.0.1387.64'

@@ -5,6 +5,7 @@
   is_android: false
   is_linux: false
   is_windows: true
+  version: '16.16299'
 - ua: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.48 Safari/537.36 Edg/74.1.96.24'
   name: 'Microsoft Edge'
   is_bot: false
@@ -12,3 +13,4 @@
   is_android: false
   is_linux: false
   is_windows: true
+  version: '74.1.96.24'

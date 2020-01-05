@@ -7,12 +7,21 @@ our $VERSION = '0.01';
 
 sub new {
     my $class = shift;
+    my $ua    = shift // '';
+    my $opt   = shift || {};
 
     bless {
-        _ua     => shift // '',
+        _ua     => $ua,
         _parsed => 0,
         _result => {},
+        _opt    => $opt,
     }, $class;
+}
+
+sub opt {
+    my ($self, $key) = @_;
+
+    return $self->{_opt}->{$key};
 }
 
 sub ua { shift->{_ua} }
@@ -81,6 +90,10 @@ sub is_windows {
     shift->_result->{is_windows} ? 1 : 0;
 }
 
+sub version {
+    shift->_result->{version} || '';
+}
+
 1;
 
 __END__
@@ -116,9 +129,19 @@ Duadua is a User-Agent detector.
 
 =head1 METHODS
 
-=head2 new($user_agent_string)
+=head2 new($user_agent_string, $options_hash)
 
 constructor
+
+=head3 Constructor options
+
+=over
+
+=item version
+
+If you set the true value to C<version>, then you can get version string. (By default, don't get version)
+
+=back
 
 =head2 name
 
@@ -144,6 +167,10 @@ Return true value if the User-Agent is Linux.
 
 Return true value if the User-Agent is Windows.
 
+=head2 version
+
+Return version string
+
 =head2 parse
 
 Parse User-Agent string
@@ -151,6 +178,10 @@ Parse User-Agent string
 =head2 ua
 
 Return User-Agent string
+
+=head2 opt
+
+The getter of options
 
 
 =head1 REPOSITORY

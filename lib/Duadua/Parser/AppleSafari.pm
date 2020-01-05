@@ -1,16 +1,23 @@
 package Duadua::Parser::AppleSafari;
 use strict;
 use warnings;
-use Duadua::Util qw//;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
     if ( index($d->ua, 'Mozilla/5.0 (Mac') == 0 && index($d->ua, 'Safari/') > -1 ) {
-        return {
+        my $h = {
             name   => 'Apple Safari',
             is_ios => 1,
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 
     if ( index($d->ua, 'Mozilla/5.0') == 0
@@ -18,6 +25,12 @@ sub try {
         my $h = {
             name => 'Apple Safari',
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 }
