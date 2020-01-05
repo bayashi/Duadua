@@ -48,6 +48,8 @@ sub parse {
         YahooSlurp
         YahooJapanBot
 
+        GooglebotMisc
+
         HTTPClients
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
