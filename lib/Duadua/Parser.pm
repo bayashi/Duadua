@@ -49,8 +49,12 @@ sub parse {
         YahooJapanBot
 
         GooglebotMisc
+        HatenaBot
+        BrowserMisc
 
         HTTPClients
+
+        BotMisc
     /) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
@@ -67,7 +71,7 @@ sub parse {
 sub _detect_general_bot {
     my ($class, $d) = @_;
 
-    my $h = {};
+    my $h = \%{$BLANK_UA};
 
     if ( index($d->ua, 'http://') > -1 || index($d->ua, 'https://') > -1 ) {
         bot($h);
@@ -84,6 +88,14 @@ sub _detect_general_bot {
         elsif ( $d->ua =~ m!([a-zA-Z0-9\-\_\.\!]+(?:bot|crawler))!i ) {
             name($h, $1);
         }
+
+        return $h;
+    }
+
+    if ( $d->ua =~ m!^([a-zA-Z0-9\-\_]+)$! ) {
+        name($h, $1);
+        bot($h);
+
         return $h;
     }
 }

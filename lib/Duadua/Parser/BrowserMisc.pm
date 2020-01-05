@@ -1,4 +1,4 @@
-package Duadua::Parser::GoogleChrome;
+package Duadua::Parser::BrowserMisc;
 use strict;
 use warnings;
 use Duadua::Util;
@@ -6,29 +6,46 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return if index($d->ua, 'http') > -1;
-
-    if ( index($d->ua, 'Chrome/') > -1 && index($d->ua, 'AppleWebKit/') > -1 && index($d->ua, 'Safari/') > -1 ) {
+    if ( $d->ua eq 'lynx' ) {
+        return {
+            name   => 'Lynx',
+            is_bot => 1,
+        };
+    }
+    elsif ( index($d->ua, 'Lynx/') == 0 ) {
         my $h = {
-            name => 'Google Chrome',
+            name   => 'Lynx',
+            is_bot => 1,
         };
 
         if ($d->opt('version')) {
-            my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!^Lynx/([\d.a-z]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
+    }
+    elsif ( index($d->ua, ' EzLynx/') > -1 ) {
+        my $h = {
+            name   => 'EzLynx',
+            is_bot => 1,
+        };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!EzLynx/([\d.]+)!);
             version($h, $version) if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
-
-    if ( index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'AppleWebKit/') > -1
-        && (index($d->ua, 'CrMo/') > -1 || index($d->ua, 'CriOS/') > -1) ) {
+    elsif ( index($d->ua, ' Konqueror/') > -1 ) {
         my $h = {
-            name => 'Google Chrome',
+            name   => 'Konqueror',
+            is_bot => 1,
         };
 
         if ($d->opt('version')) {
-            my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
             version($h, $version) if $version;
         }
 

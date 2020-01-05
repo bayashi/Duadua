@@ -1,0 +1,31 @@
+- ua: 'ia_archiver'
+  name: 'Internet Archive'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+- ua: 'Yeti/1.0 (+http://help.naver.com/robots/)'
+  name: 'Naver Yeti'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  version: '1.0'
+- ua: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.0 Safari/537.36 (compatible; Yeti/1.1; +http://naver.me/spd)'
+  name: 'Naver Yeti'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  version: '1.1'
+- ua: 'ichiro/3.0 (http://search.goo.ne.jp/option/use/sub4/sub4-1/)'
+  name: 'ichiro'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  version: '3.0'

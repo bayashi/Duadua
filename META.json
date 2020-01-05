@@ -67,6 +67,12 @@
       "Duadua::Parser::Bingbot" : {
          "file" : "lib/Duadua/Parser/Bingbot.pm"
       },
+      "Duadua::Parser::BotMisc" : {
+         "file" : "lib/Duadua/Parser/BotMisc.pm"
+      },
+      "Duadua::Parser::BrowserMisc" : {
+         "file" : "lib/Duadua/Parser/BrowserMisc.pm"
+      },
       "Duadua::Parser::FacebookCrawler" : {
          "file" : "lib/Duadua/Parser/FacebookCrawler.pm"
       },
@@ -76,8 +82,14 @@
       "Duadua::Parser::Googlebot" : {
          "file" : "lib/Duadua/Parser/Googlebot.pm"
       },
+      "Duadua::Parser::GooglebotMisc" : {
+         "file" : "lib/Duadua/Parser/GooglebotMisc.pm"
+      },
       "Duadua::Parser::HTTPClients" : {
          "file" : "lib/Duadua/Parser/HTTPClients.pm"
+      },
+      "Duadua::Parser::HatenaBot" : {
+         "file" : "lib/Duadua/Parser/HatenaBot.pm"
       },
       "Duadua::Parser::MicrosoftEdge" : {
          "file" : "lib/Duadua/Parser/MicrosoftEdge.pm"
@@ -120,5 +132,5 @@
       }
    },
    "version" : "0.01",
-   "x_serialization_backend" : "JSON::PP version 4.02"
+   "x_serialization_backend" : "JSON::PP version 4.04"
 }
