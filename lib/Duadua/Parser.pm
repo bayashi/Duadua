@@ -104,11 +104,9 @@ sub _detect_general_bot {
 sub _is_skip_class {
     my ($class, $d, $m) = @_;
 
-    return if !$d->opt('skip') || ref $d->opt('skip') ne 'ARRAY';
+    return if !$d->opt('skip') || ref $d->opt('skip') ne 'HASH';
 
-    for my $klass (@{ $d->opt('skip') }) {
-        return 1 if $klass eq $m;
-    }
+    return 1 if exists $d->opt('skip')->{$m};
 }
 
 1;
