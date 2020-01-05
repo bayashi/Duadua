@@ -11,8 +11,7 @@ sub new {
     my $opt   = shift || {};
 
     if (exists $opt->{skip}) {
-        my %hash;
-        @hash{ @{ $opt->{skip} } } = map { 1 } @{ $opt->{skip} };
+        my %hash = map { $_ => 1 } @{ $opt->{skip} };
         $opt->{skip} = \%hash;
     }
 
