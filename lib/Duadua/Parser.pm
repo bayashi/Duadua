@@ -56,6 +56,7 @@ sub parse {
 
         BotMisc
     /) {
+        next if $class->_is_skip_class($d, $m);
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
         }
@@ -97,6 +98,16 @@ sub _detect_general_bot {
         bot($h);
 
         return $h;
+    }
+}
+
+sub _is_skip_class {
+    my ($class, $d, $m) = @_;
+
+    return if !$d->opt('skip') || ref $d->opt('skip') ne 'ARRAY';
+
+    for my $klass (@{ $d->opt('skip') }) {
+        return 1 if $klass eq $m;
     }
 }
 

@@ -87,4 +87,19 @@ use Duadua;
     is $d->version, '2.1';
 }
 
+{
+    my $d = Duadua->new(
+        'DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)',
+        { skip => ['GooglebotMisc'] }
+    );
+
+    is $d->name, 'DoCoMo', 'skip';
+    ok $d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
+    is $d->version, '2.0';
+}
+
 done_testing;
