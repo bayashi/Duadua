@@ -76,6 +76,9 @@
       "Duadua::Parser::FacebookCrawler" : {
          "file" : "lib/Duadua/Parser/FacebookCrawler.pm"
       },
+      "Duadua::Parser::FeaturePhone" : {
+         "file" : "lib/Duadua/Parser/FeaturePhone.pm"
+      },
       "Duadua::Parser::GoogleChrome" : {
          "file" : "lib/Duadua/Parser/GoogleChrome.pm"
       },

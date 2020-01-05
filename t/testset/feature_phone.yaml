@@ -1,0 +1,15 @@
+# https://www.nttdocomo.co.jp/service/developer/make/content/spec/useragent/index.html
+- ua: 'DoCoMo/2.0 N01C(c500;TB;W24H16)'
+  name: 'DoCoMo N01C'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+- ua: 'DoCoMo/2.0 MST_v_SH2101V(c100)'
+  name: 'DoCoMo SH2101V'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
