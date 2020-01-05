@@ -70,6 +70,14 @@ sub try {
             is_bot => 1,
         };
     }
+
+    if ( (index($d->ua, 'SAMSUNG-SGH-E250/') == 0 || index($d->ua, 'DoCoMo/') == 0)
+            && index($d->ua, ' Googlebot-Mobile/') > -1 ) {
+        return {
+            name   => 'Googlebot-Mobile',
+            is_bot => 1,
+        };
+    }
 }
 
 1;
