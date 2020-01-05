@@ -33,9 +33,9 @@ sub parse {
         BingPreview
 
         MicrosoftEdge
+        MicrosoftInternetExplorer
         Opera
         GoogleChrome
-        MicrosoftInternetExplorer
         MozillaFirefox
         AppleSafari
 
