@@ -6,51 +6,9 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ($d->ua eq 'google-speakr') {
-        return {
-            name   => 'google-speakr',
-            is_bot => 1,
-        };
-    }
-
     return unless index($d->ua, 'Google') > -1;
 
-    if ( index($d->ua, 'Googlebot-Image') == 0 ) {
-        my $h = {
-            name   => 'Googlebot-Image',
-            is_bot => 1,
-        };
-
-        if ($d->opt('version')) {
-            my ($version) = ($d->ua =~ m!^Googlebot-Image/([\d.]+)!);
-            version($h, $version) if $version;
-        }
-
-        return $h;
-    }
-
-    if ( index($d->ua, 'Googlebot-News') == 0 ) {
-        return {
-            name   => 'Googlebot-News',
-            is_bot => 1,
-        };
-    }
-
-    if ( index($d->ua, 'Googlebot-Video') == 0 ) {
-        my $h = {
-            name   => 'Googlebot-Video',
-            is_bot => 1,
-        };
-
-        if ($d->opt('version')) {
-            my ($version) = ($d->ua =~ m!^Googlebot-Video/([\d.]+)!);
-            version($h, $version) if $version;
-        }
-
-        return $h;
-    }
-
-    if ( index($d->ua, 'Googlebot') > -1 ) {
+    if ( index($d->ua, 'Googlebot') > -1 && index($d->ua, 'Googlebot-') == -1 ) {
         my $h = _set_googlebot($d, 'Googlebot');
 
         if ($d->opt('version')) {
@@ -65,29 +23,8 @@ sub try {
         return _set_googlebot($d, 'Mediapartners-Google');
     }
 
-    if ( index($d->ua, 'AdsBot-Google-Mobile-Apps') > -1 ) {
-        return {
-            name   => 'AdsBot-Google-Mobile-Apps',
-            is_bot => 1,
-        };
-    }
-
-    if ( index($d->ua, 'AdsBot-Google-Mobile') > -1 ) {
+    if ( index($d->ua, 'AdsBot-Google-Mobile') > -1 && index($d->ua, 'AdsBot-Google-Mobile-') == -1 ) {
         return _set_googlebot($d, 'AdsBot-Google-Mobile', { add_os_name => 1 });
-    }
-
-    if ( index($d->ua, 'AdsBot-Google') > -1 ) {
-        return {
-            name   => 'AdsBot-Google',
-            is_bot => 1,
-        };
-    }
-
-    if ( index($d->ua, 'FeedFetcher-Google') == 0 ) {
-        return {
-            name   => 'FeedFetcher-Google',
-            is_bot => 1,
-        };
     }
 
     if ( index($d->ua, 'Google-Read-Aloud') > -1 ) {

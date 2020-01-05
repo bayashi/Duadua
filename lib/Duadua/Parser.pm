@@ -33,9 +33,9 @@ sub parse {
         BingPreview
 
         MicrosoftEdge
+        MicrosoftInternetExplorer
         Opera
         GoogleChrome
-        MicrosoftInternetExplorer
         MozillaFirefox
         AppleSafari
 
@@ -47,6 +47,8 @@ sub parse {
 
         YahooSlurp
         YahooJapanBot
+
+        GooglebotMisc
 
         HTTPClients
     /) {
