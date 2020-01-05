@@ -10,6 +10,12 @@ sub new {
     my $ua    = shift // $ENV{'HTTP_USER_AGENT'} // '';
     my $opt   = shift || {};
 
+    if (exists $opt->{skip}) {
+        my %hash;
+        @hash{ @{ $opt->{skip} } } = map { 1 } @{ $opt->{skip} };
+        $opt->{skip} = \%hash;
+    }
+
     bless {
         _ua     => $ua,
         _parsed => 0,
