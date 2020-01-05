@@ -1,7 +1,7 @@
 package Duadua::Parser::Opera;
 use strict;
 use warnings;
-use Duadua::Util qw//;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -10,6 +10,12 @@ sub try {
         my $h = {
             name => 'Opera',
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
+            version($h, $version) if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 
@@ -17,6 +23,12 @@ sub try {
         my $h = {
             name => 'Opera',
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 }

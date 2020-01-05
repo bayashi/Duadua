@@ -9,7 +9,14 @@ sub try {
     if ( index($d->ua, 'adidxbot/') > -1
             && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
                 && index($d->ua, 'Mozilla/') > -1 ) {
-        return _set_property($d, 'Bingbot');
+        my $h = _set_property($d, 'AdIdxBot');
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!adidxbot/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 }
 

@@ -5,10 +5,12 @@
   is_android: false
   is_linux: false
   is_windows: true
+  version: '71.0'
 - ua: 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/20.2 Mobile/15E148 Safari/605.1.15'
-  name: 'Mozilla Firefox'
+  name: 'Mozilla Firefox iOS'
   is_bot: false
   is_ios: true
   is_android: false
   is_linux: false
   is_windows: false
+  version: '20.2'

@@ -16,10 +16,17 @@ sub try {
     return unless index($d->ua, 'Google') > -1;
 
     if ( index($d->ua, 'Googlebot-Image') > -1 ) {
-        return {
+        my $h = {
             name   => 'Googlebot-Image',
             is_bot => 1,
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!^Googlebot-Image/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 
     if ( index($d->ua, 'Googlebot-News') > -1 ) {
@@ -30,14 +37,28 @@ sub try {
     }
 
     if ( index($d->ua, 'Googlebot-Video') > -1 ) {
-        return {
+        my $h = {
             name   => 'Googlebot-Video',
             is_bot => 1,
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!^Googlebot-Video/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 
     if ( index($d->ua, 'Googlebot') > -1 ) {
-        return _set_googlebot($d, 'Googlebot');
+        my $h = _set_googlebot($d, 'Googlebot');
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!Googlebot/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 
     if ( index($d->ua, 'Mediapartners-Google') > -1 ) {
@@ -74,7 +95,15 @@ sub try {
     }
 
     if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
-        return _set_googlebot($d, 'DuplexWeb-Google');
+        my $h = _set_googlebot($d, 'DuplexWeb-Google');
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
+
     }
 
     if ( index($d->ua, 'Google Favicon') > -1 ) {

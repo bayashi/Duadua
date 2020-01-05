@@ -6,6 +6,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '1.1'
 - ua: 'facebookexternalhit/1.1'
   name: 'Facebook Crawler'
   is_bot: true
@@ -13,3 +14,4 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '1.1'

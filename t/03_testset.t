@@ -65,6 +65,11 @@ sub _test {
     /) {
         is $d->$i, $t->{$i}, "$i, expect:$t->{$i}";
     }
+
+    if (exists $t->{version}) {
+        my $dv = Duadua->new($t->{ua}, { version => 1 });
+        is $dv->version, $t->{version}, "version, expect:$t->{version}";
+    }
 }
 
 done_testing;

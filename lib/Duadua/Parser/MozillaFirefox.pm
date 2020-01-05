@@ -1,7 +1,7 @@
 package Duadua::Parser::MozillaFirefox;
 use strict;
 use warnings;
-use Duadua::Util qw//;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -10,14 +10,27 @@ sub try {
         my $h = {
             name => 'Mozilla Firefox',
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m! Firefox/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 
     if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'FxiOS/') > -1 ) {
-        return {
-            name   => 'Mozilla Firefox',
+        my $h = {
+            name   => 'Mozilla Firefox iOS',
             is_ios => 1,
         };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m! FxiOS/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 }
 

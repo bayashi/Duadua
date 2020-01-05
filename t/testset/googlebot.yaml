@@ -41,6 +41,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '1.0'
 - ua: 'Googlebot-News'
   name: Googlebot-News
   is_bot: true
@@ -55,6 +56,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '1.0'
 - ua: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
   name: Googlebot
   is_bot: true
@@ -62,6 +64,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '2.1'
 - ua: 'Googlebot/2.1 (+http://www.google.com/bot.html)'
   name: Googlebot
   is_bot: true
@@ -69,6 +72,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '2.1'
 - ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Safari/537.36'
   name: Googlebot
   is_bot: true
@@ -76,6 +80,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '2.1'
 - ua: 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
   name: Googlebot
   is_bot: true
@@ -83,6 +88,7 @@
   is_android: true
   is_linux: true
   is_windows: false
+  version: '2.1'
 - ua: 'Mediapartners-Google'
   name: Mediapartners-Google
   is_bot: true
@@ -132,6 +138,7 @@
   is_android: true
   is_linux: true
   is_windows: false
+  version: '1.0'
 - ua: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/49.0.2623.75 Safari/537.36 Google Favicon'
   name: 'Google Favicon'
   is_bot: true

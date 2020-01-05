@@ -4,7 +4,7 @@ use warnings;
 use Exporter 'import';
 our @EXPORT = qw/
     name
-    bot android ios linux windows
+    bot android ios linux windows version
 /;
 
 sub name {
@@ -30,6 +30,12 @@ sub linux {
 
 sub windows {
     shift->{is_windows} = 1;
+}
+
+sub version {
+    my ($hash, $version) = @_;
+
+    $hash->{version} = $version;
 }
 
 sub set_os {
@@ -82,7 +88,7 @@ Duadua::Util - Utilities of Duadua
 
 =head1 Export Functions
 
-=head2 name($hash)
+=head2 name($hash, $name)
 
 Set name
 
@@ -105,6 +111,10 @@ Set Linux
 =head2 windows($hash)
 
 Set Windows
+
+=head2 version($hash, $version_string)
+
+Set version string
 
 =head2 set_os($d_obj, $hash)
 

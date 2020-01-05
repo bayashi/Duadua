@@ -12,4 +12,4 @@
   is_android: false
   is_linux: false
   is_windows: false
-
+  version: '1.0'

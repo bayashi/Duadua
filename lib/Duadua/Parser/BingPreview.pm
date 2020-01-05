@@ -8,7 +8,14 @@ sub try {
 
     if ( index($d->ua, 'BingPreview/') > -1
                 && index($d->ua, 'Mozilla/') == 0 ) {
-        return _set_property($d, 'BingPreview');
+        my $h = _set_property($d, 'BingPreview');
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!BingPreview/([\d.a-z]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
     }
 }
 

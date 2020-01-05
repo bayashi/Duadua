@@ -5,6 +5,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '2.0'
 - ua: 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)'
   name: Baiduspider
   is_bot: true
@@ -12,6 +13,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  version: '2.0'
 - ua: 'Baiduspider-image+(+http://www.baidu.com/search/spider.htm)'
   name: 'Baiduspider'
   is_bot: true

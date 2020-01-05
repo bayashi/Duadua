@@ -10,6 +10,12 @@ sub try {
         my $h = {};
         name($h, 'Baiduspider');
         bot($h);
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!Baiduspider(?:-render)?/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
         return $h;
     }
 }
