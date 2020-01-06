@@ -24,9 +24,8 @@ sub try {
         return $h;
     }
     elsif ( index($d->ua, 'KDDI-') == 0 && $d->ua =~ m!^KDDI-([^\s]+)\s!) {
-        my $name = $1;
         my $h = {
-            name   => 'AU KDDI ' . $name,
+            name   => 'AU KDDI ' . $1,
         };
 
         if ($d->opt('version')) {
