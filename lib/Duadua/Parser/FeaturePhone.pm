@@ -15,6 +15,19 @@ sub try {
 
         return $h;
     }
+    elsif ( index($d->ua, 'KDDI-') == 0 && $d->ua =~ m!^KDDI-([^\s]+)\s!) {
+        my $name = $1;
+        my $h = {
+            name   => 'AU KDDI ' . $name,
+        };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m! UP\.Browser/([\d.\_A-Z]+\d)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
+    }
 }
 
 1;
