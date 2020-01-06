@@ -1,13 +1,13 @@
 - ua: 'lynx'
   name: 'Lynx'
-  is_bot: true
+  is_bot: false
   is_ios: false
   is_android: false
   is_linux: false
   is_windows: false
 - ua: 'Lynx/2.8.3dev.9 libwww-FM/2.14 SSL-MM/1.4.1 OpenSSL/0.9.6'
   name: 'Lynx'
-  is_bot: true
+  is_bot: false
   is_ios: false
   is_android: false
   is_linux: false
@@ -15,7 +15,7 @@
   version: '2.8.3dev.9'
 - ua: 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 (compatible; EzLynx/0.1; +http://www.ezoic.com/bot.html) X-Middleton/1'
   name: 'EzLynx'
-  is_bot: true
+  is_bot: false
   is_ios: false
   is_android: true
   is_linux: true
@@ -23,9 +23,17 @@
   version: '0.1'
 - ua: 'Mozilla/5.0 (compatible; Konqueror/4.1; Linux) KHTML/4.1.3 (like Gecko) Fedora/4.1.3-3.fc10'
   name: 'Konqueror'
-  is_bot: true
+  is_bot: false
   is_ios: false
   is_android: false
   is_linux: true
   is_windows: false
   version: '4.1'
+- ua: 'w3m/0.5.2'
+  name: 'w3m'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  version: '0.5.2'
