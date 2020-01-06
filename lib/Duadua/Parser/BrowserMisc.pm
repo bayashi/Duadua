@@ -8,14 +8,12 @@ sub try {
 
     if ( $d->ua eq 'lynx' ) {
         return {
-            name   => 'Lynx',
-            is_bot => 1,
+            name => 'Lynx',
         };
     }
     elsif ( index($d->ua, 'Lynx/') == 0 ) {
         my $h = {
-            name   => 'Lynx',
-            is_bot => 1,
+            name => 'Lynx',
         };
 
         if ($d->opt('version')) {
@@ -27,8 +25,7 @@ sub try {
     }
     elsif ( index($d->ua, ' EzLynx/') > -1 ) {
         my $h = {
-            name   => 'EzLynx',
-            is_bot => 1,
+            name => 'EzLynx',
         };
 
         if ($d->opt('version')) {
@@ -40,8 +37,7 @@ sub try {
     }
     elsif ( index($d->ua, ' Konqueror/') > -1 ) {
         my $h = {
-            name   => 'Konqueror',
-            is_bot => 1,
+            name => 'Konqueror',
         };
 
         if ($d->opt('version')) {
