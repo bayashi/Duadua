@@ -49,7 +49,10 @@ sub parse {
         YahooJapanBot
 
         GooglebotMisc
+
         HatenaBot
+        FeaturePhone
+
         BrowserMisc
 
         HTTPClients
