@@ -37,3 +37,11 @@
   is_linux: false
   is_windows: false
   version: '0.5.2'
+- ua: 'Mozilla/4.5 (compatible; OmniWeb/4.0.5; Mac_PowerPC)'
+  name: 'OmniWeb'
+  is_bot: false
+  is_ios: true
+  is_android: false
+  is_linux: false
+  is_windows: false
+  version: '4.0.5'

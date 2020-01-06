@@ -59,6 +59,32 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
+    elsif ( index($d->ua, ' Konqueror/') > -1 ) {
+        my $h = {
+            name => 'Konqueror',
+        };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h);
+    }
+    elsif ( index($d->ua, 'OmniWeb/') == 0
+            || (index($d->ua, ' OmniWeb/') > -1 && index($d->ua, 'Mozilla/') == 0) ) {
+        my $h = {
+            name => 'OmniWeb',
+        };
+        ios($h);
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!OmniWeb/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
+    }
 }
 
 1;
