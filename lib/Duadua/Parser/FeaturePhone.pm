@@ -23,6 +23,30 @@ sub try {
 
         return $h;
     }
+    elsif ( index($d->ua, 'SoftBank/') == 0 ) {
+        my @elements = split '/', $d->ua;
+        my $h = {
+            name   => 'SoftBank ' . ($elements[2] || ''),
+        };
+
+        return $h;
+    }
+    elsif ( index($d->ua, 'Vodafone/') == 0 ) {
+        my @elements = split '/', $d->ua;
+        my $h = {
+            name   => 'SoftBank ' . ($elements[2] || ''),
+        };
+
+        return $h;
+    }
+    elsif ( index($d->ua, ';SoftBank') > -1 && index($d->ua, 'Mozilla/') == 0
+            && $d->ua =~ m!\(([^;]+);SoftBank!) {
+        my $h = {
+            name   => 'SoftBank ' . $1,
+        };
+
+        return $h;
+    }
     elsif ( index($d->ua, 'KDDI-') == 0 && $d->ua =~ m!^KDDI-([^\s]+)\s!) {
         my $h = {
             name   => 'AU KDDI ' . $1,
