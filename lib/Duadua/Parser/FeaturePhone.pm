@@ -15,6 +15,14 @@ sub try {
 
         return $h;
     }
+    elsif ( index($d->ua, 'FOMA;') > -1 && index($d->ua, 'Mozilla/') == 0
+            && $d->ua =~ m! \(([^;]+);FOMA;!) {
+        my $h = {
+            name   => 'DoCoMo ' . $1,
+        };
+
+        return $h;
+    }
     elsif ( index($d->ua, 'KDDI-') == 0 && $d->ua =~ m!^KDDI-([^\s]+)\s!) {
         my $name = $1;
         my $h = {
