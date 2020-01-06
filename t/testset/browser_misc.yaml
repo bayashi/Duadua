@@ -29,3 +29,11 @@
   is_linux: true
   is_windows: false
   version: '4.1'
+- ua: 'w3m/0.5.2'
+  name: 'w3m'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  version: '0.5.2'

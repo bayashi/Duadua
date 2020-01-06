@@ -35,6 +35,18 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
+    elsif ( index($d->ua, 'w3m/') > -1 ) {
+        my $h = {
+            name => 'w3m',
+        };
+
+        if ($d->opt('version')) {
+            my ($version) = ($d->ua =~ m!^w3m/([\d.]+)!);
+            version($h, $version) if $version;
+        }
+
+        return $h;
+    }
     elsif ( index($d->ua, ' Konqueror/') > -1 ) {
         my $h = {
             name => 'Konqueror',
