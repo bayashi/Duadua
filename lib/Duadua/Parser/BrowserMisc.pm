@@ -72,7 +72,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
     elsif ( index($d->ua, 'OmniWeb/') == 0
-            || (index($d->ua, ' OmniWeb/') > -1 && index($d->ua, 'Mozilla/') == 0) ) {
+            || (index($d->ua, ' OmniWeb/') > -1 && index($d->ua, 'Mozilla/') > -1) ) {
         my $h = {
             name   => 'OmniWeb',
             is_ios => 1,

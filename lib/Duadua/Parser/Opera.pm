@@ -6,7 +6,7 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Opera/') == 0 ) {
+    if ( index($d->ua, 'Opera/') > -1 ) {
         my $h = {
             name => 'Opera',
         };
@@ -19,7 +19,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') == 0 ) {
+    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
             name => 'Opera',
         };

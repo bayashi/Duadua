@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'facebookexternalhit/') == 0 ) {
+    if ( index($d->ua, 'facebookexternalhit/') > -1 ) {
         my $h = {
             name   => 'Facebook Crawler',
             is_bot => 1,

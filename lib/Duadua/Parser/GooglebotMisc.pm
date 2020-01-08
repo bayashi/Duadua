@@ -14,7 +14,7 @@ sub try {
 
     return unless index($d->ua, 'Google') > -1;
 
-    if ( index($d->ua, 'Googlebot-Image') == 0 ) {
+    if ( index($d->ua, 'Googlebot-Image') > -1 ) {
         my $h = {
             name   => 'Googlebot-Image',
             is_bot => 1,
@@ -28,14 +28,14 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'Googlebot-News') == 0 ) {
+    if ( index($d->ua, 'Googlebot-News') > -1 ) {
         return {
             name   => 'Googlebot-News',
             is_bot => 1,
         };
     }
 
-    if ( index($d->ua, 'Googlebot-Video') == 0 ) {
+    if ( index($d->ua, 'Googlebot-Video') > -1 ) {
         my $h = {
             name   => 'Googlebot-Video',
             is_bot => 1,
@@ -63,7 +63,7 @@ sub try {
         };
     }
 
-    if ( index($d->ua, 'FeedFetcher-Google') == 0 ) {
+    if ( index($d->ua, 'FeedFetcher-Google') > -1 ) {
         return {
             name   => 'FeedFetcher-Google',
             is_bot => 1,

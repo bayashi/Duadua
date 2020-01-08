@@ -30,7 +30,7 @@ sub _cli {
 
         return $h;
     }
-    elsif ( index($d->ua, 'Wget/') == 0 ) {
+    elsif ( index($d->ua, 'Wget/') > -1 ) {
         my $h = {
             name => 'Wget',
         };
@@ -65,7 +65,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'WWW-Mechanize/') == 0 ) {
+    elsif ( index($d->ua, 'WWW-Mechanize/') > -1 ) {
         $h = {
             name => 'WWW-Mechanize',
         };
@@ -75,7 +75,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'LWP::Simple/') == 0 || index($d->ua, 'lwp-trivial/') == 0 ) {
+    elsif ( index($d->ua, 'LWP::Simple/') > -1 || index($d->ua, 'lwp-trivial/') > -1 ) {
         $h = {
             name => 'LWP::Simple',
         };
@@ -85,7 +85,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'Furl::HTTP/') == 0 ) {
+    elsif ( index($d->ua, 'Furl::HTTP/') > -1 ) {
         $h = {
             name => 'Furl',
         };
@@ -104,7 +104,7 @@ sub _python {
 
     my $h;
 
-    if ( index($d->ua, 'Python-urllib/') == 0 ) {
+    if ( index($d->ua, 'Python-urllib/') > -1 ) {
         $h = {
             name => 'Python-urllib',
         };
@@ -114,7 +114,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'PycURL/') == 0 ) {
+    elsif ( index($d->ua, 'PycURL/') > -1 ) {
         $h = {
             name => 'PycURL',
         };
@@ -124,7 +124,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'HTTPie/') == 0 ) {
+    elsif ( index($d->ua, 'HTTPie/') > -1 ) {
         $h = {
             name => 'HTTPie',
         };
@@ -143,7 +143,7 @@ sub _php {
 
     my $h;
 
-    if ( index($d->ua, 'GuzzleHttp/') == 0 ) {
+    if ( index($d->ua, 'GuzzleHttp/') > -1 ) {
         $h = {
             name => 'Guzzle',
         };
@@ -153,7 +153,7 @@ sub _php {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'WordPress/') == 0 || index($d->ua, 'The Incutio XML-RPC PHP Library -- WordPress/') == 0 ) {
+    elsif ( index($d->ua, 'WordPress/') == 0 || index($d->ua, 'The Incutio XML-RPC PHP Library -- WordPress/') > -1 ) {
         $h = {
             name => 'WordPress',
         };
@@ -182,7 +182,7 @@ sub _java {
 
     my $h;
 
-    if ( index($d->ua, 'okhttp/') == 0 ) {
+    if ( index($d->ua, 'okhttp/') > -1 ) {
         $h = {
             name => 'OkHttp',
         };
@@ -192,7 +192,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'Jakarta Commons-HttpClient/') == 0 ) {
+    elsif ( index($d->ua, 'Jakarta Commons-HttpClient/') > -1 ) {
         $h = {
             name => 'Jakarta Commons-HttpClient',
         };
@@ -202,7 +202,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( index($d->ua, 'Apache-HttpClient/') == 0 ) {
+    elsif ( index($d->ua, 'Apache-HttpClient/') > -1 ) {
         $h = {
             name => 'Apache-HttpClient',
         };
@@ -219,7 +219,7 @@ sub _java {
 sub _golang {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Go-http-client/') == 0 ) {
+    if ( index($d->ua, 'Go-http-client/') > -1 ) {
         my $h = {
             name => 'Go-http-client',
         };
@@ -241,7 +241,7 @@ sub _ruby {
             name => 'Ruby',
         };
     }
-    elsif ( index($d->ua, 'Atig::Http/') == 0 ) {
+    elsif ( index($d->ua, 'Atig::Http/') > -1 ) {
         my $h = {
             name => 'Atig',
         };

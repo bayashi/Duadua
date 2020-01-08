@@ -6,7 +6,7 @@ sub try {
     my ($class, $d) = @_;
 
     if ( index($d->ua, 'BingPreview/') > -1
-                && index($d->ua, 'Mozilla/') == 0 ) {
+                && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = _set_property($d, 'BingPreview');
 
         if ($d->opt('version')) {

@@ -6,7 +6,7 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'Firefox/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'Firefox/') > -1 ) {
         my $h = {
             name => 'Mozilla Firefox',
         };
@@ -19,7 +19,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'FxiOS/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'FxiOS/') > -1 ) {
         my $h = {
             name   => 'Mozilla Firefox iOS',
             is_ios => 1,

@@ -9,7 +9,7 @@ sub try {
     return if index($d->ua, 'http') > -1;
     return if index($d->ua, 'HatenaBookmark/Android') > -1;
 
-    if ( index($d->ua, 'Mozilla/5.0 (Mac') == 0 && index($d->ua, 'Safari/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (Mac') > -1 && index($d->ua, 'Safari/') > -1 ) {
         my $h = {
             name   => 'Apple Safari',
             is_ios => 1,
@@ -23,7 +23,7 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'Mozilla/5.0') == 0
+    if ( index($d->ua, 'Mozilla/5.0') > -1
         && Duadua::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
         my $h = {
             name => 'Apple Safari',

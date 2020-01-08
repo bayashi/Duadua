@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'Windows ') > -1 ) {
+    if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
         my $h = {
             name       => 'Internet Explorer',
             is_windows => 1,
@@ -19,7 +19,7 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'Trident/') > -1 && index($d->ua, ' rv:1') > -1 && index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'Windows ') > -1 ) {
+    if ( index($d->ua, 'Trident/') > -1 && index($d->ua, ' rv:1') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
         my $h = {
             name       => 'Internet Explorer',
             is_windows => 1,

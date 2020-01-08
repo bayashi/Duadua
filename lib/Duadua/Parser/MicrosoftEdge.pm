@@ -6,7 +6,7 @@ sub try {
     my ($class, $d) = @_;
 
     if ( ( index($d->ua, 'Edge/') > -1 || index($d->ua, 'Edg/') > -1 )
-            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') == 0 ) {
+            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
             name   => 'Microsoft Edge',
             is_windows => 1,
