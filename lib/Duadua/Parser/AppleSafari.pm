@@ -15,7 +15,7 @@ sub try {
             is_ios => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -29,7 +29,7 @@ sub try {
             name => 'Apple Safari',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
             $h->{version} = $version if $version;
         }

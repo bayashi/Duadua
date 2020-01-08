@@ -23,7 +23,7 @@ sub _cli {
             name => 'Curl',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^curl/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -41,7 +41,7 @@ sub _cli {
             $h->{is_windows} = 1;
         }
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Wget/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -60,7 +60,7 @@ sub _perl {
             name => 'libwww-perl',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!libwww-perl/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -70,7 +70,7 @@ sub _perl {
             name => 'WWW-Mechanize',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^WWW-Mechanize/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -80,7 +80,7 @@ sub _perl {
             name => 'LWP::Simple',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^lwp[^/]+/([\d.]+)!i);
             $h->{version} = $version if $version;
         }
@@ -90,7 +90,7 @@ sub _perl {
             name => 'Furl',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Furl::HTTP/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -109,7 +109,7 @@ sub _python {
             name => 'Python-urllib',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Python-urllib/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -119,7 +119,7 @@ sub _python {
             name => 'PycURL',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^PycURL/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -129,7 +129,7 @@ sub _python {
             name => 'HTTPie',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^HTTPie/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -148,7 +148,7 @@ sub _php {
             name => 'Guzzle',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^GuzzleHttp/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -158,7 +158,7 @@ sub _php {
             name => 'WordPress',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!WordPress/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -168,7 +168,7 @@ sub _php {
             name => 'PHP',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! PHP/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -187,7 +187,7 @@ sub _java {
             name => 'OkHttp',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^okhttp/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -197,7 +197,7 @@ sub _java {
             name => 'Jakarta Commons-HttpClient',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Jakarta Commons-HttpClient/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -207,7 +207,7 @@ sub _java {
             name => 'Apache-HttpClient',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Apache-HttpClient/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -224,7 +224,7 @@ sub _golang {
             name => 'Go-http-client',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Go-http-client/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -249,7 +249,7 @@ sub _ruby {
             $h->{is_linux} = 1;
         }
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Atig::Http/([^\s]+)!);
             $h->{version} = $version if $version;
         }

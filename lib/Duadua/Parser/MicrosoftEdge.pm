@@ -12,7 +12,7 @@ sub try {
             is_windows => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Edge?/([\d.]+)!);
             $h->{version} = $version if $version;
         }

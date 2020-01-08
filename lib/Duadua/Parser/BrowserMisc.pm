@@ -16,7 +16,7 @@ sub try {
             name => 'Lynx',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Lynx/([\d.a-z]+)!);
             $h->{version} = $version if $version;
         }
@@ -28,7 +28,7 @@ sub try {
             name => 'EzLynx',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!EzLynx/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -40,7 +40,7 @@ sub try {
             name => 'w3m',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^w3m/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -52,7 +52,7 @@ sub try {
             name => 'Konqueror',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -64,7 +64,7 @@ sub try {
             name => 'Konqueror',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -78,7 +78,7 @@ sub try {
             is_ios => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!OmniWeb/([\d.]+)!);
             $h->{version} = $version if $version;
         }

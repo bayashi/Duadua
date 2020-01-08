@@ -52,7 +52,7 @@ sub try {
             name   => 'AU KDDI ' . $1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! UP\.Browser/([\d.\_A-Z]+\d)!);
             $h->{version} = $version if $version;
         }

@@ -11,7 +11,7 @@ sub try {
             name => 'Opera',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
             $h->{version} = $version if $version;
         }
@@ -24,7 +24,7 @@ sub try {
             name => 'Opera',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
             $h->{version} = $version if $version;
         }

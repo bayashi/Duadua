@@ -79,6 +79,7 @@ use Duadua;
     );
 
     is $d->name, 'Googlebot', 'version';
+    ok $d->opt_version;
     ok $d->is_bot;
     ok !$d->is_ios;
     ok !$d->is_android;

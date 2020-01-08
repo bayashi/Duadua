@@ -13,7 +13,7 @@ sub try {
             name => 'Google Chrome',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -27,7 +27,7 @@ sub try {
             name => 'Google Chrome',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
             $h->{version} = $version if $version;
         }

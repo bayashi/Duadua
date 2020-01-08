@@ -20,7 +20,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Googlebot-Image/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -41,7 +41,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Googlebot-Video/([\d.]+)!);
             $h->{version} = $version if $version;
         }

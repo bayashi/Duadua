@@ -10,7 +10,7 @@ sub try {
     if ( index($d->ua, 'Googlebot') > -1 && index($d->ua, 'Googlebot-') == -1 ) {
         my $h = _set_googlebot($d, 'Googlebot');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Googlebot/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -33,7 +33,7 @@ sub try {
     if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
         my $h = _set_googlebot($d, 'DuplexWeb-Google');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
             $h->{version} = $version if $version;
         }

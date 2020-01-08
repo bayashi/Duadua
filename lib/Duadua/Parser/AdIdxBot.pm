@@ -10,7 +10,7 @@ sub try {
                 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = _set_property($d, 'AdIdxBot');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!adidxbot/([\d.]+)!);
             $h->{version} = $version if $version;
         }

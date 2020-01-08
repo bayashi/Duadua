@@ -7,10 +7,10 @@ sub try {
 
     if ( index($d->ua, 'bingbot/') > -1
             && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
-                && index($d->ua, 'Mozilla/') == 0 ) {
+                && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = _set_property($d, 'Bingbot');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!bingbot/([\d.]+)!);
             $h->{version} = $version if $version;
         }

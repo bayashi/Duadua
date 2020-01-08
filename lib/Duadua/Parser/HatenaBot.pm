@@ -14,7 +14,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena Antenna/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -27,7 +27,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena Pagetitle Agent/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -40,7 +40,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena Star UserAgent/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -53,7 +53,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena-Favicon/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -66,7 +66,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena::[a-zA-Z:]+/([\d.]+)!);
             $h->{version} = $version if $version;
         }
@@ -79,7 +79,7 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^HatenaBookmark/([\d.]+)!);
             $h->{version} = $version if $version;
         }
