@@ -13,9 +13,10 @@ sub try {
             name   => 'Hatena Antenna',
             is_bot => 1,
         };
+
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Hatena Antenna/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -25,9 +26,10 @@ sub try {
             name   => 'Hatena Pagetitle Agent',
             is_bot => 1,
         };
+
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Hatena Pagetitle Agent/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -37,9 +39,10 @@ sub try {
             name   => 'Hatena Star UserAgent',
             is_bot => 1,
         };
+
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Hatena Star UserAgent/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -49,9 +52,10 @@ sub try {
             name   => 'Hatena-Favicon',
             is_bot => 1,
         };
+
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Hatena-Favicon/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -61,9 +65,10 @@ sub try {
             name   => $1,
             is_bot => 1,
         };
+
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Hatena::[a-zA-Z:]+/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -73,9 +78,10 @@ sub try {
             name   => "HatenaBookmark",
             is_bot => 1,
         };
+
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^HatenaBookmark/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);

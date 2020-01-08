@@ -1,7 +1,6 @@
 package Duadua::Parser::HTTPClients;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -26,7 +25,7 @@ sub _cli {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^curl/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -36,15 +35,15 @@ sub _cli {
             name => 'Wget',
         };
         if ( index($d->ua, 'linux-') > -1 ) {
-            linux($h);
+            $h->{is_linux} = 1;
         }
         elsif ( index($d->ua, 'mingw32') > -1 ) {
-            windows($h);
+            $h->{is_windows} = 1;
         }
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Wget/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -63,7 +62,7 @@ sub _perl {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!libwww-perl/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'WWW-Mechanize/') == 0 ) {
@@ -73,7 +72,7 @@ sub _perl {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^WWW-Mechanize/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'LWP::Simple/') == 0 || index($d->ua, 'lwp-trivial/') == 0 ) {
@@ -83,7 +82,7 @@ sub _perl {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^lwp[^/]+/([\d.]+)!i);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'Furl::HTTP/') == 0 ) {
@@ -93,7 +92,7 @@ sub _perl {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Furl::HTTP/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
 
@@ -112,7 +111,7 @@ sub _python {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Python-urllib/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'PycURL/') == 0 ) {
@@ -122,7 +121,7 @@ sub _python {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^PycURL/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'HTTPie/') == 0 ) {
@@ -132,7 +131,7 @@ sub _python {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^HTTPie/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
 
@@ -151,7 +150,7 @@ sub _php {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^GuzzleHttp/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'WordPress/') == 0 || index($d->ua, 'The Incutio XML-RPC PHP Library -- WordPress/') == 0 ) {
@@ -161,7 +160,7 @@ sub _php {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!WordPress/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, ' PHP/') > -1 ) {
@@ -171,7 +170,7 @@ sub _php {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! PHP/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
 
@@ -190,7 +189,7 @@ sub _java {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^okhttp/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'Jakarta Commons-HttpClient/') == 0 ) {
@@ -200,7 +199,7 @@ sub _java {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Jakarta Commons-HttpClient/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
     elsif ( index($d->ua, 'Apache-HttpClient/') == 0 ) {
@@ -210,7 +209,7 @@ sub _java {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Apache-HttpClient/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
 
@@ -227,7 +226,7 @@ sub _golang {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Go-http-client/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -247,12 +246,12 @@ sub _ruby {
             name => 'Atig',
         };
         if ( index($d->ua, 'linux') > -1 ) {
-            linux($h);
+            $h->{is_linux} = 1;
         }
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!^Atig::Http/([^\s]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

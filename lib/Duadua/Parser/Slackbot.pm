@@ -1,7 +1,6 @@
 package Duadua::Parser::Slackbot;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -14,7 +13,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -28,7 +27,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -42,7 +41,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! ([\d.]+)\(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

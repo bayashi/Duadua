@@ -6,48 +6,6 @@ use Duadua;
 use Duadua::Util;
 
 {
-    my $h = {};
-    name($h, 'foo');
-    is $h->{name}, 'foo';
-}
-
-{
-    my $h = {};
-    bot($h);
-    ok $h->{is_bot};
-}
-
-{
-    my $h = {};
-    ios($h);
-    ok $h->{is_ios};
-}
-
-{
-    my $h = {};
-    android($h);
-    ok $h->{is_android};
-}
-
-{
-    my $h = {};
-    linux($h);
-    ok $h->{is_linux};
-}
-
-{
-    my $h = {};
-    windows($h);
-    ok $h->{is_windows};
-}
-
-{
-    my $h = {};
-    version($h, '1.2.3');
-    is $h->{version}, '1.2.3';
-}
-
-{
     my $d = Duadua->new('Mozilla/5.0 Android');
     my $h = {};
     my $ret = Duadua::Util->set_os($d, $h);

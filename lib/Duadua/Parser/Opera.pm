@@ -13,7 +13,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
@@ -26,7 +26,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);

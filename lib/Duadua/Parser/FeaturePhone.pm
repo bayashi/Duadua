@@ -10,7 +10,7 @@ sub try {
         my $name = $1;
         $name =~ s/MST_v_//;
         my $h = {
-            name   => 'DoCoMo ' . $name,
+            name => 'DoCoMo ' . $name,
         };
 
         return $h;
@@ -18,7 +18,7 @@ sub try {
     elsif ( index($d->ua, 'FOMA;') > -1 && index($d->ua, 'Mozilla/') == 0
             && $d->ua =~ m! \(([^;]+);FOMA;!) {
         my $h = {
-            name   => 'DoCoMo ' . $1,
+            name => 'DoCoMo ' . $1,
         };
 
         return $h;
@@ -54,7 +54,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! UP\.Browser/([\d.\_A-Z]+\d)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

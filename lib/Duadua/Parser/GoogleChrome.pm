@@ -15,7 +15,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
@@ -29,7 +29,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);

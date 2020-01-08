@@ -17,7 +17,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -31,7 +31,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);

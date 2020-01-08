@@ -1,7 +1,6 @@
 package Duadua::Parser::BingPreview;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -12,7 +11,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m!BingPreview/([\d.a-z]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -22,11 +21,13 @@ sub try {
 sub _set_property {
     my ($d, $name) = @_;
 
-    my $h = { name => $name };
-    bot($h);
+    my $h = {
+        name   => $name,
+        is_bot => 1,
+    };
 
     if ( index($d->ua, 'Windows') > -1 ) {
-        windows($h);
+        $h->{is_windows} = 1;
     }
 
     return $h;

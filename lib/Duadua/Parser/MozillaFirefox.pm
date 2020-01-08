@@ -13,7 +13,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! Firefox/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
@@ -27,7 +27,7 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! FxiOS/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
