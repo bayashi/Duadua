@@ -1,21 +1,20 @@
 package Duadua::Parser::MicrosoftEdge;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
     if ( ( index($d->ua, 'Edge/') > -1 || index($d->ua, 'Edg/') > -1 )
-            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') == 0 ) {
+            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
             name   => 'Microsoft Edge',
             is_windows => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Edge?/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

@@ -29,6 +29,10 @@ sub opt {
     return $self->{_opt}->{$key};
 }
 
+sub opt_version {
+    shift->{_opt}{version};
+}
+
 sub ua { shift->{_ua} }
 
 sub _result {
@@ -193,6 +197,10 @@ Return User-Agent string
 =head2 opt
 
 The getter of options
+
+=head2 opt_version
+
+The shortcut of C<opt('version')>
 
 
 =head1 REPOSITORY

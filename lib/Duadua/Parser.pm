@@ -2,7 +2,6 @@ package Duadua::Parser;
 use strict;
 use warnings;
 use Module::Pluggable::Object;
-use Duadua::Util;
 
 Module::Pluggable::Object->new(
     search_path => [ __PACKAGE__ ],
@@ -59,7 +58,7 @@ sub parse {
 
         BotMisc
     /) {
-        next if $class->_is_skip_class($d, $m);
+        next if $d->opt('skip') && $class->_is_skip_class($d, $m);
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
         }
@@ -78,27 +77,27 @@ sub _detect_general_bot {
     my $h = \%{$BLANK_UA};
 
     if ( index($d->ua, 'http://') > -1 || index($d->ua, 'https://') > -1 ) {
-        bot($h);
+        $h->{is_bot} = 1;
         if ( index($d->ua, 'Mozilla/') != 0 && $d->ua =~ m!^([^/;]+)/(v?[\d.]+)! ) {
             my ($name, $version) = ($1, $2);
-            name($h, $name);
-            version($h, $version);
+            $h->{name}    = $name;
+            $h->{version} = $version;
         }
         elsif ( $d->ua =~ m![\s\(]([^/\s:;]+(?:bot|crawl|crawler|spider|fetcher))/(v?[\d.]+)!i ) {
             my ($name, $version) = ($1, $2);
-            name($h, $1);
-            version($h, $version);
+            $h->{name}    = $1;
+            $h->{version} = $version;
         }
         elsif ( $d->ua =~ m!([a-zA-Z0-9\-\_\.\!]+(?:bot|crawler))!i ) {
-            name($h, $1);
+            $h->{name} = $1;
         }
 
         return $h;
     }
 
     if ( $d->ua =~ m!^([a-zA-Z0-9\-\_]+)$! ) {
-        name($h, $1);
-        bot($h);
+        $h->{name}   = $1;
+        $h->{is_bot} = 1;
 
         return $h;
     }
@@ -106,8 +105,6 @@ sub _detect_general_bot {
 
 sub _is_skip_class {
     my ($class, $d, $m) = @_;
-
-    return if !$d->opt('skip') || ref $d->opt('skip') ne 'HASH';
 
     return 1 if exists $d->opt('skip')->{$m};
 }

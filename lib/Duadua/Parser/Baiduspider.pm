@@ -1,19 +1,19 @@
 package Duadua::Parser::Baiduspider;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
     if ( index($d->ua, 'Baiduspider') > -1 ) {
-        my $h = {};
-        name($h, 'Baiduspider');
-        bot($h);
+        my $h = {
+            name   => 'Baiduspider',
+            is_bot => 1,
+        };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Baiduspider(?:-render)?/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

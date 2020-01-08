@@ -1,20 +1,19 @@
 package Duadua::Parser::FacebookCrawler;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'facebookexternalhit/') == 0 ) {
+    if ( index($d->ua, 'facebookexternalhit/') > -1 ) {
         my $h = {
             name   => 'Facebook Crawler',
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^facebookexternalhit/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

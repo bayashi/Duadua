@@ -16,9 +16,9 @@ sub try {
             name => 'Lynx',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Lynx/([\d.a-z]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -28,9 +28,9 @@ sub try {
             name => 'EzLynx',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!EzLynx/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
@@ -40,9 +40,9 @@ sub try {
             name => 'w3m',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^w3m/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -52,9 +52,9 @@ sub try {
             name => 'Konqueror',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
@@ -64,23 +64,23 @@ sub try {
             name => 'Konqueror',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
     elsif ( index($d->ua, 'OmniWeb/') == 0
-            || (index($d->ua, ' OmniWeb/') > -1 && index($d->ua, 'Mozilla/') == 0) ) {
+            || (index($d->ua, ' OmniWeb/') > -1 && index($d->ua, 'Mozilla/') > -1) ) {
         my $h = {
-            name => 'OmniWeb',
+            name   => 'OmniWeb',
+            is_ios => 1,
         };
-        ios($h);
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!OmniWeb/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

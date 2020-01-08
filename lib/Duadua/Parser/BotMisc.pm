@@ -1,7 +1,6 @@
 package Duadua::Parser::BotMisc;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -21,9 +20,9 @@ sub try {
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Yeti/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
     }
 

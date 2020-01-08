@@ -6,28 +6,28 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'Firefox/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'Firefox/') > -1 ) {
         my $h = {
             name => 'Mozilla Firefox',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Firefox/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, 'Mozilla/5.0 (') == 0 && index($d->ua, 'FxiOS/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'FxiOS/') > -1 ) {
         my $h = {
             name   => 'Mozilla Firefox iOS',
             is_ios => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! FxiOS/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

@@ -1,64 +1,28 @@
 package Duadua::Util;
 use strict;
 use warnings;
-use Exporter 'import';
-our @EXPORT = qw/
-    name
-    bot android ios linux windows version
-/;
-
-sub name {
-    my ($hash, $name) = @_;
-    $hash->{name} = $name;
-};
-
-sub bot {
-    shift->{is_bot} = 1;
-}
-
-sub ios {
-    shift->{is_ios} = 1;
-}
-
-sub android {
-    shift->{is_android} = 1;
-}
-
-sub linux {
-    shift->{is_linux} = 1;
-}
-
-sub windows {
-    shift->{is_windows} = 1;
-}
-
-sub version {
-    my ($hash, $version) = @_;
-
-    $hash->{version} = $version;
-}
 
 sub set_os {
     my ($class, $d, $h) = @_;
 
     if ( index($d->ua, 'Android') > -1 ) {
-        android($h);
-        linux($h); # Android is Linux also.
+        $h->{is_android} = 1;
+        $h->{is_linux}   = 1; # Android is Linux also.
     }
     elsif ( index($d->ua, 'Linux') > -1 ) {
-        linux($h);
+        $h->{is_linux} = 1;
     }
     elsif ( index($d->ua, 'Win32') > -1 || index($d->ua, 'Windows') > -1 ) {
-        windows($h);
+        $h->{is_windows} = 1;
     }
     elsif ( index($d->ua, 'iPhone') > -1 ) {
-        ios($h);
+        $h->{is_ios} = 1;
     }
     elsif ( index($d->ua, 'iPad') > -1 || index($d->ua, 'iPod') > -1 ) {
-        ios($h);
+        $h->{is_ios} = 1;
     }
     elsif ( index($d->ua, 'Macintosh') > -1 || index($d->ua, 'Mac OS') > -1 ) {
-        ios($h);
+        $h->{is_ios} = 1;
     }
 
     return $h;
@@ -76,6 +40,8 @@ sub ordering_match {
 
     return 1; # Match!
 }
+
+1;
 
 __END__
 

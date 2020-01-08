@@ -1,19 +1,18 @@
 package Duadua::Parser::Twitterbot;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Twitterbot/') == 0 ) {
+    if ( index($d->ua, 'Twitterbot/') > -1 ) {
         my $h = {
             name   => 'Twitterbot',
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

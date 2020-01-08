@@ -1,34 +1,33 @@
 package Duadua::Parser::MicrosoftInternetExplorer;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'Windows ') > -1 ) {
+    if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
         my $h = {
             name       => 'Internet Explorer',
             is_windows => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! MSIE ([\d.]+); !);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
 
-    if ( index($d->ua, 'Trident/') > -1 && index($d->ua, ' rv:1') > -1 && index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'Windows ') > -1 ) {
+    if ( index($d->ua, 'Trident/') > -1 && index($d->ua, ' rv:1') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
         my $h = {
             name       => 'Internet Explorer',
             is_windows => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! rv:([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

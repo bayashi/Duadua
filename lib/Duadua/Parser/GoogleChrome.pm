@@ -13,23 +13,23 @@ sub try {
             name => 'Google Chrome',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, 'Mozilla/') == 0 && index($d->ua, 'AppleWebKit/') > -1
+    if ( index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'AppleWebKit/') > -1
         && (index($d->ua, 'CrMo/') > -1 || index($d->ua, 'CriOS/') > -1) ) {
         my $h = {
             name => 'Google Chrome',
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);

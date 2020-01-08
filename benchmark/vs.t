@@ -66,9 +66,9 @@ sub _browser_detect {
 =pod
 
                         Rate HTTP::BrowserDetect Woothee HTTP::DetectUserAgent Duadua
-HTTP::BrowserDetect   1090/s                  --    -26%                  -32%   -52%
-Woothee               1478/s                 36%      --                   -8%   -35%
-HTTP::DetectUserAgent 1614/s                 48%      9%                    --   -29%
-Duadua                2283/s                109%     55%                   41%     --
+HTTP::BrowserDetect   1141/s                  --    -22%                  -36%   -42%
+Woothee               1464/s                 28%      --                  -18%   -25%
+HTTP::DetectUserAgent 1777/s                 56%     21%                    --   -10%
+Duadua                1964/s                 72%     34%                   11%     --
 
 =cut

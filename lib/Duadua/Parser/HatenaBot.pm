@@ -8,62 +8,67 @@ sub try {
 
     return if index($d->ua, 'Hatena') == -1;
 
-    if ( index($d->ua, 'Hatena Antenna/') == 0 ) {
+    if ( index($d->ua, 'Hatena Antenna/') > -1 ) {
         my $h = {
             name   => 'Hatena Antenna',
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena Antenna/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
-    elsif ( index($d->ua, 'Hatena Pagetitle Agent/') == 0 ) {
+    elsif ( index($d->ua, 'Hatena Pagetitle Agent/') > -1 ) {
         my $h = {
             name   => 'Hatena Pagetitle Agent',
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena Pagetitle Agent/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
-    elsif ( index($d->ua, 'Hatena Star UserAgent/') == 0 ) {
+    elsif ( index($d->ua, 'Hatena Star UserAgent/') > -1 ) {
         my $h = {
             name   => 'Hatena Star UserAgent',
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena Star UserAgent/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
-    elsif ( index($d->ua, 'Hatena-Favicon/') == 0 ) {
+    elsif ( index($d->ua, 'Hatena-Favicon/') > -1 ) {
         my $h = {
             name   => 'Hatena-Favicon',
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena-Favicon/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
-    elsif ( index($d->ua, 'Hatena::') == 0 && $d->ua =~ m!^(Hatena::[a-zA-Z:]+)/!) {
+    elsif ( index($d->ua, 'Hatena::') > -1 && $d->ua =~ m!^(Hatena::[a-zA-Z:]+)/!) {
         my $h = {
             name   => $1,
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Hatena::[a-zA-Z:]+/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -73,9 +78,10 @@ sub try {
             name   => "HatenaBookmark",
             is_bot => 1,
         };
-        if ($d->opt('version')) {
+
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^HatenaBookmark/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);

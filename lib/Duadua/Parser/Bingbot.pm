@@ -1,19 +1,18 @@
 package Duadua::Parser::Bingbot;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
     if ( index($d->ua, 'bingbot/') > -1
             && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
-                && index($d->ua, 'Mozilla/') == 0 ) {
+                && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = _set_property($d, 'Bingbot');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!bingbot/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -23,14 +22,16 @@ sub try {
 sub _set_property {
     my ($d, $name) = @_;
 
-    my $h = { name => $name };
-    bot($h);
+    my $h = {
+        name   => $name,
+        is_bot => 1,
+    };
 
     if ( index($d->ua, 'Windows') > -1 ) {
-        windows($h);
+        $h->{is_windows} = 1;
     }
     elsif ( index($d->ua, 'iPhone') > -1 ) {
-        ios($h);
+        $h->{is_ios} = 1;
     }
 
     return $h;

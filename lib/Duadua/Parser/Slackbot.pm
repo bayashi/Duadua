@@ -1,12 +1,11 @@
 package Duadua::Parser::Slackbot;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Slackbot-LinkExpanding ') == 0 ) {
+    if ( index($d->ua, 'Slackbot-LinkExpanding ') > -1 ) {
         my $h = {
             name   => 'Slackbot Link Expanding',
             is_bot => 1,
@@ -14,35 +13,35 @@ sub try {
 
         if ($d->opt('version')) {
             my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
 
-    if ( index($d->ua, 'Slack-ImgProxy ') == 0 ) {
+    if ( index($d->ua, 'Slack-ImgProxy ') > -1 ) {
         my $h = {
             name   => 'Slack Imgproxy',
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
     }
 
-    if ( index($d->ua, 'Slackbot ') == 0 ) {
+    if ( index($d->ua, 'Slackbot ') > -1 ) {
         my $h = {
             name   => 'Slackbot',
             is_bot => 1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! ([\d.]+)\(!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

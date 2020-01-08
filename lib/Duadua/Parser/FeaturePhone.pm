@@ -6,24 +6,24 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'DoCoMo/2.0') == 0 && $d->ua =~ m!^DoCoMo/2\.0 ([^\(]+)\(!) {
+    if ( index($d->ua, 'DoCoMo/2.0') > -1 && $d->ua =~ m!^DoCoMo/2\.0 ([^\(]+)\(!) {
         my $name = $1;
         $name =~ s/MST_v_//;
         my $h = {
-            name   => 'DoCoMo ' . $name,
+            name => 'DoCoMo ' . $name,
         };
 
         return $h;
     }
-    elsif ( index($d->ua, 'FOMA;') > -1 && index($d->ua, 'Mozilla/') == 0
+    elsif ( index($d->ua, 'FOMA;') > -1 && index($d->ua, 'Mozilla/') > -1
             && $d->ua =~ m! \(([^;]+);FOMA;!) {
         my $h = {
-            name   => 'DoCoMo ' . $1,
+            name => 'DoCoMo ' . $1,
         };
 
         return $h;
     }
-    elsif ( index($d->ua, 'SoftBank/') == 0 ) {
+    elsif ( index($d->ua, 'SoftBank/') > -1 ) {
         my @elements = split '/', $d->ua;
         my $h = {
             name   => 'SoftBank ' . ($elements[2] || ''),
@@ -31,7 +31,7 @@ sub try {
 
         return $h;
     }
-    elsif ( index($d->ua, 'Vodafone/') == 0 ) {
+    elsif ( index($d->ua, 'Vodafone/') > -1 ) {
         my @elements = split '/', $d->ua;
         my $h = {
             name   => 'SoftBank ' . ($elements[2] || ''),
@@ -39,7 +39,7 @@ sub try {
 
         return $h;
     }
-    elsif ( index($d->ua, ';SoftBank') > -1 && index($d->ua, 'Mozilla/') == 0
+    elsif ( index($d->ua, ';SoftBank') > -1 && index($d->ua, 'Mozilla/') > -1
             && $d->ua =~ m!\(([^;]+);SoftBank!) {
         my $h = {
             name   => 'SoftBank ' . $1,
@@ -47,14 +47,14 @@ sub try {
 
         return $h;
     }
-    elsif ( index($d->ua, 'KDDI-') == 0 && $d->ua =~ m!^KDDI-([^\s]+)\s!) {
+    elsif ( index($d->ua, 'KDDI-') > -1 && $d->ua =~ m!^KDDI-([^\s]+)\s!) {
         my $h = {
             name   => 'AU KDDI ' . $1,
         };
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! UP\.Browser/([\d.\_A-Z]+\d)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;

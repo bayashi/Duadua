@@ -1,7 +1,6 @@
 package Duadua::Parser::Googlebot;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -11,9 +10,9 @@ sub try {
     if ( index($d->ua, 'Googlebot') > -1 && index($d->ua, 'Googlebot-') == -1 ) {
         my $h = _set_googlebot($d, 'Googlebot');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!Googlebot/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -34,9 +33,9 @@ sub try {
     if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
         my $h = _set_googlebot($d, 'DuplexWeb-Google');
 
-        if ($d->opt('version')) {
+        if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
-            version($h, $version) if $version;
+            $h->{version} = $version if $version;
         }
 
         return $h;
@@ -58,20 +57,22 @@ sub try {
 sub _set_googlebot {
     my ($d, $name, $opt) = @_;
 
-    my $h = { name => $name };
-    bot($h);
+    my $h = {
+        name   => $name,
+        is_bot => 1,
+    };
 
     if ( index($d->ua, 'Android') > -1 ) {
-        android($h);
-        linux($h); # Android is Linux also.
+        $h->{is_android} = 1;
+        $h->{is_linux}   = 1;
         $h->{name} .= ' Android' if $opt && $opt->{add_os_name};
     }
     elsif ( index($d->ua, 'Linux') > -1 ) {
-        linux($h);
+        $h->{is_linux} = 1;
         $h->{name} .= ' Linux' if $opt && $opt->{add_os_name};
     }
     elsif ( index($d->ua, 'iPhone') > -1 ) {
-        ios($h);
+        $h->{is_ios} = 1;
         $h->{name} .= ' iPhone' if $opt && $opt->{add_os_name};
     }
 
