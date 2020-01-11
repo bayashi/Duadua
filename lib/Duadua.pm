@@ -23,10 +23,8 @@ sub new {
     }, $class;
 }
 
-sub opt {
-    my ($self, $key) = @_;
-
-    return $self->{_opt}->{$key};
+sub opt_skip {
+    shift->{_opt}{skip};
 }
 
 sub opt_version {
