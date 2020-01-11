@@ -9,12 +9,7 @@ Module::Pluggable::Object->new(
 )->plugins;
 
 my $BLANK_UA = {
-    name       => 'UNKNOWN',
-    is_bot     => 0,
-    is_android => 0,
-    is_ios     => 0,
-    is_linux   => 0,
-    is_windows => 0,
+    name => 'UNKNOWN',
 };
 
 sub parse {
