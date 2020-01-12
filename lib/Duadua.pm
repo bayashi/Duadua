@@ -40,6 +40,7 @@ my @PARSER_PROC_LIST = qw/
 
     HTTPClients
 
+    Msnbot
     BotMisc
 /;
 

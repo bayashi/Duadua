@@ -106,6 +106,9 @@
       "Duadua::Parser::MozillaFirefox" : {
          "file" : "lib/Duadua/Parser/MozillaFirefox.pm"
       },
+      "Duadua::Parser::Msnbot" : {
+         "file" : "lib/Duadua/Parser/Msnbot.pm"
+      },
       "Duadua::Parser::Opera" : {
          "file" : "lib/Duadua/Parser/Opera.pm"
       },
