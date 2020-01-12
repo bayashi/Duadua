@@ -1,4 +1,4 @@
-package Duadua::Parser::Opera;
+package Duadua::Parser::DuckDuckGo;
 use strict;
 use warnings;
 use Duadua::Util;
@@ -6,39 +6,26 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Opera/') > -1 ) {
+    if ( index($d->ua, 'DuckDuck') > -1 && index($d->ua, '://duckduckgo.com') > -1) {
         my $h = {
-            name => 'Opera',
+            name   => 'DuckDuckGo Bot',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
+            my ($version) = ($d->ua =~ m!DuckDuck[^/]+/([\d.]+);!);
             $h->{version} = $version if $version;
         }
 
-        return Duadua::Util->set_os($d, $h);
+        return $h;
     }
-
-    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    elsif ( index($d->ua, ' DuckDuckGo/') > -1 && index($d->ua, ' Mobile/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name => 'Opera',
+            name => 'DuckDuckGo',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return Duadua::Util->set_os($d, $h);
-    }
-
-    if ( index($d->ua, ' OPT/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
-        my $h = {
-            name => 'Opera Touch',
-        };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! OPT/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! DuckDuckGo/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 

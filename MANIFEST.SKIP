@@ -33,3 +33,4 @@
 ^MYMETA\.json$
 ^Duadua-*
 ^share/
+^nytprof*

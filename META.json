@@ -73,6 +73,9 @@
       "Duadua::Parser::BrowserMisc" : {
          "file" : "lib/Duadua/Parser/BrowserMisc.pm"
       },
+      "Duadua::Parser::DuckDuckGo" : {
+         "file" : "lib/Duadua/Parser/DuckDuckGo.pm"
+      },
       "Duadua::Parser::FacebookCrawler" : {
          "file" : "lib/Duadua/Parser/FacebookCrawler.pm"
       },
@@ -117,6 +120,9 @@
       },
       "Duadua::Parser::YahooSlurp" : {
          "file" : "lib/Duadua/Parser/YahooSlurp.pm"
+      },
+      "Duadua::Parser::Yandex" : {
+         "file" : "lib/Duadua/Parser/Yandex.pm"
       },
       "Duadua::Util" : {
          "file" : "lib/Duadua/Util.pm"

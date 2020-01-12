@@ -1,44 +1,31 @@
-package Duadua::Parser::Opera;
+package Duadua::Parser::Yandex;
 use strict;
 use warnings;
-use Duadua::Util;
+use Duadua::Util qw//;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Opera/') > -1 ) {
+    if ( index($d->ua, ' YaBrowser/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name => 'Opera',
+            name => 'Yandex Browser',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
+            my ($version) = ($d->ua =~ m! YaBrowser/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
-
-    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    elsif ( index($d->ua, '+http://yandex.com/bots') > -1 ) {
         my $h = {
-            name => 'Opera',
+            name   => 'Yandex Bot',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return Duadua::Util->set_os($d, $h);
-    }
-
-    if ( index($d->ua, ' OPT/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
-        my $h = {
-            name => 'Opera Touch',
-        };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! OPT/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!compatible; [^/]+/([\d.]+); \+http://yandex!);
             $h->{version} = $version if $version;
         }
 
