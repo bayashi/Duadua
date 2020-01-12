@@ -18,6 +18,7 @@ my @PARSER_PROC_LIST = qw/
     MozillaFirefox
 
     Yandex
+    DuckDuckGo
 
     AppleSafari
 

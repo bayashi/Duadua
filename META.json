@@ -73,6 +73,9 @@
       "Duadua::Parser::BrowserMisc" : {
          "file" : "lib/Duadua/Parser/BrowserMisc.pm"
       },
+      "Duadua::Parser::DuckDuckGo" : {
+         "file" : "lib/Duadua/Parser/DuckDuckGo.pm"
+      },
       "Duadua::Parser::FacebookCrawler" : {
          "file" : "lib/Duadua/Parser/FacebookCrawler.pm"
       },
