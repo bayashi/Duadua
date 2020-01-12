@@ -5,6 +5,8 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
+    return if index($d->ua, 'Edg') == -1;
+
     if ( ( index($d->ua, 'Edge/') > -1 || index($d->ua, 'Edg/') > -1 )
             && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
@@ -14,6 +16,19 @@ sub try {
 
         if ($d->opt_version) {
             my ($version) = ($d->ua =~ m! Edge?/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
+    elsif ( index($d->ua, 'EdgiOS/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+        my $h = {
+            name   => 'Microsoft Edge',
+            is_ios => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! EdgiOS/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
