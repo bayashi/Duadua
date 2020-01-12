@@ -16,6 +16,9 @@ my @PARSER_PROC_LIST = qw/
     Opera
     GoogleChrome
     MozillaFirefox
+
+    Yandex
+
     AppleSafari
 
     Baiduspider
