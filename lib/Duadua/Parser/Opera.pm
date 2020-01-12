@@ -31,6 +31,19 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
+
+    if ( index($d->ua, ' OPT/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+        my $h = {
+            name => 'Opera Touch',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! OPT/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h);
+    }
 }
 
 1;
