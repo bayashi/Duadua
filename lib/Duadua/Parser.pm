@@ -20,40 +20,7 @@ sub parse {
         return $BLANK_UA;
     }
 
-    for my $m (qw/
-        Googlebot
-        Bingbot
-        AdIdxBot
-        BingPreview
-
-        MicrosoftEdge
-        MicrosoftInternetExplorer
-        Opera
-        GoogleChrome
-        MozillaFirefox
-        AppleSafari
-
-        Baiduspider
-
-        Twitterbot
-        FacebookCrawler
-        Slackbot
-
-        YahooSlurp
-        YahooJapanBot
-
-        GooglebotMisc
-
-        HatenaBot
-        FeaturePhone
-
-        BrowserMisc
-
-        HTTPClients
-
-        BotMisc
-    /) {
-        next if $d->opt_skip && exists $d->opt_skip->{$m};
+    for my $m (@{$d->parsers}) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
         }
