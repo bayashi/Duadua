@@ -10,6 +10,25 @@ sub try {
         my $h = {
             name => 'Yandex Browser',
         };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! YaBrowser/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h);
+    }
+    elsif ( index($d->ua, '+http://yandex.com/bots') > -1 ) {
+        my $h = {
+            name   => 'Yandex Bot',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!compatible; [^/]+/([\d.]+); \+http://yandex!);
+            $h->{version} = $version if $version;
+        }
+
         return Duadua::Util->set_os($d, $h);
     }
 }

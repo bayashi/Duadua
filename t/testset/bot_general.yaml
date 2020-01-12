@@ -30,14 +30,6 @@
   is_linux: false
   is_windows: false
   version: '2.0'
-- ua: 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)'
-  name: 'YandexBot'
-  is_bot: true
-  is_ios: false
-  is_android: false
-  is_linux: false
-  is_windows: false
-  version: '3.0'
 - ua: 'SafeDNSBot (https://www.safedns.com/searchbot)'
   name: 'SafeDNSBot'
   is_bot: true
