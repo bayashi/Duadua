@@ -9,12 +9,7 @@ Module::Pluggable::Object->new(
 )->plugins;
 
 my $BLANK_UA = {
-    name       => 'UNKNOWN',
-    is_bot     => 0,
-    is_android => 0,
-    is_ios     => 0,
-    is_linux   => 0,
-    is_windows => 0,
+    name => 'UNKNOWN',
 };
 
 sub parse {
@@ -25,40 +20,7 @@ sub parse {
         return $BLANK_UA;
     }
 
-    for my $m (qw/
-        Googlebot
-        Bingbot
-        AdIdxBot
-        BingPreview
-
-        MicrosoftEdge
-        MicrosoftInternetExplorer
-        Opera
-        GoogleChrome
-        MozillaFirefox
-        AppleSafari
-
-        Baiduspider
-
-        Twitterbot
-        FacebookCrawler
-        Slackbot
-
-        YahooSlurp
-        YahooJapanBot
-
-        GooglebotMisc
-
-        HatenaBot
-        FeaturePhone
-
-        BrowserMisc
-
-        HTTPClients
-
-        BotMisc
-    /) {
-        next if $d->opt('skip') && $class->_is_skip_class($d, $m);
+    for my $m (@{$d->parsers}) {
         if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
             return $res;
         }
@@ -101,12 +63,6 @@ sub _detect_general_bot {
 
         return $h;
     }
-}
-
-sub _is_skip_class {
-    my ($class, $d, $m) = @_;
-
-    return 1 if exists $d->opt('skip')->{$m};
 }
 
 1;

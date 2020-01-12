@@ -5,33 +5,68 @@ use Duadua::Parser;
 
 our $VERSION = '0.01';
 
+my @PARSER_PROC_LIST = qw/
+    Googlebot
+    Bingbot
+    AdIdxBot
+    BingPreview
+
+    MicrosoftEdge
+    MicrosoftInternetExplorer
+    Opera
+    GoogleChrome
+    MozillaFirefox
+    AppleSafari
+
+    Baiduspider
+
+    Twitterbot
+    FacebookCrawler
+    Slackbot
+
+    YahooSlurp
+    YahooJapanBot
+
+    GooglebotMisc
+
+    HatenaBot
+    FeaturePhone
+
+    BrowserMisc
+
+    HTTPClients
+
+    BotMisc
+/;
+
 sub new {
     my $class = shift;
     my $ua    = shift // $ENV{'HTTP_USER_AGENT'} // '';
     my $opt   = shift || {};
 
+    my @parsers;
     if (exists $opt->{skip}) {
-        my %hash = map { $_ => 1 } @{ $opt->{skip} };
-        $opt->{skip} = \%hash;
+        for my $p (@PARSER_PROC_LIST) {
+            next if grep { $p eq $_ } @{$opt->{skip}};
+            push @parsers, $p;
+        }
+    }
+    else {
+        @parsers = @PARSER_PROC_LIST;
     }
 
     bless {
-        _ua     => $ua,
-        _parsed => 0,
-        _result => {},
-        _opt    => $opt,
+        _ua          => $ua,
+        _parsed      => 0,
+        _result      => {},
+        _parsers     => \@parsers,
+        _opt_version => $opt->{version},
     }, $class;
 }
 
-sub opt {
-    my ($self, $key) = @_;
+sub opt_version { shift->{_opt_version} }
 
-    return $self->{_opt}->{$key};
-}
-
-sub opt_version {
-    shift->{_opt}{version};
-}
+sub parsers { shift->{_parsers} }
 
 sub ua { shift->{_ua} }
 
@@ -194,13 +229,13 @@ Parse User-Agent string
 
 Return User-Agent string
 
-=head2 opt
-
-The getter of options
-
 =head2 opt_version
 
 The shortcut of C<opt('version')>
+
+=head2 parsers
+
+The list of User Agent Parser
 
 
 =head1 REPOSITORY
