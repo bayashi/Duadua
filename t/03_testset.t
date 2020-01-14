@@ -11,22 +11,34 @@ use Duadua;
 MAIN: {
     my @args = @ARGV;
 
-    my $dir = File::Spec->catfile(
+    my $root_dir = File::Spec->catfile(
         File::Basename::dirname(__FILE__),
         'testset',
     );
 
-    opendir my $dh, $dir or die "Could not open $dir, $!";
+    opendir my $rdh, $root_dir or die "Could not open $root_dir, $!";
 
     my @test_yaml_cases;
 
-    while (my $test_yaml = readdir $dh) {
-        next unless $test_yaml =~ m!.+\.yaml$!;
-        next if scalar(@args) > 0 && !(grep { $test_yaml =~ m!\Q$_!i } @args);
-        push @test_yaml_cases, [$dir, $test_yaml];
+    while (my $d = readdir $rdh) {
+        next if $d =~ m!\.+!; 
+        my $test_dir = File::Spec->catfile(
+            File::Basename::dirname(__FILE__),
+            'testset',
+            $d,
+        );
+        opendir my $tdh, $test_dir or die "Could not open $test_dir, $!";
+        while (my $test_yaml = readdir $tdh) {
+            next unless $test_yaml =~ m!.+\.yaml$!;
+            next if scalar(@args) > 0 && !(grep { $test_yaml =~ m!\Q$_!i } @args);
+            push @test_yaml_cases, [$test_dir, $test_yaml];
+        }
+        closedir $tdh;
     }
 
-    closedir $dh;
+    closedir $rdh;
+
+#use Data::Dumper; warn 'bayadebug'. Dumper(\@test_yaml_cases). "\n"; ok 1;
 
     test(@{$_}) for shuffle @test_yaml_cases;
 }

@@ -1,18 +1,18 @@
-package Duadua::Parser::FacebookCrawler;
+package Duadua::Parser::Bot::Baiduspider;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'facebookexternalhit/') > -1 ) {
+    if ( index($d->ua, 'Baiduspider') > -1 ) {
         my $h = {
-            name   => 'Facebook Crawler',
+            name   => 'Baiduspider',
             is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!^facebookexternalhit/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!Baiduspider(?:-render)?/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
@@ -23,6 +23,8 @@ sub try {
 1;
 
 __END__
+
+=encoding UTF-8
 
 =head1 METHODS
 

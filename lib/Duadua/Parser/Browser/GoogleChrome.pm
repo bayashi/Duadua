@@ -1,31 +1,34 @@
-package Duadua::Parser::Yandex;
+package Duadua::Parser::Browser::GoogleChrome;
 use strict;
 use warnings;
-use Duadua::Util qw//;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, ' YaBrowser/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    return if index($d->ua, 'http') > -1;
+
+    if ( index($d->ua, 'Chrome/') > -1 && index($d->ua, 'AppleWebKit/') > -1 && index($d->ua, 'Safari/') > -1 ) {
         my $h = {
-            name => 'Yandex Browser',
+            name => 'Google Chrome',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! YaBrowser/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
-    elsif ( index($d->ua, '+http://yandex.com/bots') > -1 ) {
+
+    if ( index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'AppleWebKit/') > -1
+        && (index($d->ua, 'CrMo/') > -1 || index($d->ua, 'CriOS/') > -1) ) {
         my $h = {
-            name   => 'Yandex Bot',
-            is_bot => 1,
+            name => 'Google Chrome',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!compatible; [^/]+/([\d.]+); \+http://yandex!);
+            my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 

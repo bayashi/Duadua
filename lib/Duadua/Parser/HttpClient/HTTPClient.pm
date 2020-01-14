@@ -1,4 +1,4 @@
-package Duadua::Parser::HTTPClients;
+package Duadua::Parser::HTTPClient::HTTPClient;
 use strict;
 use warnings;
 

@@ -1,4 +1,4 @@
-package Duadua::Parser::AppleSafari;
+package Duadua::Parser::Browser::Opera;
 use strict;
 use warnings;
 use Duadua::Util;
@@ -6,31 +6,39 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return if index($d->ua, 'http') > -1;
-    return if index($d->ua, 'HatenaBookmark/Android') > -1;
-
-    if ( index($d->ua, 'Mozilla/5.0 (Mac') > -1 && index($d->ua, 'Safari/') > -1 ) {
+    if ( index($d->ua, 'Opera/') > -1 ) {
         my $h = {
-            name   => 'Apple Safari',
-            is_ios => 1,
+            name => 'Opera',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
             $h->{version} = $version if $version;
         }
 
-        return $h;
+        return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, 'Mozilla/5.0') > -1
-        && Duadua::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
+    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name => 'Apple Safari',
+            name => 'Opera',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h);
+    }
+
+    if ( index($d->ua, ' OPT/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+        my $h = {
+            name => 'Opera Touch',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! OPT/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 

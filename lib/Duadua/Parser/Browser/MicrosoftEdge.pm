@@ -1,35 +1,38 @@
-package Duadua::Parser::DuckDuckGo;
+package Duadua::Parser::Browser::MicrosoftEdge;
 use strict;
 use warnings;
-use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'DuckDuck') > -1 && index($d->ua, '://duckduckgo.com') > -1) {
+    return if index($d->ua, 'Edg') == -1;
+
+    if ( ( index($d->ua, 'Edge/') > -1 || index($d->ua, 'Edg/') > -1 )
+            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name   => 'DuckDuckGo Bot',
-            is_bot => 1,
+            name   => 'Microsoft Edge',
+            is_windows => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!DuckDuck[^/]+/([\d.]+);!);
+            my ($version) = ($d->ua =~ m! Edge?/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
         return $h;
     }
-    elsif ( index($d->ua, ' DuckDuckGo/') > -1 && index($d->ua, ' Mobile/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    elsif ( index($d->ua, 'EdgiOS/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name => 'DuckDuckGo',
+            name   => 'Microsoft Edge',
+            is_ios => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! DuckDuckGo/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! EdgiOS/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
-        return Duadua::Util->set_os($d, $h);
+        return $h;
     }
 }
 

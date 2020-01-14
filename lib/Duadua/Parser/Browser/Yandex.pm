@@ -1,28 +1,35 @@
-package Duadua::Parser::YahooJapanBot;
+package Duadua::Parser::Browser::Yandex;
 use strict;
 use warnings;
+use Duadua::Util qw//;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'http://help.yahoo.co.jp/help') > -1 ) {
-        return {
-            name   => 'Yahoo!Japan Crawler',
-            is_bot => 1,
-        };
-    }
-
-    if ( index($d->ua, 'Y!J-') > -1 && $d->ua =~ m|Y!J-[A-Z]+| ) {
+    if ( index($d->ua, ' YaBrowser/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name   => 'Yahoo!Japan Crawler',
-            is_bot => 1,
+            name => 'Yandex Browser',
         };
+
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! YaBrowser/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
-        return $h;
+        return Duadua::Util->set_os($d, $h);
+    }
+    elsif ( index($d->ua, '+http://yandex.com/bots') > -1 ) {
+        my $h = {
+            name   => 'Yandex Bot',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!compatible; [^/]+/([\d.]+); \+http://yandex!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h);
     }
 }
 

@@ -1,17 +1,17 @@
-package Duadua::Parser::Twitterbot;
+package Duadua::Parser::Bot::AdIdxBot;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Twitterbot/') > -1 ) {
-        my $h = {
-            name   => 'Twitterbot',
-            is_bot => 1,
-        };
+    if ( index($d->ua, 'adidxbot/') > -1
+            && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
+                && index($d->ua, 'Mozilla/') > -1 ) {
+        my $h = _set_property($d, 'AdIdxBot');
+
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!adidxbot/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
@@ -19,9 +19,29 @@ sub try {
     }
 }
 
+sub _set_property {
+    my ($d, $name) = @_;
+
+    my $h = {
+        name   => $name,
+        is_bot => 1,
+    };
+
+    if ( index($d->ua, 'Windows') > -1 ) {
+        $h->{is_windows} = 1;
+    }
+    elsif ( index($d->ua, 'iPhone') > -1 ) {
+        $h->{is_ios} = 1;
+    }
+
+    return $h;
+}
+
 1;
 
 __END__
+
+=encoding UTF-8
 
 =head1 METHODS
 

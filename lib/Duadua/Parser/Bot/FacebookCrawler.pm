@@ -1,16 +1,18 @@
-package Duadua::Parser::BingPreview;
+package Duadua::Parser::Bot::FacebookCrawler;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'BingPreview/') > -1
-                && index($d->ua, 'Mozilla/') > -1 ) {
-        my $h = _set_property($d, 'BingPreview');
+    if ( index($d->ua, 'facebookexternalhit/') > -1 ) {
+        my $h = {
+            name   => 'Facebook Crawler',
+            is_bot => 1,
+        };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!BingPreview/([\d.a-z]+)!);
+            my ($version) = ($d->ua =~ m!^facebookexternalhit/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
@@ -18,26 +20,9 @@ sub try {
     }
 }
 
-sub _set_property {
-    my ($d, $name) = @_;
-
-    my $h = {
-        name   => $name,
-        is_bot => 1,
-    };
-
-    if ( index($d->ua, 'Windows') > -1 ) {
-        $h->{is_windows} = 1;
-    }
-
-    return $h;
-}
-
 1;
 
 __END__
-
-=encoding UTF-8
 
 =head1 METHODS
 

@@ -1,39 +1,34 @@
-package Duadua::Parser::BotMisc;
+package Duadua::Parser::Bot::YahooJapanBot;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    my $h;
-
-    if ( $d->ua eq 'ia_archiver' ) {
-        $h = {
-            name   => 'Internet Archive',
+    if ( index($d->ua, 'http://help.yahoo.co.jp/help') > -1 ) {
+        return {
+            name   => 'Yahoo!Japan Crawler',
             is_bot => 1,
         };
     }
-    elsif ( index($d->ua, 'Yeti/') > -1
-            && index($d->ua, '+http://') > -1 && index($d->ua, 'naver.') > -1 ) {
-        $h = {
-            name   => 'Naver Yeti',
+
+    if ( index($d->ua, 'Y!J-') > -1 && $d->ua =~ m|Y!J-[A-Z]+| ) {
+        my $h = {
+            name   => 'Yahoo!Japan Crawler',
             is_bot => 1,
         };
-
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Yeti/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!/([\d.]+)!);
             $h->{version} = $version if $version;
         }
-    }
 
-    return $h;
+        return $h;
+    }
 }
 
 1;
 
 __END__
-
-=encoding UTF-8
 
 =head1 METHODS
 

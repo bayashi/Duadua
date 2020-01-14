@@ -1,23 +1,36 @@
-package Duadua::Parser::Baiduspider;
+package Duadua::Parser::Bot::BingPreview;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Baiduspider') > -1 ) {
-        my $h = {
-            name   => 'Baiduspider',
-            is_bot => 1,
-        };
+    if ( index($d->ua, 'BingPreview/') > -1
+                && index($d->ua, 'Mozilla/') > -1 ) {
+        my $h = _set_property($d, 'BingPreview');
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Baiduspider(?:-render)?/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!BingPreview/([\d.a-z]+)!);
             $h->{version} = $version if $version;
         }
 
         return $h;
     }
+}
+
+sub _set_property {
+    my ($d, $name) = @_;
+
+    my $h = {
+        name   => $name,
+        is_bot => 1,
+    };
+
+    if ( index($d->ua, 'Windows') > -1 ) {
+        $h->{is_windows} = 1;
+    }
+
+    return $h;
 }
 
 1;

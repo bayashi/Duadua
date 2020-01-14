@@ -1,37 +1,29 @@
-package Duadua::Parser::Bingbot;
+package Duadua::Parser::Bot::BotMisc;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'bingbot/') > -1
-            && index($d->ua, '+http://www.bing.com/bingbot.htm') > -1
-                && index($d->ua, 'Mozilla/') > -1 ) {
-        my $h = _set_property($d, 'Bingbot');
+    my $h;
+
+    if ( $d->ua eq 'ia_archiver' ) {
+        $h = {
+            name   => 'Internet Archive',
+            is_bot => 1,
+        };
+    }
+    elsif ( index($d->ua, 'Yeti/') > -1
+            && index($d->ua, '+http://') > -1 && index($d->ua, 'naver.') > -1 ) {
+        $h = {
+            name   => 'Naver Yeti',
+            is_bot => 1,
+        };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!bingbot/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!Yeti/([\d.]+)!);
             $h->{version} = $version if $version;
         }
-
-        return $h;
-    }
-}
-
-sub _set_property {
-    my ($d, $name) = @_;
-
-    my $h = {
-        name   => $name,
-        is_bot => 1,
-    };
-
-    if ( index($d->ua, 'Windows') > -1 ) {
-        $h->{is_windows} = 1;
-    }
-    elsif ( index($d->ua, 'iPhone') > -1 ) {
-        $h->{is_ios} = 1;
     }
 
     return $h;

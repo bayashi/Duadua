@@ -1,4 +1,4 @@
-package Duadua::Parser::GoogleChrome;
+package Duadua::Parser::Browser::DuckDuckGo;
 use strict;
 use warnings;
 use Duadua::Util;
@@ -6,29 +6,26 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return if index($d->ua, 'http') > -1;
-
-    if ( index($d->ua, 'Chrome/') > -1 && index($d->ua, 'AppleWebKit/') > -1 && index($d->ua, 'Safari/') > -1 ) {
+    if ( index($d->ua, 'DuckDuck') > -1 && index($d->ua, '://duckduckgo.com') > -1) {
         my $h = {
-            name => 'Google Chrome',
+            name   => 'DuckDuckGo Bot',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Chrome/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!DuckDuck[^/]+/([\d.]+);!);
             $h->{version} = $version if $version;
         }
 
-        return Duadua::Util->set_os($d, $h);
+        return $h;
     }
-
-    if ( index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'AppleWebKit/') > -1
-        && (index($d->ua, 'CrMo/') > -1 || index($d->ua, 'CriOS/') > -1) ) {
+    elsif ( index($d->ua, ' DuckDuckGo/') > -1 && index($d->ua, ' Mobile/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
         my $h = {
-            name => 'Google Chrome',
+            name => 'DuckDuckGo',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Cr(?:Mo|iOS)/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! DuckDuckGo/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 

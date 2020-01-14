@@ -1,4 +1,4 @@
-package Duadua::Parser::MicrosoftInternetExplorer;
+package Duadua::Parser::Browser::MicrosoftInternetExplorer;
 use strict;
 use warnings;
 

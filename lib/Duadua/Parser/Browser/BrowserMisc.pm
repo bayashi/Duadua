@@ -1,4 +1,4 @@
-package Duadua::Parser::BrowserMisc;
+package Duadua::Parser::Browser::BrowserMisc;
 use strict;
 use warnings;
 use Duadua::Util;

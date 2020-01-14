@@ -1,4 +1,4 @@
-package Duadua::Parser::Opera;
+package Duadua::Parser::Browser::MozillaFirefox;
 use strict;
 use warnings;
 use Duadua::Util;
@@ -6,43 +6,31 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Opera/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'Firefox/') > -1 ) {
         my $h = {
-            name => 'Opera',
+            name => 'Mozilla Firefox',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!a/([\d.]+) \(!);
+            my ($version) = ($d->ua =~ m! Firefox/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'FxiOS/') > -1 ) {
         my $h = {
-            name => 'Opera',
+            name   => 'Mozilla Firefox iOS',
+            is_ios => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! OPR/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! FxiOS/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
-        return Duadua::Util->set_os($d, $h);
-    }
-
-    if ( index($d->ua, ' OPT/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
-        my $h = {
-            name => 'Opera Touch',
-        };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! OPT/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return Duadua::Util->set_os($d, $h);
+        return $h;
     }
 }
 

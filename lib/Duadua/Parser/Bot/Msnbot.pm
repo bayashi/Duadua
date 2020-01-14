@@ -1,15 +1,22 @@
-package Duadua::Parser::YahooSlurp;
+package Duadua::Parser::Bot::Msnbot;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, ' Yahoo! Slurp;') > -1 ) {
-        return {
-            name   => 'Yahoo! Slurp',
+    if ( index($d->ua, 'msnbot') > -1 ) {
+        my $h = {
+            name   => 'msnbot',
             is_bot => 1,
         };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!/([\d.a-z]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
     }
 }
 

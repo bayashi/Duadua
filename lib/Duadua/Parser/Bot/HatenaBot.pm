@@ -1,4 +1,4 @@
-package Duadua::Parser::HatenaBot;
+package Duadua::Parser::Bot::HatenaBot;
 use strict;
 use warnings;
 use Duadua::Util;

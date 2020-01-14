@@ -1,34 +1,46 @@
-package Duadua::Parser::MicrosoftEdge;
+package Duadua::Parser::Bot::Slackbot;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    return if index($d->ua, 'Edg') == -1;
-
-    if ( ( index($d->ua, 'Edge/') > -1 || index($d->ua, 'Edg/') > -1 )
-            && index($d->ua, 'Windows') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( index($d->ua, 'Slackbot-LinkExpanding ') > -1 ) {
         my $h = {
-            name   => 'Microsoft Edge',
-            is_windows => 1,
+            name   => 'Slackbot Link Expanding',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! Edge?/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
             $h->{version} = $version if $version;
         }
 
         return $h;
     }
-    elsif ( index($d->ua, 'EdgiOS/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+
+    if ( index($d->ua, 'Slack-ImgProxy ') > -1 ) {
         my $h = {
-            name   => 'Microsoft Edge',
-            is_ios => 1,
+            name   => 'Slack Imgproxy',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! EdgiOS/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
+
+    if ( index($d->ua, 'Slackbot ') > -1 ) {
+        my $h = {
+            name   => 'Slackbot',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! ([\d.]+)\(!);
             $h->{version} = $version if $version;
         }
 

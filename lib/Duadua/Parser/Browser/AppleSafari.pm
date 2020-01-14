@@ -1,50 +1,40 @@
-package Duadua::Parser::Slackbot;
+package Duadua::Parser::Browser::AppleSafari;
 use strict;
 use warnings;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Slackbot-LinkExpanding ') > -1 ) {
+    return if index($d->ua, 'http') > -1;
+    return if index($d->ua, 'HatenaBookmark/Android') > -1;
+
+    if ( index($d->ua, 'Mozilla/5.0 (Mac') > -1 && index($d->ua, 'Safari/') > -1 ) {
         my $h = {
-            name   => 'Slackbot Link Expanding',
-            is_bot => 1,
+            name   => 'Apple Safari',
+            is_ios => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
+            my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
         return $h;
     }
 
-    if ( index($d->ua, 'Slack-ImgProxy ') > -1 ) {
+    if ( index($d->ua, 'Mozilla/5.0') > -1
+        && Duadua::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
         my $h = {
-            name   => 'Slack Imgproxy',
-            is_bot => 1,
+            name => 'Apple Safari',
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! ([\d.]+) \(!);
+            my ($version) = ($d->ua =~ m!Safari/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
-        return $h;
-    }
-
-    if ( index($d->ua, 'Slackbot ') > -1 ) {
-        my $h = {
-            name   => 'Slackbot',
-            is_bot => 1,
-        };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! ([\d.]+)\(!);
-            $h->{version} = $version if $version;
-        }
-
-        return $h;
+        return Duadua::Util->set_os($d, $h);
     }
 }
 

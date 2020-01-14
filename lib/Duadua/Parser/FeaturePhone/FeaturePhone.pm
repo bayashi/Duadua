@@ -1,4 +1,4 @@
-package Duadua::Parser::FeaturePhone;
+package Duadua::Parser::FeaturePhone::FeaturePhone;
 use strict;
 use warnings;
 use Duadua::Util;

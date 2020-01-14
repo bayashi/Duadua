@@ -1,4 +1,4 @@
-package Duadua::Parser::Googlebot;
+package Duadua::Parser::Bot::Googlebot;
 use strict;
 use warnings;
 
