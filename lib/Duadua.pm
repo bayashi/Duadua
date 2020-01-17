@@ -23,6 +23,7 @@ my @PARSER_PROC_LIST = qw/
     Browser::AppleSafari
 
     Bot::Baiduspider
+    Bot::DuckDuckBot
 
     Bot::Twitterbot
     Bot::FacebookCrawler

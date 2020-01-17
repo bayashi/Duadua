@@ -1,4 +1,4 @@
-package Duadua::Parser::Browser::DuckDuckGo;
+package Duadua::Parser::Bot::DuckDuckBot;
 use strict;
 use warnings;
 use Duadua::Util;
@@ -6,17 +6,18 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, ' DuckDuckGo/') > -1 && index($d->ua, ' Mobile/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( index($d->ua, 'DuckDuck') > -1 && index($d->ua, '://duckduckgo.com') > -1) {
         my $h = {
-            name => 'DuckDuckGo',
+            name   => 'DuckDuckGo Bot',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! DuckDuckGo/([\d.]+)!);
+            my ($version) = ($d->ua =~ m!DuckDuck[^/]+/([\d.]+);!);
             $h->{version} = $version if $version;
         }
 
-        return Duadua::Util->set_os($d, $h);
+        return $h;
     }
 }
 
