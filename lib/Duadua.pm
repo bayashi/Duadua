@@ -6,44 +6,44 @@ use Duadua::Parser;
 our $VERSION = '0.01';
 
 my @PARSER_PROC_LIST = qw/
-    Browser::MicrosoftEdge
-    Browser::GoogleChrome
-    Browser::MicrosoftInternetExplorer
+    Duadua::Parser::Browser::MicrosoftEdge
+    Duadua::Parser::Browser::GoogleChrome
+    Duadua::Parser::Browser::MicrosoftInternetExplorer
 
-    Bot::Googlebot
-    Bot::GooglebotMobile
-    Bot::GooglebotAd
-    Bot::GoogleRead
-    Bot::Bingbot
-    Bot::AdIdxBot
-    Bot::BingPreview
+    Duadua::Parser::Bot::Googlebot
+    Duadua::Parser::Bot::GooglebotMobile
+    Duadua::Parser::Bot::GooglebotAd
+    Duadua::Parser::Bot::GoogleRead
+    Duadua::Parser::Bot::Bingbot
+    Duadua::Parser::Bot::AdIdxBot
+    Duadua::Parser::Bot::BingPreview
 
-    Browser::Opera
-    Browser::MozillaFirefox
+    Duadua::Parser::Browser::Opera
+    Duadua::Parser::Browser::MozillaFirefox
 
-    Browser::AppleSafari
+    Duadua::Parser::Browser::AppleSafari
 
-    HTTPClient::HTTPClient
+    Duadua::Parser::HTTPClient::HTTPClient
 
-    Bot::Twitterbot
-    Bot::FacebookCrawler
-    Bot::Slackbot
+    Duadua::Parser::Bot::Twitterbot
+    Duadua::Parser::Bot::FacebookCrawler
+    Duadua::Parser::Bot::Slackbot
 
-    Bot::YahooSlurp
-    Bot::Baiduspider
-    Bot::YandexBot
-    Bot::GooglebotMisc
-    Bot::DuckDuckBot
-    Bot::Msnbot
-    Bot::BotMisc
+    Duadua::Parser::Bot::YahooSlurp
+    Duadua::Parser::Bot::Baiduspider
+    Duadua::Parser::Bot::YandexBot
+    Duadua::Parser::Bot::GooglebotMisc
+    Duadua::Parser::Bot::DuckDuckBot
+    Duadua::Parser::Bot::Msnbot
+    Duadua::Parser::Bot::BotMisc
 
-    Browser::Yandex
-    Browser::DuckDuckGo
-    Browser::BrowserMisc
+    Duadua::Parser::Browser::Yandex
+    Duadua::Parser::Browser::DuckDuckGo
+    Duadua::Parser::Browser::BrowserMisc
 
-    Bot::YahooJapanBot
-    Bot::HatenaBot
-    FeaturePhone::FeaturePhone
+    Duadua::Parser::Bot::YahooJapanBot
+    Duadua::Parser::Bot::HatenaBot
+    Duadua::Parser::FeaturePhone::FeaturePhone
 /;
 
 sub new {

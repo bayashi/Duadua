@@ -91,7 +91,7 @@ use Duadua;
 {
     my $d = Duadua->new(
         'DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)',
-        { skip => ['Bot::GooglebotMobile', 'FeaturePhone::FeaturePhone'] }
+        { skip => ['Duadua::Parser::Bot::GooglebotMobile', 'Duadua::Parser::FeaturePhone::FeaturePhone'] }
     );
 
     is $d->name, 'DoCoMo', 'skip';
