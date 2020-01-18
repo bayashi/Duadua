@@ -49,13 +49,6 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'AdsBot-Google-Mobile-Apps') > -1 ) {
-        return {
-            name   => 'AdsBot-Google-Mobile-Apps',
-            is_bot => 1,
-        };
-    }
-
     if ( index($d->ua, 'AdsBot-Google') > -1 ) {
         return {
             name   => 'AdsBot-Google',
@@ -66,14 +59,6 @@ sub try {
     if ( index($d->ua, 'FeedFetcher-Google') > -1 ) {
         return {
             name   => 'FeedFetcher-Google',
-            is_bot => 1,
-        };
-    }
-
-    if ( (index($d->ua, 'SAMSUNG-SGH-E250/') == 0 || index($d->ua, 'DoCoMo/') == 0)
-            && index($d->ua, ' Googlebot-Mobile/') > -1 ) {
-        return {
-            name   => 'Googlebot-Mobile',
             is_bot => 1,
         };
     }
