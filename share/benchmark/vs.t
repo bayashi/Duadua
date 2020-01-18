@@ -29,8 +29,9 @@ my @UA_LIST = (
 );
 
 cmpthese(-1, {
-    Duadua  => \&_duadua,
-    Woothee => \&_woothee,
+    Duadua         => \&_duadua,
+    Duadua_reparse => \&_duadua_reparse,
+    Woothee        => \&_woothee,
     'HTTP::DetectUserAgent' => \&_detect_user_agent,
     'HTTP::BrowserDetect'   => \&_browser_detect,
 });
@@ -39,6 +40,14 @@ sub _duadua {
     for my $ua (@UA_LIST) {
         my $d = Duadua->parse($ua);
         my $name = $d->name;
+    }
+}
+
+sub _duadua_reparse {
+    my $d = Duadua->new;
+    for my $ua (@UA_LIST) {
+        my $result = $d->reparse($ua);
+        my $name = $result->name;
     }
 }
 

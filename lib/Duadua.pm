@@ -77,6 +77,15 @@ sub parsers { shift->{_parsers} }
 
 sub ua { shift->{_ua} }
 
+sub reparse {
+    my ($self, $ua) = @_;
+
+    $self->{_ua}     = $ua // $ENV{'HTTP_USER_AGENT'} // '';
+    $self->{_result} = {};
+
+    return $self->parse;
+}
+
 sub _result {
     my ($self, $value) = @_;
 
@@ -231,6 +240,10 @@ Return version string
 =head2 parse
 
 Parse User-Agent string
+
+=head2 reparse($ua)
+
+Parse User-Agent string by same instance without new
 
 =head2 ua
 
