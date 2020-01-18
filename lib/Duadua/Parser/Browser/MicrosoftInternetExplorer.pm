@@ -5,6 +5,9 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
+    return if index($d->ua, 'http') > -1;
+    return if index($d->ua, ' BingPreview') > -1;
+
     if ( index($d->ua, 'MSIE ') > -1 && index($d->ua, 'Mozilla/') > -1 && index($d->ua, 'Windows ') > -1 ) {
         my $h = {
             name       => 'Internet Explorer',

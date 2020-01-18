@@ -15,15 +15,15 @@ my $BLANK_UA = {
 sub parse {
     my ($class, $d) = @_;
 
+    for my $m (@{$d->parsers}) {
+        if ( my $res = $m->try($d) ) {
+            return $res;
+        }
+    }
+
     # Blank or '-'
     if ($d->ua eq '' || $d->ua eq '-') {
         return $BLANK_UA;
-    }
-
-    for my $m (@{$d->parsers}) {
-        if ( my $res = (__PACKAGE__ . "::$m")->try($d) ) {
-            return $res;
-        }
     }
 
     if ( my $is_bot = $class->_detect_general_bot($d) ) {
