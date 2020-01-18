@@ -25,6 +25,18 @@ sub try {
             is_bot => 1,
         };
     }
+
+    if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
+        my $h = _set_googlebot($d, 'DuplexWeb-Google');
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+
+    }
 }
 
 sub _set_googlebot {

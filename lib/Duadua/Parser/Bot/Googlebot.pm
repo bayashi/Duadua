@@ -18,18 +18,6 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
-        my $h = _set_googlebot($d, 'DuplexWeb-Google');
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return $h;
-
-    }
-
     if ( index($d->ua, 'Google Favicon') > -1 ) {
         return _set_googlebot($d, 'Google Favicon');
     }

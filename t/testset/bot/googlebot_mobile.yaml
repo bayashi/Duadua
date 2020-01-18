@@ -34,3 +34,11 @@
   is_android: false
   is_linux: false
   is_windows: false
+- ua: 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012; DuplexWeb-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Mobile Safari/537.36'
+  name: DuplexWeb-Google
+  is_bot: true
+  is_ios: false
+  is_android: true
+  is_linux: true
+  is_windows: false
+  version: '1.0'
