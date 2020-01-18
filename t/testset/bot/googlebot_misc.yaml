@@ -1,11 +1,4 @@
 # https://support.google.com/webmasters/answer/1061943?hl=en
-- ua: 'google-speakr'
-  name: google-speakr
-  is_bot: true
-  is_ios: false
-  is_android: false
-  is_linux: false
-  is_windows: false
 - ua: 'Googlebot-Image/1.0'
   name: Googlebot-Image
   is_bot: true

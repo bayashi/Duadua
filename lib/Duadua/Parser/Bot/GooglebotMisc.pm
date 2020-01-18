@@ -5,13 +5,6 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ($d->ua eq 'google-speakr') {
-        return {
-            name   => 'google-speakr',
-            is_bot => 1,
-        };
-    }
-
     return unless index($d->ua, 'Google') > -1;
 
     if ( index($d->ua, 'Googlebot-Image') > -1 ) {

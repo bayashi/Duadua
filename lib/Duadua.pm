@@ -9,6 +9,7 @@ my @PARSER_PROC_LIST = qw/
     Bot::Googlebot
     Bot::GooglebotMobile
     Bot::GooglebotAd
+    Bot::GoogleRead
     Bot::Bingbot
     Bot::AdIdxBot
     Bot::BingPreview

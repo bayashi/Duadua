@@ -1,48 +1,19 @@
-package Duadua::Parser::Bot::Googlebot;
+package Duadua::Parser::Bot::GoogleRead;
 use strict;
 use warnings;
 
 sub try {
     my ($class, $d) = @_;
 
-    return unless index($d->ua, 'Google') > -1;
-
-    if ( index($d->ua, 'Googlebot') > -1 && index($d->ua, 'Googlebot-') == -1 ) {
-        my $h = _set_googlebot($d, 'Googlebot');
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!Googlebot/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return $h;
-    }
-
-    if ( index($d->ua, 'Mediapartners-Google') > -1 ) {
-        return _set_googlebot($d, 'Mediapartners-Google');
-    }
-
-    if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
-        my $h = _set_googlebot($d, 'DuplexWeb-Google');
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return $h;
-
-    }
-
-    if ( index($d->ua, 'Google Favicon') > -1 ) {
-        return _set_googlebot($d, 'Google Favicon');
-    }
-
-    if ( index($d->ua, 'APIs-Google') > -1 ) {
+    if ($d->ua eq 'google-speakr') {
         return {
-            name   => 'APIs-Google',
+            name   => 'google-speakr',
             is_bot => 1,
         };
+    }
+
+    if ( index($d->ua, 'Google-Read-Aloud') > -1 ) {
+        return _set_googlebot($d, 'Google-Read-Aloud');
     }
 }
 
