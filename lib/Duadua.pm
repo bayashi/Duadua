@@ -6,42 +6,47 @@ use Duadua::Parser;
 our $VERSION = '0.01';
 
 my @PARSER_PROC_LIST = qw/
-    Googlebot
-    Bingbot
-    AdIdxBot
-    BingPreview
+    Bot::Googlebot
+    Bot::GooglebotMobile
+    Bot::GooglebotAd
+    Bot::GoogleRead
+    Bot::Bingbot
+    Bot::AdIdxBot
+    Bot::BingPreview
 
-    MicrosoftEdge
-    MicrosoftInternetExplorer
-    Opera
-    GoogleChrome
-    MozillaFirefox
+    Browser::MicrosoftEdge
+    Browser::MicrosoftInternetExplorer
+    Browser::Opera
+    Browser::GoogleChrome
+    Browser::MozillaFirefox
 
-    Yandex
-    DuckDuckGo
+    Browser::Yandex
+    Browser::DuckDuckGo
 
-    AppleSafari
+    Browser::AppleSafari
 
-    Baiduspider
+    Bot::Baiduspider
+    Bot::YandexBot
+    Bot::DuckDuckBot
 
-    Twitterbot
-    FacebookCrawler
-    Slackbot
+    Bot::Twitterbot
+    Bot::FacebookCrawler
+    Bot::Slackbot
 
-    YahooSlurp
-    YahooJapanBot
+    Bot::YahooSlurp
+    Bot::YahooJapanBot
 
-    GooglebotMisc
+    Bot::GooglebotMisc
 
-    HatenaBot
-    FeaturePhone
+    Bot::HatenaBot
+    FeaturePhone::FeaturePhone
 
-    BrowserMisc
+    Browser::BrowserMisc
 
-    HTTPClients
+    HTTPClient::HTTPClient
 
-    Msnbot
-    BotMisc
+    Bot::Msnbot
+    Bot::BotMisc
 /;
 
 sub new {

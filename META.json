@@ -52,80 +52,95 @@
       "Duadua::Parser" : {
          "file" : "lib/Duadua/Parser.pm"
       },
-      "Duadua::Parser::AdIdxBot" : {
-         "file" : "lib/Duadua/Parser/AdIdxBot.pm"
+      "Duadua::Parser::Bot::AdIdxBot" : {
+         "file" : "lib/Duadua/Parser/Bot/AdIdxBot.pm"
       },
-      "Duadua::Parser::AppleSafari" : {
-         "file" : "lib/Duadua/Parser/AppleSafari.pm"
+      "Duadua::Parser::Bot::Baiduspider" : {
+         "file" : "lib/Duadua/Parser/Bot/Baiduspider.pm"
       },
-      "Duadua::Parser::Baiduspider" : {
-         "file" : "lib/Duadua/Parser/Baiduspider.pm"
+      "Duadua::Parser::Bot::BingPreview" : {
+         "file" : "lib/Duadua/Parser/Bot/BingPreview.pm"
       },
-      "Duadua::Parser::BingPreview" : {
-         "file" : "lib/Duadua/Parser/BingPreview.pm"
+      "Duadua::Parser::Bot::Bingbot" : {
+         "file" : "lib/Duadua/Parser/Bot/Bingbot.pm"
       },
-      "Duadua::Parser::Bingbot" : {
-         "file" : "lib/Duadua/Parser/Bingbot.pm"
+      "Duadua::Parser::Bot::BotMisc" : {
+         "file" : "lib/Duadua/Parser/Bot/BotMisc.pm"
       },
-      "Duadua::Parser::BotMisc" : {
-         "file" : "lib/Duadua/Parser/BotMisc.pm"
+      "Duadua::Parser::Bot::DuckDuckBot" : {
+         "file" : "lib/Duadua/Parser/Bot/DuckDuckBot.pm"
       },
-      "Duadua::Parser::BrowserMisc" : {
-         "file" : "lib/Duadua/Parser/BrowserMisc.pm"
+      "Duadua::Parser::Bot::FacebookCrawler" : {
+         "file" : "lib/Duadua/Parser/Bot/FacebookCrawler.pm"
       },
-      "Duadua::Parser::DuckDuckGo" : {
-         "file" : "lib/Duadua/Parser/DuckDuckGo.pm"
+      "Duadua::Parser::Bot::GoogleRead" : {
+         "file" : "lib/Duadua/Parser/Bot/GoogleRead.pm"
       },
-      "Duadua::Parser::FacebookCrawler" : {
-         "file" : "lib/Duadua/Parser/FacebookCrawler.pm"
+      "Duadua::Parser::Bot::Googlebot" : {
+         "file" : "lib/Duadua/Parser/Bot/Googlebot.pm"
       },
-      "Duadua::Parser::FeaturePhone" : {
-         "file" : "lib/Duadua/Parser/FeaturePhone.pm"
+      "Duadua::Parser::Bot::GooglebotAd" : {
+         "file" : "lib/Duadua/Parser/Bot/GooglebotAd.pm"
       },
-      "Duadua::Parser::GoogleChrome" : {
-         "file" : "lib/Duadua/Parser/GoogleChrome.pm"
+      "Duadua::Parser::Bot::GooglebotMisc" : {
+         "file" : "lib/Duadua/Parser/Bot/GooglebotMisc.pm"
       },
-      "Duadua::Parser::Googlebot" : {
-         "file" : "lib/Duadua/Parser/Googlebot.pm"
+      "Duadua::Parser::Bot::GooglebotMobile" : {
+         "file" : "lib/Duadua/Parser/Bot/GooglebotMobile.pm"
       },
-      "Duadua::Parser::GooglebotMisc" : {
-         "file" : "lib/Duadua/Parser/GooglebotMisc.pm"
+      "Duadua::Parser::Bot::HatenaBot" : {
+         "file" : "lib/Duadua/Parser/Bot/HatenaBot.pm"
       },
-      "Duadua::Parser::HTTPClients" : {
-         "file" : "lib/Duadua/Parser/HTTPClients.pm"
+      "Duadua::Parser::Bot::Msnbot" : {
+         "file" : "lib/Duadua/Parser/Bot/Msnbot.pm"
       },
-      "Duadua::Parser::HatenaBot" : {
-         "file" : "lib/Duadua/Parser/HatenaBot.pm"
+      "Duadua::Parser::Bot::Slackbot" : {
+         "file" : "lib/Duadua/Parser/Bot/Slackbot.pm"
       },
-      "Duadua::Parser::MicrosoftEdge" : {
-         "file" : "lib/Duadua/Parser/MicrosoftEdge.pm"
+      "Duadua::Parser::Bot::Twitterbot" : {
+         "file" : "lib/Duadua/Parser/Bot/Twitterbot.pm"
       },
-      "Duadua::Parser::MicrosoftInternetExplorer" : {
-         "file" : "lib/Duadua/Parser/MicrosoftInternetExplorer.pm"
+      "Duadua::Parser::Bot::YahooJapanBot" : {
+         "file" : "lib/Duadua/Parser/Bot/YahooJapanBot.pm"
       },
-      "Duadua::Parser::MozillaFirefox" : {
-         "file" : "lib/Duadua/Parser/MozillaFirefox.pm"
+      "Duadua::Parser::Bot::YahooSlurp" : {
+         "file" : "lib/Duadua/Parser/Bot/YahooSlurp.pm"
       },
-      "Duadua::Parser::Msnbot" : {
-         "file" : "lib/Duadua/Parser/Msnbot.pm"
+      "Duadua::Parser::Bot::YandexBot" : {
+         "file" : "lib/Duadua/Parser/Bot/YandexBot.pm"
       },
-      "Duadua::Parser::Opera" : {
-         "file" : "lib/Duadua/Parser/Opera.pm"
+      "Duadua::Parser::Browser::AppleSafari" : {
+         "file" : "lib/Duadua/Parser/Browser/AppleSafari.pm"
       },
-      "Duadua::Parser::Slackbot" : {
-         "file" : "lib/Duadua/Parser/Slackbot.pm"
+      "Duadua::Parser::Browser::BrowserMisc" : {
+         "file" : "lib/Duadua/Parser/Browser/BrowserMisc.pm"
       },
-      "Duadua::Parser::Twitterbot" : {
-         "file" : "lib/Duadua/Parser/Twitterbot.pm"
+      "Duadua::Parser::Browser::DuckDuckGo" : {
+         "file" : "lib/Duadua/Parser/Browser/DuckDuckGo.pm"
       },
-      "Duadua::Parser::YahooJapanBot" : {
-         "file" : "lib/Duadua/Parser/YahooJapanBot.pm"
+      "Duadua::Parser::Browser::GoogleChrome" : {
+         "file" : "lib/Duadua/Parser/Browser/GoogleChrome.pm"
       },
-      "Duadua::Parser::YahooSlurp" : {
-         "file" : "lib/Duadua/Parser/YahooSlurp.pm"
+      "Duadua::Parser::Browser::MicrosoftEdge" : {
+         "file" : "lib/Duadua/Parser/Browser/MicrosoftEdge.pm"
       },
-      "Duadua::Parser::Yandex" : {
-         "file" : "lib/Duadua/Parser/Yandex.pm"
+      "Duadua::Parser::Browser::MicrosoftInternetExplorer" : {
+         "file" : "lib/Duadua/Parser/Browser/MicrosoftInternetExplorer.pm"
+      },
+      "Duadua::Parser::Browser::MozillaFirefox" : {
+         "file" : "lib/Duadua/Parser/Browser/MozillaFirefox.pm"
+      },
+      "Duadua::Parser::Browser::Opera" : {
+         "file" : "lib/Duadua/Parser/Browser/Opera.pm"
+      },
+      "Duadua::Parser::Browser::Yandex" : {
+         "file" : "lib/Duadua/Parser/Browser/Yandex.pm"
+      },
+      "Duadua::Parser::FeaturePhone::FeaturePhone" : {
+         "file" : "lib/Duadua/Parser/FeaturePhone/FeaturePhone.pm"
+      },
+      "Duadua::Parser::HTTPClient::HTTPClient" : {
+         "file" : "lib/Duadua/Parser/HTTPClient/HTTPClient.pm"
       },
       "Duadua::Util" : {
          "file" : "lib/Duadua/Util.pm"
