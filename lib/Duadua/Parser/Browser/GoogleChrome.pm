@@ -7,6 +7,8 @@ sub try {
     my ($class, $d) = @_;
 
     return if index($d->ua, 'http') > -1;
+    return if index($d->ua, 'Google') > -1;
+    return if index($d->ua, ' OPR/') > -1;
 
     if ( index($d->ua, 'Chrome/') > -1 && index($d->ua, 'AppleWebKit/') > -1 && index($d->ua, 'Safari/') > -1 ) {
         my $h = {

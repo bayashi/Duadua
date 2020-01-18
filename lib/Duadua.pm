@@ -6,6 +6,10 @@ use Duadua::Parser;
 our $VERSION = '0.01';
 
 my @PARSER_PROC_LIST = qw/
+    Browser::MicrosoftEdge
+    Browser::GoogleChrome
+    Browser::MicrosoftInternetExplorer
+
     Bot::Googlebot
     Bot::GooglebotMobile
     Bot::GooglebotAd
@@ -14,39 +18,32 @@ my @PARSER_PROC_LIST = qw/
     Bot::AdIdxBot
     Bot::BingPreview
 
-    Browser::MicrosoftEdge
-    Browser::MicrosoftInternetExplorer
     Browser::Opera
-    Browser::GoogleChrome
     Browser::MozillaFirefox
-
-    Browser::Yandex
-    Browser::DuckDuckGo
 
     Browser::AppleSafari
 
-    Bot::Baiduspider
-    Bot::YandexBot
-    Bot::DuckDuckBot
+    HTTPClient::HTTPClient
 
     Bot::Twitterbot
     Bot::FacebookCrawler
     Bot::Slackbot
 
     Bot::YahooSlurp
-    Bot::YahooJapanBot
-
+    Bot::Baiduspider
+    Bot::YandexBot
     Bot::GooglebotMisc
-
-    Bot::HatenaBot
-    FeaturePhone::FeaturePhone
-
-    Browser::BrowserMisc
-
-    HTTPClient::HTTPClient
-
+    Bot::DuckDuckBot
     Bot::Msnbot
     Bot::BotMisc
+
+    Browser::Yandex
+    Browser::DuckDuckGo
+    Browser::BrowserMisc
+
+    Bot::YahooJapanBot
+    Bot::HatenaBot
+    FeaturePhone::FeaturePhone
 /;
 
 sub new {
