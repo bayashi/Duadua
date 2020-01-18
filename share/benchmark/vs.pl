@@ -29,8 +29,9 @@ my @UA_LIST = (
 );
 
 cmpthese(-1, {
-    Duadua  => \&_duadua,
-    Woothee => \&_woothee,
+    Duadua         => \&_duadua,
+    Duadua_reparse => \&_duadua_reparse,
+    Woothee        => \&_woothee,
     'HTTP::DetectUserAgent' => \&_detect_user_agent,
     'HTTP::BrowserDetect'   => \&_browser_detect,
 });
@@ -39,6 +40,14 @@ sub _duadua {
     for my $ua (@UA_LIST) {
         my $d = Duadua->parse($ua);
         my $name = $d->name;
+    }
+}
+
+sub _duadua_reparse {
+    my $d = Duadua->new;
+    for my $ua (@UA_LIST) {
+        my $result = $d->reparse($ua);
+        my $name = $result->name;
     }
 }
 
@@ -65,10 +74,11 @@ sub _browser_detect {
 
 =pod
 
-                        Rate HTTP::BrowserDetect Woothee HTTP::DetectUserAgent Duadua
-HTTP::BrowserDetect   1174/s                  --    -21%                  -35%   -45%
-Woothee               1492/s                 27%      --                  -17%   -30%
-HTTP::DetectUserAgent 1794/s                 53%     20%                    --   -16%
-Duadua                2136/s                 82%     43%                   19%     --
+                        Rate HTTP::BrowserDetect Woothee HTTP::DetectUserAgent Duadua Duadua_reparse
+HTTP::BrowserDetect   1188/s                  --    -21%                  -34%   -47%           -58%
+Woothee               1514/s                 27%      --                  -16%   -33%           -47%
+HTTP::DetectUserAgent 1810/s                 52%     20%                    --   -20%           -36%
+Duadua                2262/s                 90%     49%                   25%     --           -20%
+Duadua_reparse        2844/s                139%     88%                   57%    26%             --
 
 =cut
