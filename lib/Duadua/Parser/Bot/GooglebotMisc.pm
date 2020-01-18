@@ -49,13 +49,6 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'AdsBot-Google') > -1 ) {
-        return {
-            name   => 'AdsBot-Google',
-            is_bot => 1,
-        };
-    }
-
     if ( index($d->ua, 'FeedFetcher-Google') > -1 ) {
         return {
             name   => 'FeedFetcher-Google',

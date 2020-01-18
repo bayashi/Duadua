@@ -8,6 +8,7 @@ our $VERSION = '0.01';
 my @PARSER_PROC_LIST = qw/
     Bot::Googlebot
     Bot::GooglebotMobile
+    Bot::GooglebotAd
     Bot::Bingbot
     Bot::AdIdxBot
     Bot::BingPreview

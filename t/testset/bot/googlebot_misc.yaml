@@ -6,13 +6,6 @@
   is_android: false
   is_linux: false
   is_windows: false
-- ua: 'AdsBot-Google (+http://www.google.com/adsbot.html)'
-  name: AdsBot-Google
-  is_bot: true
-  is_ios: false
-  is_android: false
-  is_linux: false
-  is_windows: false
 - ua: 'Googlebot-Image/1.0'
   name: Googlebot-Image
   is_bot: true
@@ -50,10 +43,4 @@
   is_android: false
   is_linux: false
   is_windows: false
-- ua: 'Mediapartners-Google'
-  name: Mediapartners-Google
-  is_bot: true
-  is_ios: false
-  is_android: false
-  is_linux: false
-  is_windows: false
+
