@@ -18,10 +18,6 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'Mediapartners-Google') > -1 ) {
-        return _set_googlebot($d, 'Mediapartners-Google');
-    }
-
     if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
         my $h = _set_googlebot($d, 'DuplexWeb-Google');
 
