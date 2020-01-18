@@ -67,14 +67,26 @@
       "Duadua::Parser::Bot::BotMisc" : {
          "file" : "lib/Duadua/Parser/Bot/BotMisc.pm"
       },
+      "Duadua::Parser::Bot::DuckDuckBot" : {
+         "file" : "lib/Duadua/Parser/Bot/DuckDuckBot.pm"
+      },
       "Duadua::Parser::Bot::FacebookCrawler" : {
          "file" : "lib/Duadua/Parser/Bot/FacebookCrawler.pm"
+      },
+      "Duadua::Parser::Bot::GoogleRead" : {
+         "file" : "lib/Duadua/Parser/Bot/GoogleRead.pm"
       },
       "Duadua::Parser::Bot::Googlebot" : {
          "file" : "lib/Duadua/Parser/Bot/Googlebot.pm"
       },
+      "Duadua::Parser::Bot::GooglebotAd" : {
+         "file" : "lib/Duadua/Parser/Bot/GooglebotAd.pm"
+      },
       "Duadua::Parser::Bot::GooglebotMisc" : {
          "file" : "lib/Duadua/Parser/Bot/GooglebotMisc.pm"
+      },
+      "Duadua::Parser::Bot::GooglebotMobile" : {
+         "file" : "lib/Duadua/Parser/Bot/GooglebotMobile.pm"
       },
       "Duadua::Parser::Bot::HatenaBot" : {
          "file" : "lib/Duadua/Parser/Bot/HatenaBot.pm"
@@ -93,6 +105,9 @@
       },
       "Duadua::Parser::Bot::YahooSlurp" : {
          "file" : "lib/Duadua/Parser/Bot/YahooSlurp.pm"
+      },
+      "Duadua::Parser::Bot::YandexBot" : {
+         "file" : "lib/Duadua/Parser/Bot/YandexBot.pm"
       },
       "Duadua::Parser::Browser::AppleSafari" : {
          "file" : "lib/Duadua/Parser/Browser/AppleSafari.pm"
