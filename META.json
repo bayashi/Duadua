@@ -55,6 +55,9 @@
       "Duadua::Parser::Bot::AdIdxBot" : {
          "file" : "lib/Duadua/Parser/Bot/AdIdxBot.pm"
       },
+      "Duadua::Parser::Bot::Applebot" : {
+         "file" : "lib/Duadua/Parser/Bot/Applebot.pm"
+      },
       "Duadua::Parser::Bot::Baiduspider" : {
          "file" : "lib/Duadua/Parser/Bot/Baiduspider.pm"
       },

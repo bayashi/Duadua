@@ -34,6 +34,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::YandexBot
     Duadua::Parser::Bot::GooglebotMisc
     Duadua::Parser::Bot::DuckDuckBot
+    Duadua::Parser::Bot::Applebot
     Duadua::Parser::Bot::Msnbot
     Duadua::Parser::Bot::BotMisc
 
