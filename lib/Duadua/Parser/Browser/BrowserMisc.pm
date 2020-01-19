@@ -85,6 +85,18 @@ sub try {
 
         return $h;
     }
+    elsif ( index($d->ua, ' QtWebEngine/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+        my $h = {
+            name => 'QtWebEngine',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! QtWebEngine/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h);
+    }
 }
 
 1;
