@@ -94,6 +94,9 @@
       "Duadua::Parser::Bot::Msnbot" : {
          "file" : "lib/Duadua/Parser/Bot/Msnbot.pm"
       },
+      "Duadua::Parser::Bot::OracleGrapeshotCrawler" : {
+         "file" : "lib/Duadua/Parser/Bot/OracleGrapeshotCrawler.pm"
+      },
       "Duadua::Parser::Bot::Slackbot" : {
          "file" : "lib/Duadua/Parser/Bot/Slackbot.pm"
       },
