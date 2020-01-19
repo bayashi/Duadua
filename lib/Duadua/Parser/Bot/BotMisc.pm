@@ -31,6 +31,17 @@ sub try {
             is_bot => 1,
         };
     }
+    elsif ( index($d->ua, ' Daum/') > -1 ) {
+        $h = {
+            name   => 'Daum',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! Daum/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }
