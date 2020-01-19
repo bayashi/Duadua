@@ -21,6 +21,9 @@ sub set_os {
     elsif ( index($d->ua, 'Macintosh') > -1 || index($d->ua, 'Mac OS') > -1 ) {
         $h->{is_ios} = 1;
     }
+    elsif ( index($d->ua, ' CrOS ') > -1 ) {
+        $h->{is_chromeos} = 1;
+    }
     elsif ( index($d->ua, 'Linux') > -1 ) {
         $h->{is_linux} = 1;
     }

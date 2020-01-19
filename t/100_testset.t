@@ -74,6 +74,7 @@ sub _test {
         is_android
         is_linux
         is_windows
+        is_chromeos
     /) {
         is $d->$i, $t->{$i}, "$i, expect:$t->{$i}";
     }

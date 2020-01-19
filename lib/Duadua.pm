@@ -154,6 +154,10 @@ sub is_windows {
     shift->_result->{is_windows} ? 1 : 0;
 }
 
+sub is_chromeos {
+    shift->_result->{is_chromeos} ? 1 : 0;
+}
+
 sub version {
     shift->_result->{version} || '';
 }
@@ -236,6 +240,10 @@ Return true value if the User-Agent is Linux.
 =head2 is_windows
 
 Return true value if the User-Agent is Windows.
+
+=head2 is_chromeos
+
+Return true value if the User-Agent is ChromeOS.
 
 =head2 version
 
