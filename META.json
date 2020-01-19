@@ -91,6 +91,9 @@
       "Duadua::Parser::Bot::HatenaBot" : {
          "file" : "lib/Duadua/Parser/Bot/HatenaBot.pm"
       },
+      "Duadua::Parser::Bot::MailRUBot" : {
+         "file" : "lib/Duadua/Parser/Bot/MailRUBot.pm"
+      },
       "Duadua::Parser::Bot::Msnbot" : {
          "file" : "lib/Duadua/Parser/Bot/Msnbot.pm"
       },
