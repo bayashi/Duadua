@@ -45,3 +45,11 @@
   is_linux: false
   is_windows: false
   version: '4.0.5'
+- ua: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.6 Chrome/69.0.3497.128 Safari/537.36'
+  name: 'QtWebEngine'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: true
+  version: '5.12.6'

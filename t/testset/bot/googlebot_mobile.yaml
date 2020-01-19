@@ -42,3 +42,10 @@
   is_linux: true
   is_windows: false
   version: '1.0'
+- ua: 'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko; googleweblight) Chrome/38.0.1025.166 Mobile Safari/535.19'
+  name: googleweblight
+  is_bot: true
+  is_ios: false
+  is_android: true
+  is_linux: true
+  is_windows: false

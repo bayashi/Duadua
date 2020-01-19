@@ -1,6 +1,7 @@
 package Duadua::Parser::Bot::BotMisc;
 use strict;
 use warnings;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -24,6 +25,25 @@ sub try {
             my ($version) = ($d->ua =~ m!Yeti/([\d.]+)!);
             $h->{version} = $version if $version;
         }
+    }
+    elsif ( index($d->ua, ' proximic;') > -1 ) {
+        $h = {
+            name   => 'Comscore crawler',
+            is_bot => 1,
+        };
+    }
+    elsif ( index($d->ua, ' Daum/') > -1 ) {
+        $h = {
+            name   => 'Daum',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! Daum/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        $h = Duadua::Util->set_os($d, $h);
     }
 
     return $h;

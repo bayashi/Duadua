@@ -34,11 +34,15 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::YandexBot
     Duadua::Parser::Bot::GooglebotMisc
     Duadua::Parser::Bot::DuckDuckBot
+    Duadua::Parser::Bot::Applebot
     Duadua::Parser::Bot::Msnbot
     Duadua::Parser::Bot::BotMisc
 
     Duadua::Parser::Browser::Yandex
     Duadua::Parser::Browser::DuckDuckGo
+    Duadua::Parser::Bot::OracleGrapeshotCrawler
+    Duadua::Parser::Bot::MailRUBot
+    Duadua::Parser::Browser::UCBrowser
     Duadua::Parser::Browser::BrowserMisc
 
     Duadua::Parser::Bot::YahooJapanBot

@@ -9,9 +9,6 @@ sub set_os {
         $h->{is_android} = 1;
         $h->{is_linux}   = 1; # Android is Linux also.
     }
-    elsif ( index($d->ua, 'Linux') > -1 ) {
-        $h->{is_linux} = 1;
-    }
     elsif ( index($d->ua, 'Win32') > -1 || index($d->ua, 'Windows') > -1 ) {
         $h->{is_windows} = 1;
     }
@@ -23,6 +20,9 @@ sub set_os {
     }
     elsif ( index($d->ua, 'Macintosh') > -1 || index($d->ua, 'Mac OS') > -1 ) {
         $h->{is_ios} = 1;
+    }
+    elsif ( index($d->ua, 'Linux') > -1 ) {
+        $h->{is_linux} = 1;
     }
 
     return $h;

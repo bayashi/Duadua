@@ -5,7 +5,11 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    return unless index($d->ua, 'Google') > -1;
+    return unless index($d->ua, 'oogle') > -1;
+
+    if ( index($d->ua, 'googleweblight') > -1 ) {
+        return _set_googlebot($d, 'googleweblight');
+    }
 
     if ( index($d->ua, 'AdsBot-Google-Mobile') > -1 && index($d->ua, 'AdsBot-Google-Mobile-') == -1 ) {
         return _set_googlebot($d, 'AdsBot-Google-Mobile', { add_os_name => 1 });
