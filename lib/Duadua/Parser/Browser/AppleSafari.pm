@@ -8,6 +8,7 @@ sub try {
 
     return if index($d->ua, 'http') > -1;
     return if index($d->ua, ' Mobile/') > -1;
+    return if index($d->ua, 'Browser/') > -1;
     return if index($d->ua, 'HatenaBookmark/Android') > -1;
 
     if ( index($d->ua, 'Mozilla/5.0 (Mac') > -1 && index($d->ua, 'Safari/') > -1 ) {

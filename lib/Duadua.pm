@@ -39,6 +39,7 @@ my @PARSER_PROC_LIST = qw/
 
     Duadua::Parser::Browser::Yandex
     Duadua::Parser::Browser::DuckDuckGo
+    Duadua::Parser::Browser::UCBrowser
     Duadua::Parser::Browser::BrowserMisc
 
     Duadua::Parser::Bot::YahooJapanBot

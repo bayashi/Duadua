@@ -133,6 +133,9 @@
       "Duadua::Parser::Browser::Opera" : {
          "file" : "lib/Duadua/Parser/Browser/Opera.pm"
       },
+      "Duadua::Parser::Browser::UCBrowser" : {
+         "file" : "lib/Duadua/Parser/Browser/UCBrowser.pm"
+      },
       "Duadua::Parser::Browser::Yandex" : {
          "file" : "lib/Duadua/Parser/Browser/Yandex.pm"
       },
