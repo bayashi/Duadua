@@ -51,3 +51,11 @@
   is_linux: false
   is_windows: false
   version: '4.1'
+- ua: "'Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1'"
+  name: 'Daum'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: true
+  is_windows: false
+  version: '4.1'

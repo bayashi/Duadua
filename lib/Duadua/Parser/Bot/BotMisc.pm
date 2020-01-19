@@ -1,6 +1,7 @@
 package Duadua::Parser::Bot::BotMisc;
 use strict;
 use warnings;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -41,6 +42,8 @@ sub try {
             my ($version) = ($d->ua =~ m! Daum/([\d.]+)!);
             $h->{version} = $version if $version;
         }
+
+        $h = Duadua::Util->set_os($d, $h);
     }
 
     return $h;
