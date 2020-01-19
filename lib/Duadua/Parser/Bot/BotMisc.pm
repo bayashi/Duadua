@@ -25,6 +25,12 @@ sub try {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, ' proximic;') > -1 ) {
+        $h = {
+            name   => 'Comscore crawler',
+            is_bot => 1,
+        };
+    }
 
     return $h;
 }

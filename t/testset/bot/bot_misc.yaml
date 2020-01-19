@@ -29,3 +29,17 @@
   is_linux: false
   is_windows: false
   version: '3.0'
+- ua: 'Mozilla/5.0 (compatible; proximic; +https://www.comscore.com/Web-Crawler)'
+  name: 'Comscore crawler'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+- ua: 'Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)'
+  name: 'Comscore crawler'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
