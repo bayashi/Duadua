@@ -6,6 +6,7 @@
   is_android: false
   is_linux: true
   is_windows: false
+  is_chromeos: false
 - ua: 'google-speakr'
   name: google-speakr
   is_bot: true
@@ -13,3 +14,4 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false

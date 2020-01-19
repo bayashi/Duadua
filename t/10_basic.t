@@ -13,6 +13,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
     ok !$d->version;
 }
 
@@ -25,6 +26,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
 }
 
 {
@@ -36,6 +38,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
 }
 
 {
@@ -48,6 +51,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
 }
 
 {
@@ -59,6 +63,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
 }
 
 {
@@ -70,6 +75,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
 }
 
 {
@@ -85,6 +91,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
     is $d->version, '2.1';
 }
 
@@ -100,6 +107,7 @@ use Duadua;
     ok !$d->is_android;
     ok !$d->is_linux;
     ok !$d->is_windows;
+    ok !$d->is_chromeos;
     is $d->version, '2.0';
 }
 

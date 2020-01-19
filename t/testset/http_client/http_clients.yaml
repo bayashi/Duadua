@@ -5,6 +5,7 @@
   is_android: false
   is_linux: true
   is_windows: false
+  is_chromeos: false
   version: '1.19.4'
 - ua: 'curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.27.1 zlib/1.2.3 libidn/1.18 libssh2/1.4.2'
   name: 'Curl'
@@ -13,6 +14,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '7.19.7'
 - ua: 'Wget/1.17.1 (mingw32)'
   name: Wget
@@ -21,6 +23,7 @@
   is_android: false
   is_linux: false
   is_windows: true
+  is_chromeos: false
   version: '1.17.1'
 - ua: 'libwww-perl/6.43'
   name: 'libwww-perl'
@@ -29,6 +32,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '6.43'
 - ua: 'lwp-request/5.834 libwww-perl/5.834'
   name: 'libwww-perl'
@@ -37,6 +41,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '5.834'
 - ua: 'WWW-Mechanize/1.95'
   name: 'WWW-Mechanize'
@@ -45,6 +50,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '1.95'
 - ua: 'LWP::Simple/6.43'
   name: 'LWP::Simple'
@@ -53,6 +59,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '6.43'
 - ua: 'lwp-trivial/1.35'
   name: 'LWP::Simple'
@@ -61,6 +68,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '1.35'
 - ua: 'Furl::HTTP/3.13'
   name: 'Furl'
@@ -69,6 +77,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '3.13'
 - ua: 'HTTPie/1.0.2'
   name: HTTPie
@@ -77,6 +86,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '1.0.2'
 - ua: 'Python-urllib/1.16'
   name: 'Python-urllib'
@@ -85,6 +95,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '1.16'
 - ua: 'PycURL/7.19.5 libcurl/7.38.0 GnuTLS/3.3.8 zlib/1.2.8 libidn/1.29 libssh2/1.4.3 librtmp/2.3'
   name: 'PycURL'
@@ -93,6 +104,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '7.19.5'
 - ua: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.0.13-0ubuntu0.16.04.1'
   name: 'Guzzle'
@@ -101,6 +113,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '6.2.1'
 - ua: 'WordPress/4.5.3; http://example.com'
   name: 'WordPress'
@@ -109,6 +122,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '4.5.3'
 - ua: 'The Incutio XML-RPC PHP Library -- WordPress/4.9.13'
   name: 'WordPress'
@@ -117,6 +131,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '4.9.13'
 - ua: 'HTTP_Request2/2.3.0 (http://pear.php.net/package/http_request2) PHP/5.3.3'
   name: 'PHP'
@@ -125,6 +140,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '5.3.3'
 - ua: 'Ruby'
   name: 'Ruby'
@@ -133,6 +149,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
 - ua: 'Jakarta Commons-HttpClient/3.1'
   name: 'Jakarta Commons-HttpClient'
   is_bot: false
@@ -140,6 +157,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '3.1'
 - ua: 'Go-http-client/1.1'
   name: 'Go-http-client'
@@ -148,6 +166,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '1.1'
 - ua: 'Apache-HttpClient/4.5.2 (Java/1.8.0_171)'
   name: 'Apache-HttpClient'
@@ -156,6 +175,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '4.5.2'
 - ua: 'Atig::Http/f68db1058bf9abdbbffd36e7dd9b3f5dbff7a6d1 (http.rb; net-irc) Ruby/2.5.1 (x86_64-linux-gnu)'
   name: 'Atig'
@@ -164,6 +184,7 @@
   is_android: false
   is_linux: true
   is_windows: false
+  is_chromeos: false
   version: 'f68db1058bf9abdbbffd36e7dd9b3f5dbff7a6d1'
 - ua: 'okhttp/3.11.0'
   name: 'OkHttp'
@@ -172,4 +193,5 @@
   is_android: false
   is_linux: flase
   is_windows: false
+  is_chromeos: false
   version: '3.11.0'

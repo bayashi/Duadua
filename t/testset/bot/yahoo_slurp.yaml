@@ -5,3 +5,4 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false

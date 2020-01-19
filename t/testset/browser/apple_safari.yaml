@@ -5,6 +5,7 @@
   is_android: false
   is_linux: false
   is_windows: false
+  is_chromeos: false
   version: '537.86.3'
 - ua: 'Mozilla/5.0 (Linux; U; Android 2.3.5; ja-jp; ISW11F Build/FGK500) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'
   name: 'Apple Safari'
@@ -13,6 +14,7 @@
   is_android: true
   is_linux: true
   is_windows: false
+  is_chromeos: false
   version: '533.1'
 - ua: 'Mozilla/5.0 (Linux; U; Android 3.1; ja-jp; L-06C Build/HMJ37) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'
   name: 'Apple Safari'
@@ -21,4 +23,5 @@
   is_android: true
   is_linux: true
   is_windows: false
+  is_chromeos: false
   version: '534.13'
