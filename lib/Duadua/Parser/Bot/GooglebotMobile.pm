@@ -1,6 +1,7 @@
 package Duadua::Parser::Bot::GooglebotMobile;
 use strict;
 use warnings;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -8,11 +9,21 @@ sub try {
     return unless index($d->ua, 'oogle') > -1;
 
     if ( index($d->ua, 'googleweblight') > -1 ) {
-        return _set_googlebot($d, 'googleweblight');
+        my $h = {
+            name   => 'googleweblight',
+            is_bot => 1,
+        };
+
+        return Duadua::Util->set_os($d, $h);
     }
 
     if ( index($d->ua, 'AdsBot-Google-Mobile') > -1 && index($d->ua, 'AdsBot-Google-Mobile-') == -1 ) {
-        return _set_googlebot($d, 'AdsBot-Google-Mobile', { add_os_name => 1 });
+        my $h = {
+            name => 'AdsBot-Google-Mobile',
+            is_bot => 1,
+        };
+
+        return Duadua::Util->set_os($d, $h);
     }
 
     if ( index($d->ua, 'AdsBot-Google-Mobile-Apps') > -1 ) {
@@ -31,41 +42,19 @@ sub try {
     }
 
     if ( index($d->ua, 'DuplexWeb-Google') > -1 ) {
-        my $h = _set_googlebot($d, 'DuplexWeb-Google');
+        my $h = {
+            name   => 'DuplexWeb-Google',
+            is_bot => 1,
+        };
 
         if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!DuplexWeb-Google/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
-        return $h;
+        return Duadua::Util->set_os($d, $h);
 
     }
-}
-
-sub _set_googlebot {
-    my ($d, $name, $opt) = @_;
-
-    my $h = {
-        name   => $name,
-        is_bot => 1,
-    };
-
-    if ( index($d->ua, 'Android') > -1 ) {
-        $h->{is_android} = 1;
-        $h->{is_linux}   = 1;
-        $h->{name} .= ' Android' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'Linux') > -1 ) {
-        $h->{is_linux} = 1;
-        $h->{name} .= ' Linux' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'iPhone') > -1 ) {
-        $h->{is_ios} = 1;
-        $h->{name} .= ' iPhone' if $opt && $opt->{add_os_name};
-    }
-
-    return $h;
 }
 
 1;

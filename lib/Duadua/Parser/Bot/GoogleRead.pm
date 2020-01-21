@@ -1,6 +1,7 @@
 package Duadua::Parser::Bot::GoogleRead;
 use strict;
 use warnings;
+use Duadua::Util;
 
 sub try {
     my ($class, $d) = @_;
@@ -13,33 +14,12 @@ sub try {
     }
 
     if ( index($d->ua, 'Google-Read-Aloud') > -1 ) {
-        return _set_googlebot($d, 'Google-Read-Aloud');
+        my $h = {
+            name   => 'Google-Read-Aloud',
+            is_bot => 1,
+        };
+        return Duadua::Util->set_os($d, $h);
     }
-}
-
-sub _set_googlebot {
-    my ($d, $name, $opt) = @_;
-
-    my $h = {
-        name   => $name,
-        is_bot => 1,
-    };
-
-    if ( index($d->ua, 'Android') > -1 ) {
-        $h->{is_android} = 1;
-        $h->{is_linux}   = 1;
-        $h->{name} .= ' Android' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'Linux') > -1 ) {
-        $h->{is_linux} = 1;
-        $h->{name} .= ' Linux' if $opt && $opt->{add_os_name};
-    }
-    elsif ( index($d->ua, 'iPhone') > -1 ) {
-        $h->{is_ios} = 1;
-        $h->{name} .= ' iPhone' if $opt && $opt->{add_os_name};
-    }
-
-    return $h;
 }
 
 1;
