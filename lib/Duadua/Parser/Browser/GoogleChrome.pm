@@ -8,7 +8,7 @@ sub try {
 
     return if index($d->ua, 'http') > -1;
     return if index($d->ua, 'oogle') > -1;
-    return if index($d->ua, ' OPR/') > -1;
+    return if index($d->ua, ' OPR/') > -1 || index($d->ua, ' Vivaldi/') > -1;
     return if index($d->ua, 'Browser/') > -1;
     return if index($d->ua, 'QtWebEngine') > -1;
 
