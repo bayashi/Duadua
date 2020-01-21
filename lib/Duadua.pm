@@ -87,7 +87,7 @@ sub reparse {
     $self->{_ua}     = $ua // $ENV{'HTTP_USER_AGENT'} // '';
     $self->{_result} = {};
 
-    return $self->parse;
+    return $self->_parse;
 }
 
 sub _result {
