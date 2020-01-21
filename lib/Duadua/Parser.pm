@@ -56,13 +56,6 @@ sub _detect_general_bot {
 
         return $h;
     }
-
-    if ( $d->ua =~ m!^([a-zA-Z0-9\-\_]+)$! ) {
-        $h->{name}   = $1;
-        $h->{is_bot} = 1;
-
-        return $h;
-    }
 }
 
 1;
