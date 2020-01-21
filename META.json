@@ -145,6 +145,9 @@
       "Duadua::Parser::Browser::UCBrowser" : {
          "file" : "lib/Duadua/Parser/Browser/UCBrowser.pm"
       },
+      "Duadua::Parser::Browser::Vivaldi" : {
+         "file" : "lib/Duadua/Parser/Browser/Vivaldi.pm"
+      },
       "Duadua::Parser::Browser::Yandex" : {
          "file" : "lib/Duadua/Parser/Browser/Yandex.pm"
       },

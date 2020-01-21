@@ -22,6 +22,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Browser::MozillaFirefox
 
     Duadua::Parser::Browser::AppleSafari
+    Duadua::Parser::Browser::Vivaldi
 
     Duadua::Parser::HTTPClient::HTTPClient
 
