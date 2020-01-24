@@ -190,6 +190,15 @@ Or call as a function to parse immediately
     $d->is_bot
         and say $d->name; # Googlebot
 
+If you would like to parse many times, then you can use C<reparse> method. It's fast.
+
+    my $d = Duadua->new;
+    for my $ua (@ua_list) {
+        my $result = $d->reparse($ua);
+        $result->is_bot
+            and say $result->name;
+    }
+
 
 =head1 DESCRIPTION
 
