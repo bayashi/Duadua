@@ -190,6 +190,15 @@ Or call as a function to parse immediately
     $d->is_bot
         and say $d->name; # Googlebot
 
+If you would like to parse many times, then you can use C<reparse> method. It's fast.
+
+    my $d = Duadua->new;
+    for my $ua (@ua_list) {
+        my $result = $d->reparse($ua);
+        $result->is_bot
+            and say $result->name;
+    }
+
 
 =head1 DESCRIPTION
 
@@ -218,38 +227,6 @@ NOTE that ParserClass is case sensitive, and it might be going to change results
 
 =back
 
-=head2 name
-
-Get User-Agent name
-
-=head2 is_bot
-
-Return true value if the User-Agent is bot.
-
-=head2 is_ios
-
-Return true value if the User-Agent is iOS.
-
-=head2 is_android
-
-Return true value if the User-Agent is Android.
-
-=head2 is_linux
-
-Return true value if the User-Agent is Linux.
-
-=head2 is_windows
-
-Return true value if the User-Agent is Windows.
-
-=head2 is_chromeos
-
-Return true value if the User-Agent is ChromeOS.
-
-=head2 version
-
-Return version string
-
 =head2 parse
 
 Parse User-Agent string
@@ -258,18 +235,51 @@ Parse User-Agent string
 
 Parse User-Agent string by same instance without new
 
-=head2 ua
+=head2 GETTERS
 
-Return User-Agent string
+=over
 
-=head2 opt_version
+=item ua
 
-The shortcut of C<opt('version')>
+Return raw User-Agent string
 
-=head2 parsers
+=item name
+
+Get User-Agent name
+
+=item is_bot
+
+Return true value if the User-Agent is bot.
+
+=item is_ios
+
+Return true value if the User-Agent is iOS.
+
+=item is_android
+
+Return true value if the User-Agent is Android.
+
+=item is_linux
+
+Return true value if the User-Agent is Linux.
+
+=item is_windows
+
+Return true value if the User-Agent is Windows.
+
+=item is_chromeos
+
+Return true value if the User-Agent is ChromeOS.
+
+=item opt_version
+
+Return version option value. If it's true value, then parse to get User Agent version also.
+
+=item parsers
 
 The list of User Agent Parser
 
+=back
 
 =head1 REPOSITORY
 
