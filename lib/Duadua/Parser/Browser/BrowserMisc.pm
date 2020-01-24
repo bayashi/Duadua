@@ -59,18 +59,6 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
-    elsif ( index($d->ua, ' Konqueror/') > -1 ) {
-        my $h = {
-            name => 'Konqueror',
-        };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! Konqueror/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return Duadua::Util->set_os($d, $h);
-    }
     elsif ( index($d->ua, 'OmniWeb/') == 0
             || (index($d->ua, ' OmniWeb/') > -1 && index($d->ua, 'Mozilla/') > -1) ) {
         my $h = {
