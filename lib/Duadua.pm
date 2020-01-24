@@ -218,6 +218,14 @@ NOTE that ParserClass is case sensitive, and it might be going to change results
 
 =back
 
+=head2 parse
+
+Parse User-Agent string
+
+=head2 reparse($ua)
+
+Parse User-Agent string by same instance without new
+
 =head2 name
 
 Get User-Agent name
@@ -249,14 +257,6 @@ Return true value if the User-Agent is ChromeOS.
 =head2 version
 
 Return version string
-
-=head2 parse
-
-Parse User-Agent string
-
-=head2 reparse($ua)
-
-Parse User-Agent string by same instance without new
 
 =head2 ua
 
