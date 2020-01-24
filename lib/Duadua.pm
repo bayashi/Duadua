@@ -226,50 +226,51 @@ Parse User-Agent string
 
 Parse User-Agent string by same instance without new
 
-=head2 ua
+=head2 GETTERS
+
+=over
+
+=item ua
 
 Return raw User-Agent string
 
-=head2 name
+=item name
 
 Get User-Agent name
 
-=head2 is_bot
+=item is_bot
 
 Return true value if the User-Agent is bot.
 
-=head2 is_ios
+=item is_ios
 
 Return true value if the User-Agent is iOS.
 
-=head2 is_android
+=item is_android
 
 Return true value if the User-Agent is Android.
 
-=head2 is_linux
+=item is_linux
 
 Return true value if the User-Agent is Linux.
 
-=head2 is_windows
+=item is_windows
 
 Return true value if the User-Agent is Windows.
 
-=head2 is_chromeos
+=item is_chromeos
 
 Return true value if the User-Agent is ChromeOS.
 
-=head2 version
+=item opt_version
 
-Return version string
+Return version option value. If it's true value, then parse to get User Agent version also.
 
-=head2 opt_version
-
-The shortcut of C<opt('version')>
-
-=head2 parsers
+=item parsers
 
 The list of User Agent Parser
 
+=back
 
 =head1 REPOSITORY
 
