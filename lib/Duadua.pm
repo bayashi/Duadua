@@ -110,14 +110,14 @@ sub parse {
     if (ref $self eq __PACKAGE__) {
         $self->_parse;
     }
-    elsif ($self eq __PACKAGE__ && scalar @_ == 1) {
-        # my $d_obj = Duadua->parse('User-Agent String');
-        my $d = __PACKAGE__->new($_[0]);
+    elsif ($self eq __PACKAGE__) {
+        # my $d_obj = Duadua->parse('User-Agent String', $opt);
+        my $d = __PACKAGE__->new(@_);
         return $d->_parse;
     }
     else {
-        # my $d_obj = Duadua::parse('User-Agent String');
-        my $d = __PACKAGE__->new($self);
+        # my $d_obj = Duadua::parse('User-Agent String', $opt);
+        my $d = __PACKAGE__->new($self, @_);
         return $d->_parse;
     }
 }
