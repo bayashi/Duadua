@@ -226,6 +226,10 @@ Parse User-Agent string
 
 Parse User-Agent string by same instance without new
 
+=head2 ua
+
+Return raw User-Agent string
+
 =head2 name
 
 Get User-Agent name
@@ -257,10 +261,6 @@ Return true value if the User-Agent is ChromeOS.
 =head2 version
 
 Return version string
-
-=head2 ua
-
-Return User-Agent string
 
 =head2 opt_version
 
