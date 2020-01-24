@@ -67,6 +67,19 @@ use Duadua;
 }
 
 {
+    my $d = Duadua::parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', { version => 1 });
+
+    is $d->name, 'Googlebot', 'function call with option';
+    ok $d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
+    ok !$d->is_chromeos;
+    is $d->version, '2.1';
+}
+
+{
     my $d = Duadua->parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
 
     is $d->name, 'Googlebot', 'method call';
@@ -76,6 +89,19 @@ use Duadua;
     ok !$d->is_linux;
     ok !$d->is_windows;
     ok !$d->is_chromeos;
+}
+
+{
+    my $d = Duadua->parse('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', { version => 1 });
+
+    is $d->name, 'Googlebot', 'method call with option';
+    ok $d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
+    ok !$d->is_chromeos;
+    is $d->version, '2.1';
 }
 
 {
