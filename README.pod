@@ -9,18 +9,26 @@ This is Perl module B<Duadua>.
 
 =end html
 
+B<Duadua> provides you to parse User Agent string.
+
 
 =head1 INSTALLATION
 
-Duadua installation is straightforward. If your CPAN shell is set up,
+=head2 cpanm
+
+Duadua installation is straightforward. If your L<cpanm> command is set up,
 you should just be able to do
 
-    % cpan Duadua
+    % cpanm Duadua
 
-Download it, unpack it, then build it as per the usual:
+=head2 download
 
-    % perl Makefile.PL
-    % make && make test
+Download it or git clone it, then build it as per the usual:
+
+    $ git clone git@github.com:bayashi/Duadua.git
+    $ cd Duadua
+    $ perl Makefile.PL
+    $ make && make test
 
 Then install it:
 
