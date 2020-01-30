@@ -287,7 +287,7 @@ The list of User Agent Parser
 
 =begin html
 
-<a href="https://github.com/bayashi/Duadua/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Artistic%202.0-GREEN.png"></a> <a href="https://github.com/bayashi/Duadua/actions"><img src="https://github.com/bayashi/Duadua/workflows/build/badge.svg?_t=1577048828&branch=master"/></a> <a href="https://coveralls.io/r/bayashi/Duadua"><img src="https://coveralls.io/repos/bayashi/Duadua/badge.png?_t=1577048828&branch=master"/></a>
+<a href="https://github.com/bayashi/Duadua/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Artistic%202.0-GREEN.png"></a> <a href="https://github.com/bayashi/Duadua/actions"><img src="https://github.com/bayashi/Duadua/workflows/build/badge.svg?_t=1580369744&branch=master"/></a> <a href="https://coveralls.io/r/bayashi/Duadua"><img src="https://coveralls.io/repos/bayashi/Duadua/badge.png?_t=1580369744&branch=master"/></a>
 
 =end html
 
