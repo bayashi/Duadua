@@ -42,7 +42,7 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'FeedFetcher-Google') > -1 ) {
+    if ( index($d->ua, 'FeedFetcher-Google') == 0 ) {
         return {
             name   => 'FeedFetcher-Google',
             is_bot => 1,
