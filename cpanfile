@@ -10,7 +10,7 @@ on 'test' => sub {
     requires 'YAML';
     requires 'List::Util';
     requires 'Test::More', '1.3';
-    requires 'Test::AllModules';
+    requires 'Test::AllModules', '0.16';
 };
 
 on 'configure' => sub {
