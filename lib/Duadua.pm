@@ -48,6 +48,7 @@ my @PARSER_PROC_LIST = qw/
 
     Duadua::Parser::Bot::YahooJapanBot
     Duadua::Parser::Bot::HatenaBot
+    Duadua::Parser::Bot::Fastladder
     Duadua::Parser::FeaturePhone::FeaturePhone
 /;
 

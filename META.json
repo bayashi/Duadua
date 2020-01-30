@@ -76,6 +76,9 @@
       "Duadua::Parser::Bot::FacebookCrawler" : {
          "file" : "lib/Duadua/Parser/Bot/FacebookCrawler.pm"
       },
+      "Duadua::Parser::Bot::Fastladder" : {
+         "file" : "lib/Duadua/Parser/Bot/Fastladder.pm"
+      },
       "Duadua::Parser::Bot::GoogleRead" : {
          "file" : "lib/Duadua/Parser/Bot/GoogleRead.pm"
       },
