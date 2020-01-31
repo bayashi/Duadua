@@ -1,4 +1,10 @@
 Revision history for Perl extension Duadua
 
+0.02    Fri Jan 31 23:04:46 JST 2020
+        - Support NetcraftSurveyAgent
+        - Support Barkrowler
+        - Support Inoreader
+        - Support Pale Moon
+
 0.01    Fri Jan 31 13:45:58 JST 2020
         - original version
