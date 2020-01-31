@@ -1,38 +1,23 @@
-package Duadua::Parser::Browser::MozillaFirefox;
+package Duadua::Parser::Bot::Netcraft;
 use strict;
 use warnings;
-use Duadua::Util;
+use Duadua::Util qw//;
 
 sub try {
     my ($class, $d) = @_;
 
-    return if index($d->ua, ' PaleMoon/') > -1;
-
-    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'Firefox/') > -1 ) {
+    if ( index($d->ua, ' NetcraftSurveyAgent/') > -1 ) {
         my $h = {
-            name => 'Mozilla Firefox',
+            name   => 'NetcraftSurveyAgent',
+            is_bot => 1,
         };
 
         if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! Firefox/([\d.]+)!);
+            my ($version) = ($d->ua =~ m! NetcraftSurveyAgent/([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
         return Duadua::Util->set_os($d, $h);
-    }
-
-    if ( index($d->ua, 'Mozilla/5.0 (') > -1 && index($d->ua, 'FxiOS/') > -1 ) {
-        my $h = {
-            name   => 'Mozilla Firefox iOS',
-            is_ios => 1,
-        };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m! FxiOS/([\d.]+)!);
-            $h->{version} = $version if $version;
-        }
-
-        return $h;
     }
 }
 

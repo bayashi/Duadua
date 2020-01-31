@@ -43,14 +43,18 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Browser::DuckDuckGo
     Duadua::Parser::Bot::OracleGrapeshotCrawler
     Duadua::Parser::Bot::MailRUBot
+    Duadua::Parser::Browser::PaleMoon
     Duadua::Parser::Browser::UCBrowser
     Duadua::Parser::Browser::BrowserMisc
 
     Duadua::Parser::Bot::YahooJapanBot
     Duadua::Parser::Bot::HatenaBot
     Duadua::Parser::Bot::Feedly
+    Duadua::Parser::Bot::Inoreader
     Duadua::Parser::Bot::Fastladder
     Duadua::Parser::FeaturePhone::FeaturePhone
+    Duadua::Parser::Bot::Netcraft
+    Duadua::Parser::Bot::Barkrowler
 /;
 
 sub new {
