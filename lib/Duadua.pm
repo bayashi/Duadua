@@ -51,6 +51,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Feedly
     Duadua::Parser::Bot::Fastladder
     Duadua::Parser::FeaturePhone::FeaturePhone
+    Duadua::Parser::Bot::Netcraft
 /;
 
 sub new {
