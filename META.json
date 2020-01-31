@@ -47,7 +47,7 @@
    "provides" : {
       "Duadua" : {
          "file" : "lib/Duadua.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       },
       "Duadua::Parser" : {
          "file" : "lib/Duadua/Parser.pm"
@@ -60,6 +60,9 @@
       },
       "Duadua::Parser::Bot::Baiduspider" : {
          "file" : "lib/Duadua/Parser/Bot/Baiduspider.pm"
+      },
+      "Duadua::Parser::Bot::Barkrowler" : {
+         "file" : "lib/Duadua/Parser/Bot/Barkrowler.pm"
       },
       "Duadua::Parser::Bot::BingPreview" : {
          "file" : "lib/Duadua/Parser/Bot/BingPreview.pm"
@@ -100,11 +103,17 @@
       "Duadua::Parser::Bot::HatenaBot" : {
          "file" : "lib/Duadua/Parser/Bot/HatenaBot.pm"
       },
+      "Duadua::Parser::Bot::Inoreader" : {
+         "file" : "lib/Duadua/Parser/Bot/Inoreader.pm"
+      },
       "Duadua::Parser::Bot::MailRUBot" : {
          "file" : "lib/Duadua/Parser/Bot/MailRUBot.pm"
       },
       "Duadua::Parser::Bot::Msnbot" : {
          "file" : "lib/Duadua/Parser/Bot/Msnbot.pm"
+      },
+      "Duadua::Parser::Bot::Netcraft" : {
+         "file" : "lib/Duadua/Parser/Bot/Netcraft.pm"
       },
       "Duadua::Parser::Bot::OracleGrapeshotCrawler" : {
          "file" : "lib/Duadua/Parser/Bot/OracleGrapeshotCrawler.pm"
@@ -148,6 +157,9 @@
       "Duadua::Parser::Browser::Opera" : {
          "file" : "lib/Duadua/Parser/Browser/Opera.pm"
       },
+      "Duadua::Parser::Browser::PaleMoon" : {
+         "file" : "lib/Duadua/Parser/Browser/PaleMoon.pm"
+      },
       "Duadua::Parser::Browser::UCBrowser" : {
          "file" : "lib/Duadua/Parser/Browser/UCBrowser.pm"
       },
@@ -179,6 +191,6 @@
          "url" : "http://github.com/bayashi/Duadua"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_serialization_backend" : "JSON::PP version 4.04"
 }
