@@ -82,6 +82,9 @@
       "Duadua::Parser::Bot::Fastladder" : {
          "file" : "lib/Duadua/Parser/Bot/Fastladder.pm"
       },
+      "Duadua::Parser::Bot::Feedbin" : {
+         "file" : "lib/Duadua/Parser/Bot/Feedbin.pm"
+      },
       "Duadua::Parser::Bot::Feedly" : {
          "file" : "lib/Duadua/Parser/Bot/Feedly.pm"
       },
