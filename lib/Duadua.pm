@@ -60,8 +60,15 @@ my @PARSER_PROC_LIST = qw/
 
 sub new {
     my $class = shift;
-    my $ua    = shift // $ENV{'HTTP_USER_AGENT'} // '';
+    my $ua    = shift;
     my $opt   = shift || {};
+
+    if (!defined $ua) {
+        $ua = '';
+        if (exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT}) {
+            $ua = $ENV{HTTP_USER_AGENT};
+        }
+    }
 
     my @parsers;
     if (exists $opt->{skip}) {
@@ -92,7 +99,14 @@ sub ua { shift->{_ua} }
 sub reparse {
     my ($self, $ua) = @_;
 
-    $self->{_ua}     = $ua // $ENV{'HTTP_USER_AGENT'} // '';
+    if (!defined $ua) {
+        $ua = '';
+        if (exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT}) {
+            $ua = $ENV{HTTP_USER_AGENT};
+        }
+    }
+
+    $self->{_ua}     = $ua;
     $self->{_result} = {};
 
     return $self->_parse;
