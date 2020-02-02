@@ -8,6 +8,7 @@ use Duadua;
     my $d = Duadua->new;
 
     is $d->name, 'UNKNOWN', 'blank';
+    is $d->ua, '';
     ok !$d->is_bot;
     ok !$d->is_ios;
     ok !$d->is_android;
@@ -18,9 +19,23 @@ use Duadua;
 }
 
 {
+    my $d = Duadua->new(0);
+
+    is $d->name, 'UNKNOWN', '0';
+    is $d->ua, '0';
+    ok !$d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
+    ok !$d->is_chromeos;
+}
+
+{
     my $d = Duadua->new('-');
 
     is $d->name, 'UNKNOWN', '-';
+    is $d->ua, '-';
     ok !$d->is_bot;
     ok !$d->is_ios;
     ok !$d->is_android;
@@ -33,6 +48,7 @@ use Duadua;
     my $d = Duadua->new('~');
 
     is $d->name, 'UNKNOWN', '~';
+    is $d->ua, '~';
     ok !$d->is_bot;
     ok !$d->is_ios;
     ok !$d->is_android;
@@ -47,6 +63,20 @@ use Duadua;
 
     is $d->name, 'Googlebot', 'from ENV';
     ok $d->is_bot;
+    ok !$d->is_ios;
+    ok !$d->is_android;
+    ok !$d->is_linux;
+    ok !$d->is_windows;
+    ok !$d->is_chromeos;
+}
+
+{
+    local $ENV{'HTTP_USER_AGENT'} = 0;
+    my $d = Duadua->new;
+
+    is $d->name, 'UNKNOWN', 'from ENV "0"';
+    is $d->ua, '0';
+    ok !$d->is_bot;
     ok !$d->is_ios;
     ok !$d->is_android;
     ok !$d->is_linux;

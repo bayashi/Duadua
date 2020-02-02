@@ -9,42 +9,13 @@ use List::Util qw/shuffle/;
 use Duadua;
 
 MAIN: {
-    my @args = @ARGV;
-
-    my $root_dir = File::Spec->catfile(
-        File::Basename::dirname(__FILE__),
-        'testset',
-    );
-
-    opendir my $rdh, $root_dir or die "Could not open $root_dir, $!";
-
-    my @test_yaml_cases;
-
-    while (my $d = readdir $rdh) {
-        next if $d =~ m!\.+!; 
-        my $test_dir = File::Spec->catfile(
-            File::Basename::dirname(__FILE__),
-            'testset',
-            $d,
-        );
-        opendir my $tdh, $test_dir or die "Could not open $test_dir, $!";
-        while (my $test_yaml = readdir $tdh) {
-            next unless $test_yaml =~ m!.+\.yaml$!;
-            next if scalar(@args) > 0 && !(grep { $test_yaml =~ m!\Q$_!i } @args);
-            push @test_yaml_cases, [$test_dir, $test_yaml];
-        }
-        closedir $tdh;
-    }
-
-    closedir $rdh;
-
-#use Data::Dumper; warn 'bayadebug'. Dumper(\@test_yaml_cases). "\n"; ok 1;
-
-    test(@{$_}) for shuffle @test_yaml_cases;
+    test_yaml(@{$_}) for shuffle get_yaml_list(@ARGV);
 }
 
-sub test {
+sub test_yaml {
     my ($dir, $test_yaml) = @_;
+
+    note 'Load YAML: ' . $test_yaml;
 
     my $tests = YAML::LoadFile(File::Spec->catfile($dir, $test_yaml));
 
@@ -55,12 +26,12 @@ sub test {
         }
 
         subtest $test_yaml => sub {
-            _test($t);
+            test_ua($t);
         };
     }
 }
 
-sub _test {
+sub test_ua {
     my ($t) = @_;
 
     my $d = Duadua->new($t->{ua});
@@ -83,6 +54,39 @@ sub _test {
         my $dv = Duadua->new($t->{ua}, { version => 1 });
         is $dv->version, $t->{version}, "version, expect:$t->{version}";
     }
+}
+
+sub get_yaml_list {
+    my @args = @_;
+
+    my $root_dir = File::Spec->catfile(
+        File::Basename::dirname(__FILE__),
+        'testset',
+    );
+
+    opendir my $rdh, $root_dir or die "Could not open $root_dir, $!";
+
+    my @yaml_list;
+
+    while (my $d = readdir $rdh) {
+        next if $d =~ m!\.+!;
+        my $test_dir = File::Spec->catfile(
+            File::Basename::dirname(__FILE__),
+            'testset',
+            $d,
+        );
+        opendir my $tdh, $test_dir or die "Could not open $test_dir, $!";
+        while (my $test_yaml = readdir $tdh) {
+            next unless $test_yaml =~ m!.+\.yaml$!;
+            next if scalar(@args) > 0 && !(grep { $test_yaml =~ m!\Q$_!i } @args);
+            push @yaml_list, [$test_dir, $test_yaml];
+        }
+        closedir $tdh;
+    }
+
+    closedir $rdh;
+
+    return @yaml_list;
 }
 
 done_testing;

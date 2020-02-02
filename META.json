@@ -47,7 +47,7 @@
    "provides" : {
       "Duadua" : {
          "file" : "lib/Duadua.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       },
       "Duadua::Parser" : {
          "file" : "lib/Duadua/Parser.pm"
@@ -81,6 +81,9 @@
       },
       "Duadua::Parser::Bot::Fastladder" : {
          "file" : "lib/Duadua/Parser/Bot/Fastladder.pm"
+      },
+      "Duadua::Parser::Bot::Feedbin" : {
+         "file" : "lib/Duadua/Parser/Bot/Feedbin.pm"
       },
       "Duadua::Parser::Bot::Feedly" : {
          "file" : "lib/Duadua/Parser/Bot/Feedly.pm"
@@ -191,6 +194,6 @@
          "url" : "http://github.com/bayashi/Duadua"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_serialization_backend" : "JSON::PP version 4.04"
 }

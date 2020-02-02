@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Duadua::Parser;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Browser::MicrosoftEdge
@@ -50,6 +50,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::YahooJapanBot
     Duadua::Parser::Bot::HatenaBot
     Duadua::Parser::Bot::Feedly
+    Duadua::Parser::Bot::Feedbin
     Duadua::Parser::Bot::Inoreader
     Duadua::Parser::Bot::Fastladder
     Duadua::Parser::FeaturePhone::FeaturePhone
@@ -59,8 +60,15 @@ my @PARSER_PROC_LIST = qw/
 
 sub new {
     my $class = shift;
-    my $ua    = shift // $ENV{'HTTP_USER_AGENT'} // '';
+    my $ua    = shift;
     my $opt   = shift || {};
+
+    if (!defined $ua) {
+        $ua = '';
+        if (exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT}) {
+            $ua = $ENV{HTTP_USER_AGENT};
+        }
+    }
 
     my @parsers;
     if (exists $opt->{skip}) {
@@ -91,7 +99,14 @@ sub ua { shift->{_ua} }
 sub reparse {
     my ($self, $ua) = @_;
 
-    $self->{_ua}     = $ua // $ENV{'HTTP_USER_AGENT'} // '';
+    if (!defined $ua) {
+        $ua = '';
+        if (exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT}) {
+            $ua = $ENV{HTTP_USER_AGENT};
+        }
+    }
+
+    $self->{_ua}     = $ua;
     $self->{_result} = {};
 
     return $self->_parse;
@@ -291,7 +306,7 @@ The list of User Agent Parser
 
 =begin html
 
-<a href="https://github.com/bayashi/Duadua/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Artistic%202.0-GREEN.png"></a> <a href="https://github.com/bayashi/Duadua/actions"><img src="https://github.com/bayashi/Duadua/workflows/build/badge.svg?_t=1580479473&branch=master"/></a> <a href="https://coveralls.io/r/bayashi/Duadua"><img src="https://coveralls.io/repos/bayashi/Duadua/badge.png?_t=1580479473&branch=master"/></a>
+<img src="https://img.shields.io/badge/Version-0.03-green?style=flat"> <a href="https://github.com/bayashi/Duadua/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Artistic%202.0-GREEN.png?style=flat"></a> <a href="https://github.com/bayashi/Duadua/actions"><img src="https://github.com/bayashi/Duadua/workflows/build/badge.svg?_t=1580652147&branch=master"/></a> <a href="https://coveralls.io/r/bayashi/Duadua"><img src="https://coveralls.io/repos/bayashi/Duadua/badge.png?_t=1580652147&branch=master"/></a>
 
 =end html
 
