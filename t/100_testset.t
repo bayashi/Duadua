@@ -15,6 +15,8 @@ MAIN: {
 sub test_yaml {
     my ($dir, $test_yaml) = @_;
 
+    note 'Load YAML: ' . $test_yaml;
+
     my $tests = YAML::LoadFile(File::Spec->catfile($dir, $test_yaml));
 
     for my $t (shuffle @{$tests}) {
