@@ -7,17 +7,10 @@ sub try {
     my ($class, $d) = @_;
 
     if ( index($d->ua, 'Feedbin feed-id') > -1 ) {
-        my $h = {
+        return {
             name   => 'Feedbin',
             is_bot => 1,
         };
-
-        if ($d->opt_version) {
-            my ($version) = ($d->ua =~ m!compatible; [^/]+/([\d.]+); \+http://yandex!);
-            $h->{version} = $version if $version;
-        }
-
-        return Duadua::Util->set_os($d, $h);
     }
 }
 

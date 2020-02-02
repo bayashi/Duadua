@@ -39,6 +39,12 @@ use Duadua;
     ok !$result->is_linux;
     ok $result->is_windows;
     is $result->version, '71.0';
+
+    local $ENV{HTTP_USER_AGENT} = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
+    $result = $d->reparse;
+    is $result->name, 'Googlebot', 'reset';
+    ok !$result->is_windows;
+    is $result->version, '2.1';
 }
 
 done_testing;
