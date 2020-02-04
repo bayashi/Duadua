@@ -1,10 +1,9 @@
-Revision history for Perl extension Duadua
+## Duadua commit log
 
-0.02    Fri Jan 31 23:04:46 JST 2020
-        - Support NetcraftSurveyAgent
-        - Support Barkrowler
-        - Support Inoreader
-        - Support Pale Moon
+https://github.com/bayashi/Duadua/commits/master
 
-0.01    Fri Jan 31 13:45:58 JST 2020
-        - original version
+## Show the log of each version
+
+Showing commit logs of tag `0.02` to `0.03` .
+
+    $ git log --graph --oneline --stat 0.02..0.03
