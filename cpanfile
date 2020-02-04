@@ -7,7 +7,7 @@ requires 'Module::Pluggable::Object';
 
 on 'test' => sub {
     requires 'File::Basename';
-    requires 'YAML';
+    requires 'YAML', '1.15';
     requires 'List::Util';
     requires 'Test::More', '1.3';
     requires 'Test::AllModules', '0.16';
