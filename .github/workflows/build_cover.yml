@@ -15,9 +15,7 @@ jobs:
     strategy:
       matrix:
         perl-version:
-          - '5.8'
-          - '5.18'
-          - '5.28'
+          - 'latest'
 
     container:
       image: perl:${{ matrix.perl-version }}
@@ -36,3 +34,10 @@ jobs:
             ./Build manifest
       - name: Run test
         run: ./Build test
+      - name: Run Cover
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        run: |
+            curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Devel::Cover::Report::Coveralls
+            cover -test
+            cover -report coveralls

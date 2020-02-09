@@ -15,9 +15,7 @@ jobs:
     strategy:
       matrix:
         perl-version:
-          - '5.8'
-          - '5.18'
-          - '5.28'
+          - 'latest'
 
     container:
       image: perl:${{ matrix.perl-version }}
@@ -29,6 +27,7 @@ jobs:
       - name: Install M::B
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Module::Build
       - name: Install Dev modules
+        run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Test::Perl::Critic Test::Pod::Coverage Test::Pod Test::NoTabs Test::Vars Test::File::Find::Rule
       - name: Run build
         run: |
             perl Build.PL

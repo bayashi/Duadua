@@ -26,7 +26,6 @@ my $builder = Module::Build->new(
         'Test::AllModules' => '0.17',
         'Capture::Tiny' => 0,
         %win_build_requires,
-        'Software::License' => 0,
     },
     requires => {
         'perl' => '5.008005',
