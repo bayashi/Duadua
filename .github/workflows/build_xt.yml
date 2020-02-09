@@ -1,4 +1,4 @@
-name: build
+name: build_xt
 
 on:
   push:
@@ -12,13 +12,8 @@ jobs:
   perl:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        perl-version:
-          - 'latest'
-
     container:
-      image: perl:${{ matrix.perl-version }}
+      image: perl: 'latest'
 
     steps:
       - uses: actions/checkout@v1
