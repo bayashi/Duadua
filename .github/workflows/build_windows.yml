@@ -23,6 +23,8 @@ jobs:
       - name: Install dependencies with develop
         run: curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --with-develop --show-build-log-on-failure
       - name: Run Build.PL
-        run: perl Build.PL
+        run: |
+            perl Build.PL
+            ./Build manifest
       - name: Run Build
         run: ./Build build
