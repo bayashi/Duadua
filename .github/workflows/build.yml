@@ -35,11 +35,8 @@ jobs:
             curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --with-develop --show-build-log-on-failure
             curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Devel::Cover::Report::Coveralls
         if: matrix.perl-version == 'latest'
-      - name: Run tests
-        run: |
-            perl Build.PL
-            ./Build manifest
-            ./Build build
+      - name: Run test
+        run: prove -s -l t
       - name: Run Cover
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
