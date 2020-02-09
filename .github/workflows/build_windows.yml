@@ -27,4 +27,5 @@ jobs:
             perl Build.PL
             ./Build installdeps
             ./Build manifest
-            ./Build test
+      - name: Run test
+        run: ./Build test

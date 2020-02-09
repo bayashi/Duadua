@@ -29,12 +29,15 @@ jobs:
         run: perl -V
       - name: Install M::B
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Module::Build
+      - name: Install Dev modules
+        run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Test::Perl::Critic Test::Pod::Coverage Test::Pod Test::NoTabs Test::Vars Test::File::Find::Rule
       - name: Run build
         run: |
             perl Build.PL
             ./Build installdeps
             ./Build manifest
-            ./Build test
+      - name: Run test
+        run: ./Build test
       - name: Run Cover
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

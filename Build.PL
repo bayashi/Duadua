@@ -26,14 +26,7 @@ my $builder = Module::Build->new(
         'Test::AllModules' => '0.17',
         'Capture::Tiny' => 0,
         %win_build_requires,
-        # xt
         'Software::License' => 0,
-        'Test::Perl::Critic' => 0,
-        'Test::Pod::Coverage' => 0,
-        'Test::Pod' => 0,
-        'Test::NoTabs' => 0,
-        'Test::Vars' => 0,
-        'Test::File::Find::Rule' => 0,
     },
     requires => {
         'perl' => '5.008005',
