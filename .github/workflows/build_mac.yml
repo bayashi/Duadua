@@ -21,5 +21,7 @@ jobs:
       - name: Run build
         run: |
             perl Build.PL
+            ./Build
+            ./Build manifest
             ./Build installdeps
-            ./Build build
+            ./Build test
