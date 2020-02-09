@@ -23,4 +23,7 @@ jobs:
       - name: Install M::B
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Module::Build
       - name: Run build
-        run: perl Build.PL && ./Build build
+        run: |
+            perl Build.PL
+            ./Build installdeps
+            ./Build build

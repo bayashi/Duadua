@@ -30,7 +30,10 @@ jobs:
       - name: Install M::B
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Module::Build
       - name: Run build
-        run: perl Build.PL && ./Build build
+        run: |
+            perl Build.PL
+            ./Build installdeps
+            ./Build build
       - name: Run Cover
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
