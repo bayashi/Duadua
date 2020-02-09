@@ -16,7 +16,5 @@ jobs:
       - uses: actions/checkout@master
       - name: perl -V
         run: perl -V
-      - name: Install dependencies with develop
-        run: curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --with-develop --show-build-log-on-failure
-      - name: Run test
-        run: prove -s -l t
+      - name: Run build
+        run: Build.PL && ./Build build

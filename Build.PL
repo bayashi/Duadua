@@ -25,6 +25,7 @@ my $builder = Module::Build->new(
         'Test::More' => '1.3',
         'Test::AllModules' => '0.17',
         'Capture::Tiny' => 0,
+        %win_build_requires,
         # xt
         'Software::License' => 0,
         'Test::Perl::Critic' => 0,
@@ -42,7 +43,6 @@ my $builder = Module::Build->new(
         'Pod::Usage' => 0,
         'Getopt::Long' => 0,
         'JSON' => 0,
-        %win_build_requires,
     },
     add_to_cleanup      => [ 'Duadua-*' ],
     script_files        => [ 'script/duadua' ],
