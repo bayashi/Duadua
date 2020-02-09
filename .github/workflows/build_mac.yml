@@ -17,4 +17,4 @@ jobs:
       - name: perl -V
         run: perl -V
       - name: Run build
-        run: Build.PL && ./Build build
+        run: perl Build.PL && ./Build build
