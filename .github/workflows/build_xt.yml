@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: perl: 'latest'
+      image:
+        perl: 'latest'
 
     steps:
       - uses: actions/checkout@v1
