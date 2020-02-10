@@ -26,8 +26,8 @@ jobs:
         run: curl -L http://cpanmin.us/ | perl - -n -q --reinstall Win32
       - name: Run build
         run: |
-            perl -e "print $ENV{PERL5LIB}"
             perl -e "print join(' ', @INC)"
+            perldoc -l Win32
             perl Build.PL
             ./Build manifest
       - name: Run test
