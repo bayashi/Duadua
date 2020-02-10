@@ -28,7 +28,7 @@ jobs:
         run: |
             perl -e "print join(' ', @INC)"
             perldoc -l Win32
-            set PERL5LIB=C:\perl\site\lib;%PERL5LIB%
+            set PERL5LIB=C:\perl\site\lib;
             perl Build.PL
             ./Build manifest
       - name: Run test
