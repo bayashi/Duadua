@@ -26,8 +26,9 @@ jobs:
         run: curl -L http://cpanmin.us/ | perl - -n -q --reinstall Win32
       - name: Run build
         run: |
-            set PERL5LIB=C:\strawberry\perl\lib
             perl Build.PL
             ./Build manifest
       - name: Run test
-        run: ./Build test
+        run: |
+            set PERL5LIB=C:\strawberry\perl\lib
+            ./Build test
