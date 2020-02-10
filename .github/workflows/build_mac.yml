@@ -16,12 +16,13 @@ jobs:
       - uses: actions/checkout@master
       - name: perl -V
         run: perl -V
-      - name: Install M::B
-        run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Module::Build
+      - name: Install cpanm
+        run: curl -L http://cpanmin.us/ | perl - App::cpanminus
+      - name: Install dependencies
+        run: cpanm -n --installdeps . --with-recommends --with-suggests --with-develop --with-configure --with-feature
       - name: Run build
         run: |
             perl Build.PL
-            ./Build installdeps
             ./Build manifest
       - name: Run test
         run: ./Build test
