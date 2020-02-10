@@ -19,10 +19,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: perl -V
         run: perl -V
-      - name: Install cpanm
-        run: curl -L http://cpanmin.us/ | perl - App::cpanminus
       - name: Install dependencies
-        run: cpanm -n --installdeps . --with-recommends --with-suggests --with-develop --with-configure --with-feature
+        run: curl -L http://cpanmin.us/ | perl - -n --installdeps . --with-recommends --with-suggests --with-develop --with-configure --with-feature
       - name: Install Dev modules
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Test::Perl::Critic Test::Pod::Coverage Test::Pod Test::NoTabs Test::Vars Test::File::Find::Rule
       - name: Run build
