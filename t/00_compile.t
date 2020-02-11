@@ -1,11 +1,11 @@
 use Test::More;
 
 BEGIN {
-    print "$_\n" for @INC;
+    note "$_\n" for @INC;
 }
 
-print "----------\n";
-print "$_\n" for @INC;
+note "----------\n";
+note "$_\n" for @INC;
 
 ok 1;
 
