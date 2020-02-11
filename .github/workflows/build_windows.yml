@@ -28,8 +28,6 @@ jobs:
             dir
             perl -e "print join(' ', @INC);"
             perl -e "print `dir $_` for @INC;"
-      - name: Install Win32.pm
-        run: curl -L http://cpanmin.us/ | perl - -n -q --reinstall Win32
       - name: Show Info 2
         run: |
             perldoc -l Win32
