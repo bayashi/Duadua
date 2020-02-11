@@ -28,17 +28,14 @@ jobs:
             dir
             perl -e "print join(' ', @INC);"
             perl -e "print `dir $_` for @INC;"
-      - name: Show Info 2
-        run: |
-            perldoc -l Win32
-            dir
-            perl -e "print join(' ', @INC);"
-            perl -e "print `dir $_` for @INC;"
       - name: Run build
         run: |
             perl Build.PL
             ./Build manifest
       - name: Run test
         run: |
-            set PERL5LIB=C:\strawberry\perl\lib
+            perldoc -l Win32
+            dir
+            perl -e "print join(' ', @INC);"
+            perl -e "print `dir $_` for @INC;"
             ./Build test
