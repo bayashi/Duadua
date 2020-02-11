@@ -1,4 +1,4 @@
-name: build_mac
+name: mac_latest
 
 on:
   push:
@@ -16,9 +16,11 @@ jobs:
       - uses: actions/checkout@master
       - name: perl -V
         run: perl -V
-      - name: Install dependencies with develop
+      - name: Install dependencies
         run: curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --with-develop --show-build-log-on-failure
-      - name: Run Build.PL
-        run: perl Build.PL
-      - name: Run Build
-        run: ./Build build
+      - name: Run build
+        run: |
+            perl Build.PL
+            ./Build manifest
+      - name: Run test
+        run: ./Build test

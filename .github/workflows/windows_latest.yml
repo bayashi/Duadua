@@ -1,4 +1,4 @@
-name: build_windows
+name: windows_latest
 
 on:
   push:
@@ -20,9 +20,11 @@ jobs:
           echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
       - name: perl -V
         run: perl -V
-      - name: Install dependencies with develop
+      - name: Install dependencies
         run: curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --with-develop --show-build-log-on-failure
-      - name: Run Build.PL
-        run: perl Build.PL
-      - name: Run Build
-        run: ./Build build
+      - name: Run build
+        run: |
+            perl Build.PL
+            ./Build manifest
+      - name: Run test
+        run: ./Build test
