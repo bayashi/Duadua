@@ -4,7 +4,7 @@ my %win_option = ();
 if ($^O eq 'MSWin32') {
     # In case of MSWin32, Cwd.pm calls Win32.pm at runtime
     %win_option = (
-        'lib' => \@INC,
+        'lib' => ['lib', @INC],
     );
 }
 
