@@ -1,4 +1,4 @@
-name: build_mac
+name: mac_latest
 
 on:
   push:

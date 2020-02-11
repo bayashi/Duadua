@@ -1,4 +1,4 @@
-name: build_linux_old_versions
+name: linux_old_versions
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: build_linux_latest
+name: linux_latest_cover
 
 on:
   push:
