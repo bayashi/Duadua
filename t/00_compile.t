@@ -1,12 +1,17 @@
-use Test::More;
+use Test::AllModules;
 
-BEGIN {
-    note "$_\n" for @INC;
+my %win_option = ();
+if ($^O eq 'MSWin32') {
+    # In case of MSWin32, Cwd.pm calls Win32.pm at runtime
+    %win_option = (
+        'lib' => \@INC,
+    );
 }
 
-note "----------\n";
-note "$_\n" for @INC;
-
-ok 1;
-
-done_testing;
+all_ok(
+    search_path => 'Duadua',
+    use_ok      => 1,
+    fork        => 0,
+    shuffle     => 1,
+    %win_option
+);
