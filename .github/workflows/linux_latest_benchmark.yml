@@ -1,0 +1,27 @@
+name: linux_latest_benchmark
+
+on:
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - '*'
+  pull_request:
+
+jobs:
+  perl:
+    runs-on: ubuntu-latest
+
+    container:
+      image: perl:latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: perl -V
+        run: perl -V
+      - name: Install dependencies
+        run: |
+            curl -sL https://git.io/cpm | perl - install -g --with-recommends --with-test --with-configure --show-build-log-on-failure
+            curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Woothee HTTP::DetectUserAgent HTTP::BrowserDetect
+      - name: Run benchmark
+        run: perl -Ilib share/benchmark/vs.pl
