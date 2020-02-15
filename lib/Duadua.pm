@@ -53,6 +53,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Feedbin
     Duadua::Parser::Bot::Inoreader
     Duadua::Parser::Bot::Fastladder
+    Duadua::Parser::Bot::Feedeen
     Duadua::Parser::FeaturePhone::FeaturePhone
     Duadua::Parser::Bot::Netcraft
     Duadua::Parser::Bot::Barkrowler
