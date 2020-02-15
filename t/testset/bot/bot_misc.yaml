@@ -76,3 +76,12 @@
   is_windows: false
   is_chromeos: false
   version: '1.0'
+- ua: "Mozilla/5.0 (compatible; Cliqzbot/3.0; +http://cliqz.com/company/cliqzbot)"
+  name: 'Cliqzbot'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
+  version: '3.0'
