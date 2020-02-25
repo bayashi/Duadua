@@ -1,4 +1,4 @@
-name: linux_latest_cover
+name: master
 
 on:
   push:
