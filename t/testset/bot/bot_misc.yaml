@@ -85,3 +85,12 @@
   is_windows: false
   is_chromeos: false
   version: '3.0'
+- ua: "MixnodeCache/1.8(+https://cache.mixnode.com/)"
+  name: 'mixnode.com'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
+  version: '1.8'
