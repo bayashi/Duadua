@@ -1,5 +1,7 @@
 cover_db
 Makefile
+Build
+_build
 blib
 inc
 local
