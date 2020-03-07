@@ -1,12 +1,6 @@
 package Duadua::Parser;
 use strict;
 use warnings;
-use Module::Pluggable::Object;
-
-Module::Pluggable::Object->new(
-    search_path => [ __PACKAGE__ ],
-    require     => 1,
-)->plugins;
 
 my $BLANK_UA = {
     name => 'UNKNOWN',
