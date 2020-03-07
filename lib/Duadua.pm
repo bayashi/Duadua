@@ -60,6 +60,11 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::SMTBot
 /;
 
+for my $parser (@PARSER_PROC_LIST) {
+    eval "require $parser;"; ## no critic
+    die "Could not load $parser, $@" if $@;
+}
+
 sub new {
     my $class = shift;
     my $ua    = shift;
@@ -72,24 +77,28 @@ sub new {
         }
     }
 
-    my @parsers;
-    if (exists $opt->{skip}) {
-        for my $p (@PARSER_PROC_LIST) {
-            next if grep { $p eq $_ } @{$opt->{skip}};
-            push @parsers, $p;
-        }
-    }
-    else {
-        @parsers = @PARSER_PROC_LIST;
-    }
-
     bless {
         _ua          => $ua,
         _parsed      => 0,
         _result      => {},
-        _parsers     => \@parsers,
+        _parsers     => $class->_build_parsers($opt),
         _opt_version => $opt->{version},
     }, $class;
+}
+
+sub _build_parsers {
+    my ($class, $opt) = @_;
+
+    if (exists $opt->{skip}) {
+        my @parsers;
+        for my $p (@PARSER_PROC_LIST) {
+            next if grep { $p eq $_ } @{$opt->{skip}};
+            push @parsers, $p;
+        }
+        return \@parsers;
+    }
+
+    return \@PARSER_PROC_LIST;
 }
 
 sub opt_version { shift->{_opt_version} }

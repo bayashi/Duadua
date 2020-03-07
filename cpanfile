@@ -3,7 +3,6 @@
 requires 'perl', '5.008005';
 requires 'strict';
 requires 'warnings';
-requires 'Module::Pluggable::Object';
 
 # for CLI
 requires 'Pod::Usage';
