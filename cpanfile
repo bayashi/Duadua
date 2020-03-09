@@ -33,4 +33,5 @@ on 'develop' => sub {
     requires 'Test::NoTabs';
     requires 'Test::Vars';
     requires 'File::Find::Rule::ConflictMarker';
+    requires 'File::Find::Rule::BOM';
 };
