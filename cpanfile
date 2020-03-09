@@ -32,5 +32,5 @@ on 'develop' => sub {
     requires 'Test::Pod';
     requires 'Test::NoTabs';
     requires 'Test::Vars';
-    requires 'Test::File::Find::Rule';
+    requires 'File::Find::Rule::ConflictMarker';
 };
