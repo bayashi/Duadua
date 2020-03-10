@@ -177,6 +177,15 @@
   is_windows: false
   is_chromeos: false
   version: '4.5.2'
+- ua: 'Jersey/2.25.1 (Apache HttpClient 4.5)'
+  name: 'Jersey'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false
+  version: '2.25.1'
 - ua: 'Atig::Http/f68db1058bf9abdbbffd36e7dd9b3f5dbff7a6d1 (http.rb; net-irc) Ruby/2.5.1 (x86_64-linux-gnu)'
   name: 'Atig'
   is_bot: false
