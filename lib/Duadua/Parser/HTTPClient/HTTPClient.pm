@@ -232,6 +232,16 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, 'Java/') > -1 ) {
+        $h = {
+            name => 'Java',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^Java/([\d.\_]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }
