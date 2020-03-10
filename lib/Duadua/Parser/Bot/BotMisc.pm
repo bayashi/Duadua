@@ -56,6 +56,12 @@ sub try {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, 'SearchAtlas.com ') > -1 ) {
+        $h = {
+            name   => 'SearchAtlas.com',
+            is_bot => 1,
+        };
+    }
 
     return $h;
 }
