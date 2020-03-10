@@ -134,6 +134,16 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, 'AdsTxtCrawler/') > -1 ) {
+        $h = {
+            name => 'AdsTxtCrawler',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^AdsTxtCrawler/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }
