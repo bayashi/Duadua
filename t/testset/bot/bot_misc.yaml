@@ -111,3 +111,11 @@
   is_linux: false
   is_windows: false
   is_chromeos: false
+- ua: "ltx71 - (http://ltx71.com/)"
+  name: 'ltx71'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false

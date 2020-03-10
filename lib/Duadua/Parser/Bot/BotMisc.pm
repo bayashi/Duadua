@@ -62,6 +62,12 @@ sub try {
             is_bot => 1,
         };
     }
+    elsif ( index($d->ua, 'ltx71') > -1 ) {
+        $h = {
+            name   => 'ltx71',
+            is_bot => 1,
+        };
+    }
 
     return $h;
 }
