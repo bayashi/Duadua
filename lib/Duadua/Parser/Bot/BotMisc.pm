@@ -68,6 +68,12 @@ sub try {
             is_bot => 1,
         };
     }
+    elsif ( $d->ua eq 'The Knowledge AI' ) {
+        $h = {
+            name   => 'The Knowledge AI',
+            is_bot => 1,
+        };
+    }
 
     return $h;
 }
