@@ -249,3 +249,11 @@
   is_windows: false
   is_chromeos: false
   version: '0.9'
+- ua: 'Zend_XmlRpc_Client'
+  name: 'Zend_XmlRpc_Client'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false

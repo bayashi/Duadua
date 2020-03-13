@@ -213,6 +213,11 @@ sub _php {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( $d->ua eq 'Zend_XmlRpc_Client' ) {
+        $h = {
+            name => 'Zend_XmlRpc_Client',
+        };
+    }
 
     return $h;
 }
