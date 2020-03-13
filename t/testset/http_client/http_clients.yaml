@@ -222,3 +222,12 @@
   is_windows: false
   is_chromeos: false
   version: '3.11.0'
+- ua: 'SOAP::Lite/Perl/1.27'
+  name: 'SOAP::Lite Perl'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false
+  version: '1.27'

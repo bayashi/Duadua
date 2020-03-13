@@ -95,6 +95,16 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, 'SOAP::Lite/Perl/') > -1 ) {
+        $h = {
+            name => 'SOAP::Lite Perl',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^SOAP::Lite/Perl/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }
