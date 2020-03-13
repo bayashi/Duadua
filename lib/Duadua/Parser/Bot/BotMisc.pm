@@ -85,6 +85,19 @@ sub try {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, ' BuiltWith/') > -1 ) {
+        $h = {
+            name   => 'BuiltWith',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! BuiltWith/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        $h = Duadua::Util->set_os($d, $h);
+    }
 
     return $h;
 }
