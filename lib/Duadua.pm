@@ -61,6 +61,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Netcraft
     Duadua::Parser::Bot::Barkrowler
     Duadua::Parser::Bot::SMTBot
+    Duadua::Parser::Bot::LetsEncrypt
 /;
 
 for my $parser (@PARSER_PROC_LIST) {
