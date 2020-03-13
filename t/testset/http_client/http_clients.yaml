@@ -231,3 +231,12 @@
   is_windows: false
   is_chromeos: false
   version: '1.27'
+- ua: 'python-requests/2.22.0'
+  name: 'python-requests'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false
+  version: '2.22.0'

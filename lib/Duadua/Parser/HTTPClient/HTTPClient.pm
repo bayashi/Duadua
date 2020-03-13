@@ -154,6 +154,16 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, 'python-requests/') > -1 ) {
+        $h = {
+            name => 'python-requests',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^python-requests/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }
