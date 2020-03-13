@@ -74,6 +74,17 @@ sub try {
             is_bot => 1,
         };
     }
+    elsif ( index($d->ua, ' FlipboardProxy/') > -1 ) {
+        $h = {
+            name   => 'FlipboardProxy',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! FlipboardProxy/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }

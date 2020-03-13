@@ -127,3 +127,12 @@
   is_linux: false
   is_windows: false
   is_chromeos: false
+- ua: "Mozilla/5.0 (compatible; FlipboardProxy/1.2; +http://flipboard.com/browserproxy)"
+  name: 'FlipboardProxy'
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
+  version: '1.2'
