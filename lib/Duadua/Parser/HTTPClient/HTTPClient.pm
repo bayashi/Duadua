@@ -296,6 +296,18 @@ sub _golang {
 
         return $h;
     }
+    elsif ( index($d->ua, 'Go ') > -1 && index($d->ua, ' package http') > -1 ) {
+        my $h = {
+            name => 'Go http-client',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^Go ([\d.]+) !);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
 }
 
 sub _ruby {
