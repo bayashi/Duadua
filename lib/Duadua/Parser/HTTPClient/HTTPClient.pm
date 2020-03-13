@@ -105,6 +105,16 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, 'MT::Plugin::BadLinkFinder/') > -1 ) {
+        $h = {
+            name => 'MT::Plugin::BadLinkFinder',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^MT::Plugin::BadLinkFinder/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }

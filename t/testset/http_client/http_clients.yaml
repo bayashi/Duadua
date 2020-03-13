@@ -240,3 +240,12 @@
   is_windows: false
   is_chromeos: false
   version: '2.22.0'
+- ua: 'MT::Plugin::BadLinkFinder/0.9'
+  name: 'MT::Plugin::BadLinkFinder'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false
+  version: '0.9'
