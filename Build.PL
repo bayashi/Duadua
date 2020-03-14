@@ -12,8 +12,7 @@ my $builder = Module::Build::Pluggable->new(
     script_files        => [ 'script/duadua' ],
     add_to_cleanup      => [ 'Duadua-*' ],
     no_index => {
-        directory => [ 't', 'xt', 'inc' ],
-        namespace => [ 'Duadua::Parser' ],
+        directory => [ 't', 'xt', 'share' ],
     },
     meta_merge     => {
       resources => {
