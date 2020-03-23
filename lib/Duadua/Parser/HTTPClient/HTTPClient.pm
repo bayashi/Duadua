@@ -12,6 +12,7 @@ sub try {
         || $class->_java($d)
         || $class->_golang($d)
         || $class->_ruby($d)
+        || $class->_vb($d)
     ;
 }
 
@@ -340,6 +341,24 @@ sub _ruby {
 
         if ($d->opt_version) {
             my ($version) = ($d->ua =~ m!^Atig::Http/([^\s]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
+}
+
+sub _vb {
+    my ($class, $d) = @_;
+
+    if ( index($d->ua, ' WinHttp.WinHttpRequest') > -1 ) {
+        my $h = {
+            name => 'WinHttpRequest',
+            is_windows => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! WinHttp\.WinHttpRequest\.([\d.]+)!);
             $h->{version} = $version if $version;
         }
 
