@@ -284,3 +284,11 @@
   is_windows: true
   is_chromeos: false
   version: '5'
+- ua: 'EventMachine HttpClient'
+  name: 'EventMachine'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false

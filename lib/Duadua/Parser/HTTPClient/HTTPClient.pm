@@ -346,6 +346,11 @@ sub _ruby {
 
         return $h;
     }
+    elsif ( index($d->ua, 'EventMachine ') > -1 ) {
+        return {
+            name => 'EventMachine',
+        };
+    }
 }
 
 sub _vb {
