@@ -111,6 +111,19 @@ sub try {
 
         $h = Duadua::Util->set_os($d, $h);
     }
+    elsif ( index($d->ua, ' RyowlEngine/') > -1 ) {
+        $h = {
+            name   => 'RyowlEngine',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! RyowlEngine/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        $h = Duadua::Util->set_os($d, $h);
+    }
 
     return $h;
 }
