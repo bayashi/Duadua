@@ -318,6 +318,18 @@ sub _ruby {
             name => 'Ruby',
         };
     }
+    elsif ( index($d->ua, 'http.rb/') > -1 ) {
+        my $h = {
+            name => 'http.rb',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^http.rb/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
     elsif ( index($d->ua, 'Atig::Http/') > -1 ) {
         my $h = {
             name => 'Atig',

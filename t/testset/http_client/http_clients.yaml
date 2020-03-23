@@ -266,3 +266,12 @@
   is_linux: flase
   is_windows: false
   is_chromeos: false
+- ua: 'http.rb/4.0.0'
+  name: 'http.rb'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: flase
+  is_windows: false
+  is_chromeos: false
+  version: '4.0.0'
