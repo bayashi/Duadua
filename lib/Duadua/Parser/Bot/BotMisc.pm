@@ -124,6 +124,19 @@ sub try {
 
         $h = Duadua::Util->set_os($d, $h);
     }
+    elsif ( index($d->ua, ' DataXu/') > -1 ) {
+        $h = {
+            name   => 'DataXu',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! DataXu/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        $h = Duadua::Util->set_os($d, $h);
+    }
 
     return $h;
 }
