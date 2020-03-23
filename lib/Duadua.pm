@@ -57,6 +57,8 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Inoreader
     Duadua::Parser::Bot::Fastladder
     Duadua::Parser::Bot::Feedeen
+    Duadua::Parser::Bot::Feedspot
+
     Duadua::Parser::Browser::Xiaomi
     Duadua::Parser::FeaturePhone::FeaturePhone
     Duadua::Parser::Bot::Netcraft
