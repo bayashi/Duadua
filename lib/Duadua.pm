@@ -211,7 +211,7 @@ __END__
 
 =head1 NAME
 
-Duadua - Detect User-Agent
+Duadua - Detect User-Agent, do up again!
 
 
 =head1 SYNOPSIS
