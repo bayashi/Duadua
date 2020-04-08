@@ -41,6 +41,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Msnbot
     Duadua::Parser::Bot::BotMisc
 
+    Duadua::Parser::Browser::GoogleApp
     Duadua::Parser::Browser::SamsungInternetBrowser
     Duadua::Parser::Browser::Yandex
     Duadua::Parser::Browser::DuckDuckGo
@@ -53,6 +54,8 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::YahooJapanBot
     Duadua::Parser::Bot::HatenaBot
     Duadua::Parser::Bot::Feedly
+    Duadua::Parser::Bot::Reeder
+    Duadua::Parser::Bot::QuiteRSS
     Duadua::Parser::Bot::Feedbin
     Duadua::Parser::Bot::Inoreader
     Duadua::Parser::Bot::Fastladder
@@ -65,6 +68,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Netcraft
     Duadua::Parser::Bot::Barkrowler
     Duadua::Parser::Bot::SMTBot
+    Duadua::Parser::Bot::AdstxtCom
     Duadua::Parser::Bot::LetsEncrypt
 /;
 
