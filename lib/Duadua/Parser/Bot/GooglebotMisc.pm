@@ -69,6 +69,15 @@ sub try {
 
         return $h;
     }
+
+    if ( index($d->ua, ' Google Page Speed Insights') > -1 ) {
+        my $h = {
+            name   => 'Google Page Speed Insights',
+            is_bot => 1,
+        };
+
+        return Duadua::Util->set_os($d, $h);
+    }
 }
 
 1;
