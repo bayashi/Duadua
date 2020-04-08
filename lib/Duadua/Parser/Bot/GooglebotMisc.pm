@@ -55,6 +55,20 @@ sub try {
             is_bot => 1,
         };
     }
+
+    if ( index($d->ua, ' Google-Site-Verification') > -1 ) {
+        my $h = {
+            name   => 'Google-Site-Verification',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m! Google-Site-Verification/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
 }
 
 1;
