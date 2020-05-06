@@ -167,6 +167,12 @@ sub try {
             is_bot => 1,
         };
     }
+    elsif ( index($d->ua, 'Hexometer') > -1 ) {
+        $h = {
+            name   => 'Hexometer',
+            is_bot => 1,
+        };
+    }
 
     return $h;
 }
