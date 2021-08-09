@@ -70,6 +70,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Barkrowler
     Duadua::Parser::Bot::SMTBot
     Duadua::Parser::Bot::AdstxtCom
+    Duadua::Parser::Bot::CentroAdsCrawler
     Duadua::Parser::Bot::LetsEncrypt
 /;
 
