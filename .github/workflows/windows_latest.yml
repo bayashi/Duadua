@@ -3,7 +3,7 @@ name: windows_latest
 on:
   push:
     branches:
-      - master
+      - main
       - '**windows**'
     tags-ignore:
       - '*'
@@ -13,11 +13,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Set up Perl
         run: |
           choco install strawberryperl
-          echo "##[add-path]C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin"
+          echo "C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin" >> $GITHUB_PATH
       - name: perl -V
         run: perl -V
       - name: Install dependencies
