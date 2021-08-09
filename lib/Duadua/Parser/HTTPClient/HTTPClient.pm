@@ -177,6 +177,16 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
+    elsif ( index($d->ua, ' aiohttp/') > -1 ) {
+        $h = {
+            name => 'aiohttp',
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!aiohttp/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+    }
 
     return $h;
 }
