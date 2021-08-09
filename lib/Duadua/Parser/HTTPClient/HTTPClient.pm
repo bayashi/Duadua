@@ -323,6 +323,13 @@ sub _golang {
 
         return $h;
     }
+    elsif ( index($d->ua, 'Go http package') == 0 ) {
+        my $h = {
+            name => 'Go http-client',
+        };
+
+        return $h;
+    }
 }
 
 sub _ruby {
