@@ -310,3 +310,12 @@
   is_windows: false
   is_chromeos: false
   version: '7.19.0'
+- ua: 'axios/0.21.1'
+  name: 'axios'
+  is_bot: false
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
+  version: '0.21.1'
