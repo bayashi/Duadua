@@ -226,19 +226,19 @@ Duadua - Detect User-Agent, do up again!
 
     my $ua = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
 
-    my $d = Duadua->new($ua);
+    my $d = Duadua->new($ua, {vesion=>1});
     $d->is_bot
         and say $d->name; # Googlebot
 
 Or call as a function to parse immediately
 
-    my $d = Duadua->parse($ua);
+    my $d = Duadua->parse($ua, {vesion=>1});
     $d->is_bot
         and say $d->name; # Googlebot
 
 If you would like to parse many times, then you can use C<reparse> method. It's fast.
 
-    my $d = Duadua->new;
+    my $d = Duadua->new(undef, {vesion=>1});
     for my $ua (@ua_list) {
         my $result = $d->reparse($ua);
         $result->is_bot
@@ -292,6 +292,10 @@ Return raw User-Agent string
 =item name
 
 Get User-Agent name
+
+=item version
+
+Returns version from user agent string
 
 =item is_bot
 
