@@ -329,6 +329,10 @@ Return true value if the User-Agent is ChromeOS.
 
 Return version option value. If it's true value, then parse to get User Agent version also.
 
+=item version
+
+Returns version from user agent string
+
 =item parsers
 
 The list of User Agent Parser
