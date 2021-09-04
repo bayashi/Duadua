@@ -245,6 +245,14 @@ If you would like to parse many times, then you can use C<reparse> method. It's 
             and say $result->name;
     }
 
+If you need to get version info, then you should set true value to version option like below.
+
+    use Duadua;
+
+    my $ua = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
+    my $d = Duadua->new($ua, { version => 1 });
+    say $d->version; # 2.1
+
 
 =head1 DESCRIPTION
 
