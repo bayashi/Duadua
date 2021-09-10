@@ -21,6 +21,8 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Browser::Opera
     Duadua::Parser::Browser::MozillaFirefox
 
+    Duadua::Parser::Browser::YahooJapanAppBrowser
+
     Duadua::Parser::Browser::AppleSafari
     Duadua::Parser::Browser::Vivaldi
 
