@@ -1,4 +1,4 @@
-package Duadua::Parser::Bot::Attacker;
+package Duadua::Parser::Bot::Log4Shell;
 use strict;
 use warnings;
 
@@ -7,7 +7,7 @@ sub try {
 
     if ( index($d->ua, '${') == 0 && index($d->ua, '://') > -1 && $d->ua =~ m!\}$! ) {
         my $h = {
-            name   => 'Log4J CVE-2021-45046',
+            name   => 'Log4Shell',
             is_bot => 1,
         };
 
