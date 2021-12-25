@@ -42,7 +42,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Applebot
     Duadua::Parser::Bot::Msnbot
     Duadua::Parser::Bot::BotMisc
-    Duadua::Parser::Bot::Attacker
+    Duadua::Parser::Bot::Log4Shell
 
     Duadua::Parser::Browser::GoogleApp
     Duadua::Parser::Browser::SamsungInternetBrowser
