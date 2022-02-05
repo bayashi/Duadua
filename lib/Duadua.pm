@@ -66,6 +66,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Feedspot
     Duadua::Parser::Bot::OldReader
     Duadua::Parser::Bot::Flipboard
+    Duadua::Parser::Bot::Skype
 
     Duadua::Parser::Browser::Xiaomi
     Duadua::Parser::FeaturePhone::FeaturePhone
