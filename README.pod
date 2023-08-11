@@ -1,6 +1,3 @@
-=encoding utf8
-
-
 This is Perl module B<Duadua>.
 
 =begin html
