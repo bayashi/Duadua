@@ -6,12 +6,18 @@ on:
       - main
     tags-ignore:
       - '*'
+    paths-ignore:
+      - '**/*.md'
+      - '**/.gitignore'
   pull_request:
     branches:
       - '!bump-version'
       - '!bump_version'
       - '!doc?'
       - '!pod'
+    paths-ignore:
+      - '**/*.md'
+      - '**/.gitignore'
 
 jobs:
   perl:
@@ -20,16 +26,16 @@ jobs:
     strategy:
       matrix:
         perl-version:
-          - '5.8'
-          - '5.18'
+          - '5.12'
           - '5.28'
+          - '5.36'
           - 'latest'
 
     container:
       image: perl:${{ matrix.perl-version }}
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: perl -V
         run: perl -V
       - name: Install dependencies
