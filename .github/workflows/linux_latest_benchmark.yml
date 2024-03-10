@@ -9,15 +9,6 @@ on:
     paths-ignore:
       - '**/*.md'
       - '**/.gitignore'
-  pull_request:
-    branches:
-      - '!bump-version'
-      - '!bump_version'
-      - '!doc?'
-      - '!pod'
-    paths-ignore:
-      - '**/*.md'
-      - '**/.gitignore'
 
 jobs:
   perl:
