@@ -40,3 +40,4 @@ jobs:
             curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure Devel::Cover::Report::Coveralls
             cover -test
             cover -report coveralls
+        if: ${{ env.COVERALLS_REPO_TOKEN }} != ""
