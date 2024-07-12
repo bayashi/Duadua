@@ -8,19 +8,23 @@ our $VERSION = '0.29';
 my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Browser::MicrosoftEdge
     Duadua::Parser::Browser::GoogleChrome
-    Duadua::Parser::Browser::MicrosoftInternetExplorer
 
     Duadua::Parser::Bot::Googlebot
     Duadua::Parser::Bot::GooglebotMobile
-    Duadua::Parser::Bot::GooglebotAd
-    Duadua::Parser::Bot::GoogleRead
     Duadua::Parser::Bot::Bingbot
-    Duadua::Parser::Bot::AdIdxBot
     Duadua::Parser::Bot::BingPreview
 
     Duadua::Parser::Browser::Opera
     Duadua::Parser::Browser::MozillaFirefox
+    Duadua::Parser::Browser::MicrosoftInternetExplorer
 
+    Duadua::Parser::Bot::Twitterbot
+    Duadua::Parser::Bot::FacebookCrawler
+    Duadua::Parser::Bot::Slackbot
+
+    Duadua::Parser::Bot::GooglebotAd
+    Duadua::Parser::Bot::GoogleRead
+    Duadua::Parser::Bot::AdIdxBot
     Duadua::Parser::Browser::YahooJapanAppBrowser
 
     Duadua::Parser::Browser::AppleSafari
@@ -29,10 +33,6 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Huawei
     Duadua::Parser::Bot::Sakura
     Duadua::Parser::HTTPClient::HTTPClient
-
-    Duadua::Parser::Bot::Twitterbot
-    Duadua::Parser::Bot::FacebookCrawler
-    Duadua::Parser::Bot::Slackbot
 
     Duadua::Parser::Bot::YahooSlurp
     Duadua::Parser::Bot::Baiduspider
