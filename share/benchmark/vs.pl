@@ -28,12 +28,18 @@ my @UA_LIST = (
     'curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.27.1 zlib/1.2.3 libidn/1.18 libssh2/1.4.2',
 );
 
+my $duadua         = 'Duadua ' . $Duadua::VERSION;
+my $duadua_reparse = 'Duadua_reparse ' . $Duadua::VERSION;
+my $woothee        = 'Woothee ' . $Woothee::VERSION;
+my $hdua           = 'HTTP::DetectUserAgent ' . $HTTP::DetectUserAgent::VERSION;
+my $hbd            = 'HTTP::BrowserDetect' . $HTTP::BrowserDetect::VERSION;
+
 cmpthese(-1, {
-    Duadua         => \&_duadua,
-    Duadua_reparse => \&_duadua_reparse,
-    Woothee        => \&_woothee,
-    'HTTP::DetectUserAgent' => \&_detect_user_agent,
-    'HTTP::BrowserDetect'   => \&_browser_detect,
+    $duadua         => \&_duadua,
+    $duadua_reparse => \&_duadua_reparse,
+    $woothee        => \&_woothee,
+    $hdua           => \&_detect_user_agent,
+    $hbd            => \&_browser_detect,
 });
 
 sub _duadua {
