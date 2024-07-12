@@ -8,19 +8,20 @@ our $VERSION = '0.32';
 my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Browser::MicrosoftEdge
     Duadua::Parser::Browser::GoogleChrome
+    Duadua::Parser::Browser::MicrosoftInternetExplorer
 
     Duadua::Parser::Bot::Googlebot
     Duadua::Parser::Bot::GooglebotMobile
     Duadua::Parser::Bot::Bingbot
-    Duadua::Parser::Bot::BingPreview
 
-    Duadua::Parser::Browser::Opera
     Duadua::Parser::Browser::MozillaFirefox
-    Duadua::Parser::Browser::MicrosoftInternetExplorer
 
     Duadua::Parser::Bot::Twitterbot
     Duadua::Parser::Bot::FacebookCrawler
     Duadua::Parser::Bot::Slackbot
+    Duadua::Parser::Bot::BingPreview
+
+    Duadua::Parser::Browser::Opera
 
     Duadua::Parser::Bot::GooglebotAd
     Duadua::Parser::Bot::GoogleRead
@@ -87,17 +88,15 @@ for my $parser (@PARSER_PROC_LIST) {
 }
 
 sub new {
-    my $class = shift;
-    my $ua    = shift;
-    my $opt   = shift || {};
+    my $opt   = $_[2] || {};
 
     bless {
-        _ua          => $class->_get_ua_string($ua),
+        _ua          => $_[0]->_get_ua_string($_[1]),
         _parsed      => 0,
         _result      => {},
-        _parsers     => $class->_build_parsers($opt),
+        _parsers     => $_[0]->_build_parsers($opt),
         _opt_version => $opt->{version},
-    }, $class;
+    }, $_[0];
 }
 
 sub _build_parsers {
@@ -131,16 +130,13 @@ sub reparse {
 }
 
 sub _result {
-    my ($self, $value) = @_;
+    if (@_ == 1) {
+        $_[0]->parse unless $_[0]->{_parsed};
+        return $_[0]->{_result};
+    }
 
-    if ($value) {
-        $self->{_result} = $value;
-        return $self;
-    }
-    else {
-        $self->parse unless $self->{_parsed};
-        return $self->{_result};
-    }
+    $_[0]->{_result} = $_[1];
+    return $_[0];
 }
 
 sub parse {
@@ -214,6 +210,14 @@ sub is_chromeos {
 
 sub version {
     shift->_result->{version} || '';
+}
+
+sub prefix {
+    return 1 if index(shift->ua, shift) == 0;
+}
+
+sub contain {
+    return 1 if index(shift->ua, shift) != -1;
 }
 
 1;
