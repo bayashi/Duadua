@@ -213,11 +213,11 @@ sub version {
 }
 
 sub prefix {
-    return 1 if index(shift->ua, shift) == 0;
+    return 1 if index(shift->{_ua}, shift) == 0;
 }
 
 sub contain {
-    return 1 if index(shift->ua, shift) != -1;
+    return 1 if index(shift->{_ua}, shift) != -1;
 }
 
 1;
