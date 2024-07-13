@@ -371,6 +371,23 @@ Returns version from user agent string
 
 The list of User Agent Parser
 
+=item prefix
+
+Returns true value if the User-Agent contains $str on the top.
+
+=item contain($str)
+
+Returns true value if the User-Agent contains $str.
+
+=item contain_mozilla
+
+Returns true value if the User-Agent contains 'Mozilla'.
+
+=item contain_mozilla_top
+
+Returns true value if the User-Agent contains 'Mozilla' on the top of User-Agent.
+
+
 =back
 
 =head1 REPOSITORY
