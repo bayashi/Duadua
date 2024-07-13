@@ -10,6 +10,14 @@ my $BLANK_UA = {
 sub parse {
     my ($class, $d) = @_;
 
+    my $index_mozilla = index($d->ua, 'Mozilla/');
+    if ($index_mozilla == 0) {
+        $d->{_contain_mozilla_top} = 1;
+        $d->{_contain_mozilla} = 1;
+    } elsif ($index_mozilla > 0) {
+        $d->{_contain_mozilla} = 1;
+    }
+
     for my $m (@{$d->parsers}) {
         if ( my $res = $m->try($d) ) {
             return $res;

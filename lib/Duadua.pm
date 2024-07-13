@@ -212,6 +212,14 @@ sub version {
     shift->_result->{version} || '';
 }
 
+sub contain_mozilla {
+    return 1 if shift->{_contain_mozilla}
+}
+
+sub contain_mozilla_top {
+    return 1 if shift->{_contain_mozilla_top}
+}
+
 sub prefix {
     return 1 if index(shift->{_ua}, shift) == 0;
 }

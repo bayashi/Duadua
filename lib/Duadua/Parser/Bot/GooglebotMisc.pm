@@ -5,9 +5,9 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    return unless index($d->ua, 'Google') > -1;
+    return unless $d->contain('Google');
 
-    if ( index($d->ua, 'Googlebot-Image') > -1 ) {
+    if ( $d->contain('Googlebot-Image') ) {
         my $h = {
             name   => 'Googlebot-Image',
             is_bot => 1,
@@ -21,14 +21,14 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'Googlebot-News') > -1 ) {
+    if ( $d->contain('Googlebot-News') ) {
         return {
             name   => 'Googlebot-News',
             is_bot => 1,
         };
     }
 
-    if ( index($d->ua, 'Googlebot-Video') > -1 ) {
+    if ( $d->contain('Googlebot-Video') ) {
         my $h = {
             name   => 'Googlebot-Video',
             is_bot => 1,
@@ -42,21 +42,21 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, 'FeedFetcher-Google') == 0 ) {
+    if ( $d->prefix('FeedFetcher-Google') ) {
         return {
             name   => 'FeedFetcher-Google',
             is_bot => 1,
         };
     }
 
-    if ( index($d->ua, ' AppEngine-Google;') > -1 || index($d->ua, 'AppEngine-Google; ') > -1 ) {
+    if ( $d->contain(' AppEngine-Google;') || $d->contain('AppEngine-Google; ') ) {
         return {
             name   => 'AppEngine-Google',
             is_bot => 1,
         };
     }
 
-    if ( index($d->ua, ' Google-Site-Verification') > -1 ) {
+    if ( $d->contain(' Google-Site-Verification') ) {
         my $h = {
             name   => 'Google-Site-Verification',
             is_bot => 1,
@@ -70,7 +70,7 @@ sub try {
         return $h;
     }
 
-    if ( index($d->ua, ' Google Page Speed Insights') > -1 ) {
+    if ( $d->contain(' Google Page Speed Insights') ) {
         my $h = {
             name   => 'Google Page Speed Insights',
             is_bot => 1,
