@@ -88,10 +88,17 @@ for my $parser (@PARSER_PROC_LIST) {
 }
 
 sub new {
-    my $opt   = $_[2] || {};
+    my $opt = $_[2] || {};
+
+    my $ua = $_[1];
+    if (!defined $ua) {
+        $ua = exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT} ? $ENV{HTTP_USER_AGENT} : '';
+    } elsif (ref($ua) =~ m!^HTTP::Headers!) {
+        $ua = $ua->header('User-Agent');
+    }
 
     bless {
-        _ua          => $_[0]->_get_ua_string($_[1]),
+        _ua          => $ua,
         _parsed      => 0,
         _result      => {},
         _parsers     => $_[0]->_build_parsers($opt),
@@ -121,9 +128,16 @@ sub parsers { shift->{_parsers} }
 sub ua { shift->{_ua} }
 
 sub reparse {
-    my ($self, $ua) = @_;
+    my $self = shift;
 
-    $self->{_ua}     = $self->_get_ua_string($ua);
+    my $ua = $_[0];
+    if (!defined $ua) {
+        $ua = exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT} ? $ENV{HTTP_USER_AGENT} : '';
+    } elsif (ref($ua) =~ m!^HTTP::Headers!) {
+        $ua = $ua->header('User-Agent');
+    }
+
+    $self->{_ua}     = $ua;
     $self->{_result} = {};
 
     return $self->_parse;
@@ -164,20 +178,6 @@ sub _parse {
     $self->{_parsed} = 1;
 
     return $self;
-}
-
-sub _get_ua_string {
-    my ($self, $ua_raw) = @_;
-
-    if (!defined $ua_raw) {
-        return exists $ENV{HTTP_USER_AGENT} && defined $ENV{HTTP_USER_AGENT} ? $ENV{HTTP_USER_AGENT} : '';
-    }
-
-    if (ref($ua_raw) =~ m!^HTTP::Headers!) {
-        return $ua_raw->header('User-Agent');
-    }
-
-    return $ua_raw;
 }
 
 sub name {
