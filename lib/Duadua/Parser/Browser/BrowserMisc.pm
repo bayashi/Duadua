@@ -11,7 +11,7 @@ sub try {
             name => 'Lynx',
         };
     }
-    elsif ( $d->prefix('Lynx/') ) {
+    elsif ( $d->_prefix('Lynx/') ) {
         my $h = {
             name => 'Lynx',
         };
@@ -23,7 +23,7 @@ sub try {
 
         return $h;
     }
-    elsif ( $d->contain(' EzLynx/') ) {
+    elsif ( $d->_contain(' EzLynx/') ) {
         my $h = {
             name => 'EzLynx',
         };
@@ -35,7 +35,7 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
-    elsif ( $d->contain('w3m/') ) {
+    elsif ( $d->_contain('w3m/') ) {
         my $h = {
             name => 'w3m',
         };
@@ -47,7 +47,7 @@ sub try {
 
         return $h;
     }
-    elsif ( $d->contain(' Konqueror/') ) {
+    elsif ( $d->_contain(' Konqueror/') ) {
         my $h = {
             name => 'Konqueror',
         };
@@ -59,8 +59,8 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
-    elsif ( $d->prefix('OmniWeb/')
-            || ($d->contain(' OmniWeb/') && $d->contain_mozilla) ) {
+    elsif ( $d->_prefix('OmniWeb/')
+            || ($d->_contain(' OmniWeb/') && $d->_contain_mozilla) ) {
         my $h = {
             name   => 'OmniWeb',
             is_ios => 1,
@@ -73,7 +73,7 @@ sub try {
 
         return $h;
     }
-    elsif ( $d->contain(' QtWebEngine/') && $d->contain_mozilla ) {
+    elsif ( $d->_contain(' QtWebEngine/') && $d->_contain_mozilla ) {
         my $h = {
             name => 'QtWebEngine',
         };
@@ -85,7 +85,7 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
-    elsif ( $d->contain(' UBrowser/') && $d->contain('Win') ) {
+    elsif ( $d->_contain(' UBrowser/') && $d->_contain('Win') ) {
         my $h = {
             name => 'UBrowser',
         };
@@ -97,7 +97,7 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
-    elsif ( $d->contain(' MZBrowser/') && $d->contain('UWS') ) {
+    elsif ( $d->_contain(' MZBrowser/') && $d->_contain('UWS') ) {
         my $h = {
             name => 'MZBrowser',
         };

@@ -6,11 +6,11 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return if $d->contain('http');
-    return if $d->contain('Browser/');
-    return if $d->contain('HatenaBookmark/Android');
+    return if $d->_contain('http');
+    return if $d->_contain('Browser/');
+    return if $d->_contain('HatenaBookmark/Android');
 
-    if ( $d->contain('Mozilla/5.0 (Mac') && $d->contain('Safari/') ) {
+    if ( $d->_contain('Mozilla/5.0 (Mac') && $d->_contain('Safari/') ) {
         my $h = {
             name   => 'Apple Safari',
             is_ios => 1,
@@ -24,7 +24,7 @@ sub try {
         return $h;
     }
 
-    if ( $d->contain('Mozilla/5.0')
+    if ( $d->_contain('Mozilla/5.0')
         && Duadua::Util->ordering_match($d, [' AppleWebKit/', ' Version/', ' Safari/']) ) {
         my $h = {
             name => 'Apple Safari',

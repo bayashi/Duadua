@@ -43,7 +43,7 @@ sub parse {
 sub _detect_general_browser {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'rowser') > 0 && $d->prefix('Mozilla/') ) {
+    if ( index($d->ua, 'rowser') > 0 && $d->_prefix('Mozilla/') ) {
         if ( $d->ua =~ m![^a-zA-Z]([a-zA-Z]+[bB]rowser)/([\d.]+)! ) {
             my %h = %{$BLANK_UA};
             ($h{name}, $h{version}) = ($1, $2);
@@ -57,9 +57,9 @@ sub _detect_general_bot {
 
     my %h = %{$BLANK_UA};
 
-    if ( $d->contain('https://') || $d->contain('http://') ) {
+    if ( $d->_contain('https://') || $d->_contain('http://') ) {
         $h{is_bot} = 1;
-        if ( !$d->contain('Mozilla/') && $d->ua =~ m!^([^/;]+)/(v?[\d.]+)! ) {
+        if ( !$d->_contain('Mozilla/') && $d->ua =~ m!^([^/;]+)/(v?[\d.]+)! ) {
             my ($name, $version) = ($1, $2);
             $h{name}    = $name;
             $h{version} = $version;

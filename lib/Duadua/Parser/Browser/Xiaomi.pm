@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('XiaoMi') && $d->contain('MiuiBrowser/') ) {
+    if ( $d->_contain('XiaoMi') && $d->_contain('MiuiBrowser/') ) {
         my $h = {
             name => 'XiaoMi/MiuiBrowser',
         };

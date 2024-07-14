@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain(' SamsungBrowser/') ) {
+    if ( $d->_contain(' SamsungBrowser/') ) {
         my $h = {
             name => 'Samsung Internet Browser',
         };

@@ -6,9 +6,9 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return unless $d->contain('Google');
+    return unless $d->_contain('Google');
 
-    if ( $d->contain('Googlebot') && !$d->contain('Googlebot-') ) {
+    if ( $d->_contain('Googlebot') && !$d->_contain('Googlebot-') ) {
         my $h = {
             name   => 'Googlebot',
             is_bot => 1,
@@ -22,7 +22,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->contain('Google Favicon') ) {
+    if ( $d->_contain('Google Favicon') ) {
         my $h = {
             name   => 'Google Favicon',
             is_bot => 1,
@@ -31,7 +31,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->contain('APIs-Google') ) {
+    if ( $d->_contain('APIs-Google') ) {
         return {
             name   => 'APIs-Google',
             is_bot => 1,

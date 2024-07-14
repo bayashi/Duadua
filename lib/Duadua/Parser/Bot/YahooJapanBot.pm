@@ -5,14 +5,14 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('http://help.yahoo.co.jp/help') ) {
+    if ( $d->_contain('http://help.yahoo.co.jp/help') ) {
         return {
             name   => 'Yahoo!Japan Crawler',
             is_bot => 1,
         };
     }
 
-    if ( $d->contain('Y!J-') && $d->ua =~ m|Y!J-[A-Z]+| ) {
+    if ( $d->_contain('Y!J-') && $d->ua =~ m|Y!J-[A-Z]+| ) {
         my $h = {
             name   => 'Yahoo!Japan Crawler',
             is_bot => 1,

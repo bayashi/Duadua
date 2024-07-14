@@ -6,9 +6,9 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return unless $d->contain('oogle');
+    return unless $d->_contain('oogle');
 
-    if ( $d->contain('googleweblight') ) {
+    if ( $d->_contain('googleweblight') ) {
         my $h = {
             name   => 'googleweblight',
             is_bot => 1,
@@ -17,7 +17,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->contain('AdsBot-Google-Mobile') && !$d->contain('AdsBot-Google-Mobile-') ) {
+    if ( $d->_contain('AdsBot-Google-Mobile') && !$d->_contain('AdsBot-Google-Mobile-') ) {
         my $h = {
             name => 'AdsBot-Google-Mobile',
             is_bot => 1,
@@ -26,22 +26,22 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->contain('AdsBot-Google-Mobile-Apps') ) {
+    if ( $d->_contain('AdsBot-Google-Mobile-Apps') ) {
         return {
             name   => 'AdsBot-Google-Mobile-Apps',
             is_bot => 1,
         };
     }
 
-    if ( ( $d->prefix('SAMSUNG-SGH-E250/') || $d->prefix('DoCoMo/') )
-            && $d->contain(' Googlebot-Mobile/') ) {
+    if ( ( $d->_prefix('SAMSUNG-SGH-E250/') || $d->_prefix('DoCoMo/') )
+            && $d->_contain(' Googlebot-Mobile/') ) {
         return {
             name   => 'Googlebot-Mobile',
             is_bot => 1,
         };
     }
 
-    if ( $d->contain('DuplexWeb-Google') ) {
+    if ( $d->_contain('DuplexWeb-Google') ) {
         my $h = {
             name   => 'DuplexWeb-Google',
             is_bot => 1,

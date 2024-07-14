@@ -5,10 +5,10 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    return if !$d->contain('Edg');
+    return if !$d->_contain('Edg');
 
-    if ( ( $d->contain('Edge/') || $d->contain('Edg/') )
-            && $d->contain('Windows') && $d->contain_mozilla ) {
+    if ( ( $d->_contain('Edge/') || $d->_contain('Edg/') )
+            && $d->_contain('Windows') && $d->_contain_mozilla ) {
         my $h = {
             name   => 'Microsoft Edge',
             is_windows => 1,
@@ -21,7 +21,7 @@ sub try {
 
         return $h;
     }
-    elsif ( $d->contain('EdgiOS/') && $d->contain_mozilla ) {
+    elsif ( $d->_contain('EdgiOS/') && $d->_contain_mozilla ) {
         my $h = {
             name   => 'Microsoft Edge',
             is_ios => 1,

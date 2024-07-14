@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->prefix('Centro Ads.txt Crawler/') ) {
+    if ( $d->_prefix('Centro Ads.txt Crawler/') ) {
         my $h = {
             name   => 'Centro Ads Crawler',
             is_bot => 1,

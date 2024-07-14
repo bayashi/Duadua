@@ -6,9 +6,9 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    return if $d->contain(' PaleMoon/');
+    return if $d->_contain(' PaleMoon/');
 
-    if ( $d->contain('Mozilla/5.0 (') && $d->contain('Firefox/') ) {
+    if ( $d->_contain('Mozilla/5.0 (') && $d->_contain('Firefox/') ) {
         my $h = {
             name => 'Mozilla Firefox',
         };
@@ -21,7 +21,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->contain('Mozilla/5.0 (') && $d->contain('FxiOS/') ) {
+    if ( $d->_contain('Mozilla/5.0 (') && $d->_contain('FxiOS/') ) {
         my $h = {
             name   => 'Mozilla Firefox iOS',
             is_ios => 1,

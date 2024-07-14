@@ -212,19 +212,19 @@ sub version {
     shift->_result->{version} || '';
 }
 
-sub contain_mozilla {
+sub _contain_mozilla {
     return 1 if shift->{_contain_mozilla}
 }
 
-sub contain_mozilla_top {
+sub _contain_mozilla_top {
     return 1 if shift->{_contain_mozilla_top}
 }
 
-sub prefix {
+sub _prefix {
     return 1 if index(shift->{_ua}, shift) == 0;
 }
 
-sub contain {
+sub _contain {
     return 1 if index(shift->{_ua}, shift) != -1;
 }
 
@@ -376,22 +376,6 @@ Returns version from user agent string
 =item parsers
 
 The list of User Agent Parser
-
-=item prefix
-
-Returns true value if the User-Agent contains $str on the top.
-
-=item contain($str)
-
-Returns true value if the User-Agent contains $str.
-
-=item contain_mozilla
-
-Returns true value if the User-Agent contains 'Mozilla'.
-
-=item contain_mozilla_top
-
-Returns true value if the User-Agent contains 'Mozilla' on the top of User-Agent.
 
 
 =back

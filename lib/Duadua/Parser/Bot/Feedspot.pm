@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain(' Feedspot/') ) {
+    if ( $d->_contain(' Feedspot/') ) {
         my $h = {
             name   => 'Feedspot',
             is_bot => 1,

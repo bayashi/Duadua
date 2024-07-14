@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('Mozilla/5.0 Feedeen ') ) {
+    if ( $d->_contain('Mozilla/5.0 Feedeen ') ) {
         return {
             name   => 'Feedeen',
             is_bot => 1,

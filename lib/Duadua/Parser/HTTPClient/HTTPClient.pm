@@ -21,7 +21,7 @@ sub try {
 sub _cli {
     my ($class, $d) = @_;
 
-    if ( $d->prefix('curl/') ) {
+    if ( $d->_prefix('curl/') ) {
         my $h = {
             name => 'Curl',
         };
@@ -33,14 +33,14 @@ sub _cli {
 
         return $h;
     }
-    elsif ( $d->contain('Wget/') ) {
+    elsif ( $d->_contain('Wget/') ) {
         my $h = {
             name => 'Wget',
         };
-        if ( $d->contain('linux-') ) {
+        if ( $d->_contain('linux-') ) {
             $h->{is_linux} = 1;
         }
-        elsif ( $d->contain('mingw32') ) {
+        elsif ( $d->_contain('mingw32') ) {
             $h->{is_windows} = 1;
         }
 
@@ -58,7 +58,7 @@ sub _perl {
 
     my $h;
 
-    if ( $d->contain('libwww-perl/') ) {
+    if ( $d->_contain('libwww-perl/') ) {
         $h = {
             name => 'libwww-perl',
         };
@@ -68,7 +68,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('WWW-Mechanize/') ) {
+    elsif ( $d->_contain('WWW-Mechanize/') ) {
         $h = {
             name => 'WWW-Mechanize',
         };
@@ -78,7 +78,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('LWP::Simple/') || $d->contain('lwp-trivial/') ) {
+    elsif ( $d->_contain('LWP::Simple/') || $d->_contain('lwp-trivial/') ) {
         $h = {
             name => 'LWP::Simple',
         };
@@ -88,7 +88,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('Furl::HTTP/') ) {
+    elsif ( $d->_contain('Furl::HTTP/') ) {
         $h = {
             name => 'Furl',
         };
@@ -98,7 +98,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('SOAP::Lite/Perl/') ) {
+    elsif ( $d->_contain('SOAP::Lite/Perl/') ) {
         $h = {
             name => 'SOAP::Lite Perl',
         };
@@ -108,7 +108,7 @@ sub _perl {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('MT::Plugin::BadLinkFinder/') ) {
+    elsif ( $d->_contain('MT::Plugin::BadLinkFinder/') ) {
         $h = {
             name => 'MT::Plugin::BadLinkFinder',
         };
@@ -127,7 +127,7 @@ sub _python {
 
     my $h;
 
-    if ( $d->contain('Python-urllib/') ) {
+    if ( $d->_contain('Python-urllib/') ) {
         $h = {
             name => 'Python-urllib',
         };
@@ -137,7 +137,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('PycURL/') ) {
+    elsif ( $d->_contain('PycURL/') ) {
         $h = {
             name => 'PycURL',
         };
@@ -147,7 +147,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('HTTPie/') ) {
+    elsif ( $d->_contain('HTTPie/') ) {
         $h = {
             name => 'HTTPie',
         };
@@ -157,7 +157,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('AdsTxtCrawler/') ) {
+    elsif ( $d->_contain('AdsTxtCrawler/') ) {
         $h = {
             name => 'AdsTxtCrawler',
         };
@@ -167,7 +167,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('python-requests/') ) {
+    elsif ( $d->_contain('python-requests/') ) {
         $h = {
             name => 'python-requests',
         };
@@ -177,7 +177,7 @@ sub _python {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain(' aiohttp/') ) {
+    elsif ( $d->_contain(' aiohttp/') ) {
         $h = {
             name => 'aiohttp',
         };
@@ -196,7 +196,7 @@ sub _php {
 
     my $h;
 
-    if ( $d->contain('GuzzleHttp/') ) {
+    if ( $d->_contain('GuzzleHttp/') ) {
         $h = {
             name => 'Guzzle',
         };
@@ -206,7 +206,7 @@ sub _php {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->prefix('WordPress/') || $d->contain('The Incutio XML-RPC PHP Library -- WordPress/') ) {
+    elsif ( $d->_prefix('WordPress/') || $d->_contain('The Incutio XML-RPC PHP Library -- WordPress/') ) {
         $h = {
             name => 'WordPress',
         };
@@ -216,7 +216,7 @@ sub _php {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain(' PHP/') ) {
+    elsif ( $d->_contain(' PHP/') ) {
         $h = {
             name => 'PHP',
         };
@@ -240,7 +240,7 @@ sub _java {
 
     my $h;
 
-    if ( $d->contain('okhttp/') ) {
+    if ( $d->_contain('okhttp/') ) {
         $h = {
             name => 'OkHttp',
         };
@@ -250,7 +250,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('Jakarta Commons-HttpClient/') ) {
+    elsif ( $d->_contain('Jakarta Commons-HttpClient/') ) {
         $h = {
             name => 'Jakarta Commons-HttpClient',
         };
@@ -260,7 +260,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('Apache-HttpClient/') ) {
+    elsif ( $d->_contain('Apache-HttpClient/') ) {
         $h = {
             name => 'Apache-HttpClient',
         };
@@ -270,7 +270,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('Jersey/') ) {
+    elsif ( $d->_contain('Jersey/') ) {
         $h = {
             name => 'Jersey',
         };
@@ -280,7 +280,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('Java/') ) {
+    elsif ( $d->_contain('Java/') ) {
         $h = {
             name => 'Java',
         };
@@ -290,7 +290,7 @@ sub _java {
             $h->{version} = $version if $version;
         }
     }
-    elsif ( $d->contain('Dalvik/') ) {
+    elsif ( $d->_contain('Dalvik/') ) {
         $h = {
             name       => 'HttpURLConnection Dalvik',
             is_android => 1,
@@ -309,7 +309,7 @@ sub _java {
 sub _golang {
     my ($class, $d) = @_;
 
-    if ( $d->contain('Go-http-client/') ) {
+    if ( $d->_contain('Go-http-client/') ) {
         my $h = {
             name => 'Go-http-client',
         };
@@ -321,7 +321,7 @@ sub _golang {
 
         return $h;
     }
-    elsif ( $d->contain('Go ') && $d->contain(' package http') ) {
+    elsif ( $d->_contain('Go ') && $d->_contain(' package http') ) {
         my $h = {
             name => 'Go http-client',
         };
@@ -333,7 +333,7 @@ sub _golang {
 
         return $h;
     }
-    elsif ( $d->prefix('Go http package') ) {
+    elsif ( $d->_prefix('Go http package') ) {
         my $h = {
             name => 'Go http-client',
         };
@@ -350,7 +350,7 @@ sub _ruby {
             name => 'Ruby',
         };
     }
-    elsif ( $d->contain('http.rb/') ) {
+    elsif ( $d->_contain('http.rb/') ) {
         my $h = {
             name => 'http.rb',
         };
@@ -362,11 +362,11 @@ sub _ruby {
 
         return $h;
     }
-    elsif ( $d->contain('Atig::Http/') ) {
+    elsif ( $d->_contain('Atig::Http/') ) {
         my $h = {
             name => 'Atig',
         };
-        if ( $d->contain('linux') ) {
+        if ( $d->_contain('linux') ) {
             $h->{is_linux} = 1;
         }
 
@@ -377,7 +377,7 @@ sub _ruby {
 
         return $h;
     }
-    elsif ( $d->contain('EventMachine ') ) {
+    elsif ( $d->_contain('EventMachine ') ) {
         return {
             name => 'EventMachine',
         };
@@ -387,7 +387,7 @@ sub _ruby {
 sub _vb {
     my ($class, $d) = @_;
 
-    if ( $d->contain(' WinHttp.WinHttpRequest') ) {
+    if ( $d->_contain(' WinHttp.WinHttpRequest') ) {
         my $h = {
             name => 'WinHttpRequest',
             is_windows => 1,
@@ -405,7 +405,7 @@ sub _vb {
 sub _javascript {
     my ($class, $d) = @_;
 
-    if ( $d->prefix('axios/') ) {
+    if ( $d->_prefix('axios/') ) {
         my $h = {
             name => 'axios',
         };
@@ -422,7 +422,7 @@ sub _javascript {
 sub _tool {
     my ($class, $d) = @_;
 
-    if ( $d->contain('PostmanRuntime') ) {
+    if ( $d->_contain('PostmanRuntime') ) {
         my $h = {
             name => 'Postman',
         };

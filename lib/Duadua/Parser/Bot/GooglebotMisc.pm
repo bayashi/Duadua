@@ -5,9 +5,9 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    return unless $d->contain('Google');
+    return unless $d->_contain('Google');
 
-    if ( $d->contain('Googlebot-Image') ) {
+    if ( $d->_contain('Googlebot-Image') ) {
         my $h = {
             name   => 'Googlebot-Image',
             is_bot => 1,
@@ -21,14 +21,14 @@ sub try {
         return $h;
     }
 
-    if ( $d->contain('Googlebot-News') ) {
+    if ( $d->_contain('Googlebot-News') ) {
         return {
             name   => 'Googlebot-News',
             is_bot => 1,
         };
     }
 
-    if ( $d->contain('Googlebot-Video') ) {
+    if ( $d->_contain('Googlebot-Video') ) {
         my $h = {
             name   => 'Googlebot-Video',
             is_bot => 1,
@@ -42,7 +42,7 @@ sub try {
         return $h;
     }
 
-    if ( $d->contain('Storebot-Google') ) {
+    if ( $d->_contain('Storebot-Google') ) {
         my $h = {
             name   => 'Storebot-Google',
             is_bot => 1,
@@ -56,7 +56,7 @@ sub try {
         return Duadua::Util->set_os($d, $h)
     }
 
-    if ( $d->contain('Google-InspectionTool') ) {
+    if ( $d->_contain('Google-InspectionTool') ) {
         my $h = {
             name   => 'Google-InspectionTool',
             is_bot => 1,
@@ -70,7 +70,7 @@ sub try {
         return Duadua::Util->set_os($d, $h)
     }
 
-    if ( $d->prefix('GoogleOther-') ) {
+    if ( $d->_prefix('GoogleOther-') ) {
         my ($type) = ($d->ua =~ m!^GoogleOther-(Image|Video)/!);
         $type ||= 'UNKNOWN';
         my $h = {
@@ -85,7 +85,7 @@ sub try {
 
         return $h;
     }
-    elsif ( $d->contain('GoogleOther') ) {
+    elsif ( $d->_contain('GoogleOther') ) {
         my $h = {
             name   => 'GoogleOther',
             is_bot => 1,
@@ -98,21 +98,21 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->prefix('FeedFetcher-Google') ) {
+    if ( $d->_prefix('FeedFetcher-Google') ) {
         return {
             name   => 'FeedFetcher-Google',
             is_bot => 1,
         };
     }
 
-    if ( $d->contain(' AppEngine-Google;') || $d->contain('AppEngine-Google; ') ) {
+    if ( $d->_contain(' AppEngine-Google;') || $d->_contain('AppEngine-Google; ') ) {
         return {
             name   => 'AppEngine-Google',
             is_bot => 1,
         };
     }
 
-    if ( $d->contain(' Google-Site-Verification') ) {
+    if ( $d->_contain(' Google-Site-Verification') ) {
         my $h = {
             name   => 'Google-Site-Verification',
             is_bot => 1,
@@ -126,7 +126,7 @@ sub try {
         return $h;
     }
 
-    if ( $d->contain(' Google Page Speed Insights') ) {
+    if ( $d->_contain(' Google Page Speed Insights') ) {
         my $h = {
             name   => 'Google Page Speed Insights',
             is_bot => 1,
@@ -135,7 +135,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( $d->prefix('GoogleProducer;') ) {
+    if ( $d->_prefix('GoogleProducer;') ) {
         return {
             name   => 'GoogleProducer',
             is_bot => 1,

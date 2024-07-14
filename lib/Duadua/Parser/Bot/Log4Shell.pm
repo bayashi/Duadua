@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->prefix('${') && $d->contain('://') && $d->ua =~ m!\}$! ) {
+    if ( $d->_prefix('${') && $d->_contain('://') && $d->ua =~ m!\}$! ) {
         my $h = {
             name   => 'Log4Shell',
             is_bot => 1,
