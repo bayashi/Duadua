@@ -13,7 +13,7 @@ sub try {
         };
     }
 
-    if ( $d->contain('Google-Read-Aloud') ) {
+    if ( $d->_contain('Google-Read-Aloud') ) {
         my $h = {
             name   => 'Google-Read-Aloud',
             is_bot => 1,

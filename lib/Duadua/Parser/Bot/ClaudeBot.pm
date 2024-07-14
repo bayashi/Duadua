@@ -5,9 +5,9 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('ClaudeBot/')
-            && $d->contain('+claudebot@anthropic.com')
-                && $d->contain_mozilla ) {
+    if ( $d->_contain('ClaudeBot/')
+            && $d->_contain('+claudebot@anthropic.com')
+                && $d->_contain_mozilla ) {
         my $h = {
             name => 'ClaudeBot',
             is_bot => 1,

@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('Slackbot-LinkExpanding ') ) {
+    if ( $d->_contain('Slackbot-LinkExpanding ') ) {
         my $h = {
             name   => 'Slackbot Link Expanding',
             is_bot => 1,
@@ -19,7 +19,7 @@ sub try {
         return $h;
     }
 
-    if ( $d->contain('Slack-ImgProxy ') ) {
+    if ( $d->_contain('Slack-ImgProxy ') ) {
         my $h = {
             name   => 'Slack Imgproxy',
             is_bot => 1,
@@ -33,7 +33,7 @@ sub try {
         return $h;
     }
 
-    if ( $d->contain('Slackbot ') ) {
+    if ( $d->_contain('Slackbot ') ) {
         my $h = {
             name   => 'Slackbot',
             is_bot => 1,

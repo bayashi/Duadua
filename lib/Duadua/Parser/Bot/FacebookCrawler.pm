@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('facebookexternalhit/') ) {
+    if ( $d->_contain('facebookexternalhit/') ) {
         my $h = {
             name   => 'Facebook Crawler',
             is_bot => 1,

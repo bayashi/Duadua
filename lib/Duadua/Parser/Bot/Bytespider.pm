@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('Bytespider;') && $d->contain('bytedance.com') ) {
+    if ( $d->_contain('Bytespider;') && $d->_contain('bytedance.com') ) {
         my $h = {
             name   => 'Bytespider',
             is_bot => 1,

@@ -5,7 +5,7 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('Reeder/') ) {
+    if ( $d->_contain('Reeder/') ) {
         my $h = {
             name   => 'Reeder',
             is_bot => 1,

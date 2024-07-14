@@ -18,8 +18,8 @@ use Duadua;
     ok !$d->is_chromeos;
     ok !$d->version;
 
-    ok !$d->contain_mozilla;
-    ok !$d->contain_mozilla_top;
+    ok !$d->_contain_mozilla;
+    ok !$d->_contain_mozilla_top;
 }
 
 {
@@ -73,8 +73,8 @@ use Duadua;
     ok !$d->is_windows;
     ok !$d->is_chromeos;
 
-    ok $d->contain_mozilla;
-    ok $d->contain_mozilla_top;
+    ok $d->_contain_mozilla;
+    ok $d->_contain_mozilla_top;
 }
 
 {
@@ -205,10 +205,10 @@ use Duadua;
     ok !$d->is_windows;
     ok !$d->is_chromeos;
 
-    ok $d->contain('kozmonavt.tk');
-    ok $d->prefix('KOCMOHABT');
-    ok $d->contain_mozilla;
-    ok !$d->contain_mozilla_top;
+    ok $d->_contain('kozmonavt.tk');
+    ok $d->_prefix('KOCMOHABT');
+    ok $d->_contain_mozilla;
+    ok !$d->_contain_mozilla_top;
 }
 
 done_testing;

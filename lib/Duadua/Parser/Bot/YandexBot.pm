@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( $d->contain('+http://yandex.com/bots') ) {
+    if ( $d->_contain('+http://yandex.com/bots') ) {
         my $h = {
             name   => 'Yandex Bot',
             is_bot => 1,
