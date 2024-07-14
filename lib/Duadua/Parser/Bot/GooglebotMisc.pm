@@ -56,6 +56,20 @@ sub try {
         return Duadua::Util->set_os($d, $h)
     }
 
+    if ( $d->contain('Google-InspectionTool') ) {
+        my $h = {
+            name   => 'Google-InspectionTool',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!Google-InspectionTool/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h)
+    }
+
     if ( $d->prefix('FeedFetcher-Google') ) {
         return {
             name   => 'FeedFetcher-Google',

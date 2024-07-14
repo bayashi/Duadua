@@ -43,6 +43,24 @@
   is_windows: false
   is_chromeos: false
   version: '1.0'
+- ua: 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36 (compatible; Google-InspectionTool/1.0;)'
+  name: Google-InspectionTool
+  is_bot: true
+  is_ios: false
+  is_android: true
+  is_linux: true
+  is_windows: false
+  is_chromeos: false
+  version: '1.0'
+- ua: 'Mozilla/5.0 (compatible; Google-InspectionTool/1.0;)'
+  name: Google-InspectionTool
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
+  version: '1.0'
 - ua: 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)'
   name: APIs-Google
   is_bot: true
