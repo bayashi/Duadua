@@ -70,6 +70,19 @@ sub try {
         return Duadua::Util->set_os($d, $h)
     }
 
+    if ( $d->contain('GoogleOther') ) {
+        my $h = {
+            name   => 'GoogleOther',
+            is_bot => 1,
+        };
+
+        if ($d->ua eq 'GoogleOther') {
+            return $h;
+        }
+
+        return Duadua::Util->set_os($d, $h);
+    }
+
     if ( $d->prefix('FeedFetcher-Google') ) {
         return {
             name   => 'FeedFetcher-Google',
