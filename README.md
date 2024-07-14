@@ -4,8 +4,14 @@ This is Perl module `Duadua`.
 
 <a href="https://github.com/bayashi/Duadua/blob/main/lib/Duadua.pm"><img src="https://img.shields.io/badge/Version-0.33-green?style=flat"></a> <a href="https://github.com/bayashi/Duadua/blob/main/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Artistic%202.0-GREEN.png?style=flat"></a> <a href="https://github.com/bayashi/Duadua/actions"><img src="https://github.com/bayashi/Duadua/workflows/main/badge.svg?_t=1720924543"/></a> <a href="https://coveralls.io/r/bayashi/Duadua"><img src="https://coveralls.io/repos/bayashi/Duadua/badge.png?_t=1720924543&branch=main"/></a>
 
-`Duadua` provides you to parse User Agent string.
+`Duadua` provides you to parse User-Agent string.
 
+* Detect over 160 User-Agents
+    * Browsers, Bots and CLI clients
+* Detect name, OS and version
+* Optimized performance for recent actual logs on a Web site
+
+Send an issue or PR on Github to add a User-Agent you want to detect if it's not supported.
 
 ## INSTALLATION
 

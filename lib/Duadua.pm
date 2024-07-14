@@ -290,8 +290,14 @@ If you need to get version info, then you should set true value to version optio
 
 =head1 DESCRIPTION
 
-Duadua is a User-Agent detector.
+`Duadua` provides you to parse User-Agent string.
 
+* Detect over 160 User-Agents
+    * Browsers, Bots and CLI clients
+* Detect name, OS and version
+* Optimized performance for recent actual logs on a Web site
+
+Send an issue or PR on Github to add a User-Agent you want to detect if it's not supported.
 
 =head1 METHODS
 
