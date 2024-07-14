@@ -5,9 +5,9 @@ use warnings;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'ChatGPT-User/') > -1
-            && index($d->ua, '+https://openai.com/bot') > -1
-                && index($d->ua, 'Mozilla/') == 0 ) {
+    if ( $d->contain('ChatGPT-User/')
+            && $d->contain('+https://openai.com/bot')
+                && $d->contain_mozilla_top ) {
         my $h = _set_property($d, 'ChatGPT-User');
 
         if ($d->opt_version) {

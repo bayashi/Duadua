@@ -25,15 +25,22 @@ my @UA_LIST = (
     'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
     'Twitterbot/1.0',
     'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+    'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot',
     'curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.27.1 zlib/1.2.3 libidn/1.18 libssh2/1.4.2',
 );
 
+my $duadua         = 'Duadua ' . $Duadua::VERSION;
+my $duadua_reparse = 'Duadua_reparse ' . $Duadua::VERSION;
+my $woothee        = 'Woothee ' . $Woothee::VERSION;
+my $hdua           = 'HTTP::DetectUserAgent ' . $HTTP::DetectUserAgent::VERSION;
+my $hbd            = 'HTTP::BrowserDetect ' . $HTTP::BrowserDetect::VERSION;
+
 cmpthese(-1, {
-    Duadua         => \&_duadua,
-    Duadua_reparse => \&_duadua_reparse,
-    Woothee        => \&_woothee,
-    'HTTP::DetectUserAgent' => \&_detect_user_agent,
-    'HTTP::BrowserDetect'   => \&_browser_detect,
+    $duadua         => \&_duadua,
+    $duadua_reparse => \&_duadua_reparse,
+    $woothee        => \&_woothee,
+    $hdua           => \&_detect_user_agent,
+    $hbd            => \&_browser_detect,
 });
 
 sub _duadua {
@@ -74,11 +81,11 @@ sub _browser_detect {
 
 =pod
 
-                        Rate HTTP::BrowserDetect Woothee HTTP::DetectUserAgent Duadua Duadua_reparse
-HTTP::BrowserDetect   1188/s                  --    -21%                  -34%   -47%           -58%
-Woothee               1514/s                 27%      --                  -16%   -33%           -47%
-HTTP::DetectUserAgent 1810/s                 52%     20%                    --   -20%           -36%
-Duadua                2262/s                 90%     49%                   25%     --           -20%
-Duadua_reparse        2844/s                139%     88%                   57%    26%             --
+                             Rate HTTP::BrowserDetect 3.40 Woothee v1.10.0 HTTP::DetectUserAgent 0.05 Duadua 0.32 Duadua_reparse 0.32
+HTTP::BrowserDetect 3.40   2669/s                       --             -9%                       -42%        -46%                -51%
+Woothee v1.10.0            2928/s                      10%              --                       -36%        -41%                -47%
+HTTP::DetectUserAgent 0.05 4567/s                      71%             56%                         --         -8%                -17%
+Duadua 0.32                4978/s                      87%             70%                         9%          --                 -9%
+Duadua_reparse 0.32        5480/s                     105%             87%                        20%         10%                  --
 
 =cut

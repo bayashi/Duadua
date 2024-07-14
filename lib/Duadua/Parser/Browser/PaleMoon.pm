@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, ' Goanna/') > -1 && index($d->ua, ' PaleMoon/') > -1 ) {
+    if ( $d->contain(' Goanna/') && $d->contain(' PaleMoon/') ) {
         my $h = {
             name => 'Pale Moon',
         };

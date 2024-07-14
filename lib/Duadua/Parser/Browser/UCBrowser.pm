@@ -6,7 +6,7 @@ use Duadua::Util qw//;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, ' UCBrowser/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( $d->contain(' UCBrowser/') && $d->contain_mozilla ) {
         my $h = {
             name => 'UC Browser',
         };

@@ -5,26 +5,26 @@ use warnings;
 sub set_os {
     my ($class, $d, $h) = @_;
 
-    if ( index($d->ua, 'Win') > -1 && (index($d->ua, 'Win32') > -1 || index($d->ua, 'Windows') > -1) ) {
+    if ( $d->contain('Win') && ($d->contain('Win32') || $d->contain('Windows')) ) {
         $h->{is_windows} = 1;
     }
-    elsif ( index($d->ua, 'Android') > -1 ) {
+    elsif ( $d->contain('Android') ) {
         $h->{is_android} = 1;
         $h->{is_linux}   = 1; # Android is Linux also.
     }
-    elsif ( index($d->ua, 'iPhone') > -1 ) {
+    elsif ( $d->contain('iPhone') ) {
         $h->{is_ios} = 1;
     }
-    elsif ( index($d->ua, 'iPad') > -1 || index($d->ua, 'iPod') > -1 ) {
+    elsif ( $d->contain('iP') && ($d->contain('iPad') || $d->contain('iPod')) ) {
         $h->{is_ios} = 1;
     }
-    elsif ( index($d->ua, 'Macintosh') > -1 || index($d->ua, 'Mac OS') > -1 ) {
+    elsif ( $d->contain('Mac') && ($d->contain('Macintosh') || $d->contain('Mac OS')) ) {
         $h->{is_ios} = 1;
     }
-    elsif ( index($d->ua, ' CrOS ') > -1 ) {
+    elsif ( $d->contain(' CrOS ') ) {
         $h->{is_chromeos} = 1;
     }
-    elsif ( index($d->ua, 'Linux') > -1 ) {
+    elsif ( $d->contain('Linux') ) {
         $h->{is_linux} = 1;
     }
 

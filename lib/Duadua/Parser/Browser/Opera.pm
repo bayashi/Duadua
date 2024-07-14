@@ -6,7 +6,7 @@ use Duadua::Util;
 sub try {
     my ($class, $d) = @_;
 
-    if ( index($d->ua, 'Opera/') > -1 ) {
+    if ( $d->contain('Opera/') ) {
         my $h = {
             name => 'Opera',
         };
@@ -19,7 +19,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, ' OPR/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( $d->contain(' OPR/') && $d->contain_mozilla ) {
         my $h = {
             name => 'Opera',
         };
@@ -32,7 +32,7 @@ sub try {
         return Duadua::Util->set_os($d, $h);
     }
 
-    if ( index($d->ua, ' OPT/') > -1 && index($d->ua, 'Mozilla/') > -1 ) {
+    if ( $d->contain(' OPT/') && $d->contain_mozilla ) {
         my $h = {
             name => 'Opera Touch',
         };
