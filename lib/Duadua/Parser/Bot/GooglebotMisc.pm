@@ -42,6 +42,20 @@ sub try {
         return $h;
     }
 
+    if ( $d->contain('Storebot-Google') ) {
+        my $h = {
+            name   => 'Storebot-Google',
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!Storebot-Google/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return Duadua::Util->set_os($d, $h)
+    }
+
     if ( $d->prefix('FeedFetcher-Google') ) {
         return {
             name   => 'FeedFetcher-Google',

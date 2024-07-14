@@ -25,6 +25,24 @@
   is_windows: false
   is_chromeos: false
   version: '1.0'
+- ua: 'Mozilla/5.0 (X11; Linux x86_64; Storebot-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+  name: Storebot-Google
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: true
+  is_windows: false
+  is_chromeos: false
+  version: '1.0'
+- ua: 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012; Storebot-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36'
+  name: Storebot-Google
+  is_bot: true
+  is_ios: false
+  is_android: true
+  is_linux: true
+  is_windows: false
+  is_chromeos: false
+  version: '1.0'
 - ua: 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)'
   name: APIs-Google
   is_bot: true
