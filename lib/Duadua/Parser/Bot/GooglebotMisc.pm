@@ -70,7 +70,22 @@ sub try {
         return Duadua::Util->set_os($d, $h)
     }
 
-    if ( $d->contain('GoogleOther') ) {
+    if ( $d->prefix('GoogleOther-') ) {
+        my ($type) = ($d->ua =~ m!^GoogleOther-(Image|Video)/!);
+        $type ||= 'UNKNOWN';
+        my $h = {
+            name   => "GoogleOther-$type",
+            is_bot => 1,
+        };
+
+        if ($d->opt_version) {
+            my ($version) = ($d->ua =~ m!^Google-.+/([\d.]+)!);
+            $h->{version} = $version if $version;
+        }
+
+        return $h;
+    }
+    elsif ( $d->contain('GoogleOther') ) {
         my $h = {
             name   => 'GoogleOther',
             is_bot => 1,

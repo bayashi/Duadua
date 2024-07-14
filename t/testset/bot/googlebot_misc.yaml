@@ -85,6 +85,22 @@
   is_linux: false
   is_windows: false
   is_chromeos: false
+- ua: 'GoogleOther-Image/1.0'
+  name: GoogleOther-Image
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
+- ua: 'GoogleOther-Video/1.0'
+  name: GoogleOther-Video
+  is_bot: true
+  is_ios: false
+  is_android: false
+  is_linux: false
+  is_windows: false
+  is_chromeos: false
 - ua: 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)'
   name: APIs-Google
   is_bot: true
