@@ -134,6 +134,13 @@ sub try {
 
         return Duadua::Util->set_os($d, $h);
     }
+
+    if ( $d->prefix('GoogleProducer;') ) {
+        return {
+            name   => 'GoogleProducer',
+            is_bot => 1,
+        };
+    }
 }
 
 1;
