@@ -28,6 +28,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::AdIdxBot
     Duadua::Parser::Browser::YahooJapanAppBrowser
     Duadua::Parser::Bot::ChatGPTUser
+    Duadua::Parser::Bot::Perplexity
 
     Duadua::Parser::Browser::AppleSafari
     Duadua::Parser::Browser::Vivaldi
