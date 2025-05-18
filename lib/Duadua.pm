@@ -73,6 +73,7 @@ my @PARSER_PROC_LIST = qw/
     Duadua::Parser::Bot::Skype
 
     Duadua::Parser::Browser::Xiaomi
+    Duadua::Parser::Bot::OWLer
     Duadua::Parser::FeaturePhone::FeaturePhone
     Duadua::Parser::Bot::Netcraft
     Duadua::Parser::Bot::Barkrowler
